@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artist Account & OAC Request</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function checkOAC() {
+      const subs = document.getElementById("subscribers").value;
+      if (subs < 5) {
+        alert("❌ ต้องมีผู้ติดตามอย่างน้อย 50 คนขึ้นไปเพื่อขอ OAC");
+        return false;
+      } else {
+        alert("✅ คำขอ OAC ของคุณถูกส่งเรียบร้อยแล้ว");
+        return true;
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>บัญชีศิลปิน & ขอ OAC</h1>
+    <nav>
+      <a href="home.html">หน้าแรก</a>
+      <a href="upload.html">อัปโหลดเพลง</a>
+      <a href="platforms.html">แพลตฟอร์ม</a>
+      <a href="terms.html">ข้อกำหนด</a>
+      <a href="artist.html">บัญชีศิลปิน</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>ขอ Official Artist Channel (OAC)</h2>
+    <form onsubmit="return checkOAC()">
+      <label for="channel">ลิงก์ช่อง YouTube</label>
+      <input type="url" id="channel" name="channel" required>
+
+      <label for="subscribers">จำนวนผู้ติดตาม</label>
+      <input type="number" id="subscribers" name="subscribers" min="0" required>
+
+      <button type="submit">ส่งคำขอ OAC</button>
+    </form>
+  </main>
+</body>
+</html>
