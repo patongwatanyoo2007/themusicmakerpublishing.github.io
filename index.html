@@ -16,6 +16,26 @@
         .step { opacity: 0.5; }
         .step.active { opacity: 1; }
         .step.completed { opacity: 1; color: #10b981; }
+         #platforms-logos h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  .logo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    align-items: center;
+    justify-items: center;
+  }
+  .logo-grid img {
+    max-height: 60px;
+    object-fit: contain;
+    transition: transform 0.3s;
+  }
+  .logo-grid img:hover {
+    transform: scale(1.1);
+  }
   </style>
   <script>
     function checkOAC() {
@@ -137,33 +157,12 @@
     <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/LINE_Melody_logo.png" alt="LINE Melody">
   </div>
 </section>
-
-<style>
-  #platforms-logos h2 {
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-    color: #333;
-  }
-  .logo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 20px;
-    align-items: center;
-    justify-items: center;
-  }
-  .logo-grid img {
-    max-height: 60px;
-    object-fit: contain;
-    transition: transform 0.3s;
-  }
-  .logo-grid img:hover {
-    transform: scale(1.1);
-  }
-</style>
+  
   <footer>
     <p>© 2025 The Music Maker Thailand Distribution</p>
   </footer>
 </body>
 </html>
+
 
 
