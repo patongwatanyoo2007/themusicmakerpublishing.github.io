@@ -54,13 +54,13 @@
                         <p class="text-sm opacity-90">Distribution Platform</p>
                     </div>
                 </div>
-                <nav class="hidden md:flex space-x-6">
-                    <a href="#home" class="hover:text-blue-200 transition-colors">หน้าแรก</a>
-                    <a href="#services" class="hover:text-blue-200 transition-colors">บริการ</a>
-                    <a href="#upload" class="hover:text-blue-200 transition-colors" onclick="scrollToUpload()">อัปโหลด</a>
-                    <a href="#pricing" class="hover:text-blue-200 transition-colors">ราคา</a>
-                    <a href="#support" class="hover:text-blue-200 transition-colors">ช่วยเหลือ</a>
-                </nav>
+              <nav class="hidden md:flex space-x-6">
+                <a href="#home" class="hover:text-blue-200 transition-colors">หน้าแรก</a>
+                <a href="#services" class="hover:text-blue-200 transition-colors">บริการ</a>
+                <a href="#upload" class="hover:text-blue-200 transition-colors" onclick="scrollToUpload(event)">อัปโหลด</a>
+                <a href="#pricing" class="hover:text-blue-200 transition-colors">ราคา</a>
+                <a href="#support" class="hover:text-blue-200 transition-colors">ช่วยเหลือ</a>
+             </nav>
                 <button class="md:hidden text-white">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -588,18 +588,20 @@
         </div>
     </div>
     <script>
-function scrollToUpload() {
-    const uploadSection = document.getElementById('upload');
-    if(uploadSection){
-        uploadSection.scrollIntoView({ behavior: 'smooth' });
-        // เปิด Step 1 อัตโนมัติ
-        document.querySelectorAll('.step-content').forEach(s => s.classList.remove('active'));
-        uploadSection.classList.add('active');
-    }
+// ฟังก์ชัน scroll
+function scrollToUpload(e){
+  e.preventDefault(); // ป้องกัน anchor default behavior
+  document.getElementById('upload').scrollIntoView({ behavior: 'smooth' });
+
+  // แสดง Step 1 เวลาเข้ามาที่หน้า
+  const steps = document.querySelectorAll('.step-content');
+  steps.forEach(s => s.classList.add('hidden'));
+  document.getElementById('step1').classList.remove('hidden');
 }
 </script>
 </body>
 </html>
+
 
 
 
