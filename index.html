@@ -665,183 +665,81 @@
             </div>
         </div>
     </div>
+            <script>
+    let currentStep = 1;
+    const totalSteps = 4;
 
-    <script>
-        let currentStep = 1;
-        const totalSteps = 4;
-
-        function scrollToUpload() {
-            document.getElementById('upload').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function nextStep() {
-            if (currentStep < totalSteps) {
-                // Hide current step
-                document.getElementById(`step${currentStep}`).classList.add('hidden');
-                document.querySelector(`.step:nth-child(${currentStep})`).classList.remove('active');
-                document.querySelector(`.step:nth-child(${currentStep})`).classList.add('completed');
-                
-                currentStep++;
-                
-                // Show next step
-                document.getElementById(`step${currentStep}`).classList.remove('hidden');
-                document.querySelector(`.step:nth-child(${currentStep})`).classList.add('active');
-                
-                // Update progress bar
-                const progress = (currentStep - 1) / (totalSteps - 1) * 100;
-                document.querySelector('.progress-bar').style.width = progress + '%';
-                
-                // Update step circles
-                updateStepCircles();
-            }
-        }
-
-        function prevStep() {
-            if (currentStep > 1) {
-                // Hide current step
-                document.getElementById(`step${currentStep}`).classList.add('hidden');
-                document.querySelector(`.step:nth-child(${currentStep})`).classList.remove('active');
-                
-                currentStep--;
-                
-                // Show previous step
-                document.getElementById(`step${currentStep}`).classList.remove('hidden');
-                document.querySelector(`.step:nth-child(${currentStep})`).classList.add('active');
-                document.querySelector(`.step:nth-child(${currentStep})`).classList.remove('completed');
-                
-                // Update progress bar
-                const progress = (currentStep - 1) / (totalSteps - 1) * 100;
-                document.querySelector('.progress-bar').style.width = progress + '%';
-                
-                // Update step circles
-                updateStepCircles();
-            }
-        }
-
-        function updateStepCircles() {
-            for (let i = 1; i <= totalSteps; i++) {
-                const stepElement = document.querySelector(`.step:nth-child(${i})`);
-                const circle = stepElement.querySelector('div');
-                
-                if (i < currentStep) {
-                    circle.className = 'w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3';
-                    circle.textContent = '✓';
-                } else if (i === currentStep) {
-                    circle.className = 'w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3';
-                    circle.textContent = i;
-                } else {
-                    circle.className = 'w-8 h-8 bg-gray-300 text-gray-600 rounded-full flex items-center justify-center text-sm font-bold mr-3';
-                    circle.textContent = i;
-                }
-            }
-        }
-
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'block';
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
-
-        function toggleFAQ(button) {
-            const content = button.nextElementSibling;
-            const icon = button.querySelector('span');
+    function nextStep() {
+        if (currentStep < totalSteps) {
+            document.getElementById(`step${currentStep}`).classList.add('hidden');
+            document.querySelector(`.step:nth-child(${currentStep})`).classList.remove('active');
+            document.querySelector(`.step:nth-child(${currentStep})`).classList.add('completed');
             
-            if (content.classList.contains('hidden')) {
-                content.classList.remove('hidden');
-                icon.textContent = '-';
-            } else {
-                content.classList.add('hidden');
-                icon.textContent = '+';
-            }
-        }
-
-        // Handle form submission
-        document.getElementById('uploadForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+            currentStep++;
+            document.getElementById(`step${currentStep}`).classList.remove('hidden');
+            document.querySelector(`.step:nth-child(${currentStep})`).classList.add('active');
             
-            // Check all required checkboxes
-            const requiredTerms = ['terms1', 'terms2', 'terms3'];
-            for (let termId of requiredTerms) {
-                if (!document.getElementById(termId).checked) {
-                    alert('กรุณายอมรับข้อกำหนดและเงื่อนไขทั้งหมดก่อนส่งข้อมูล');
-                    return;
-                }
-            }
-
-            // Show success message
-            alert('🎉 ส่งข้อมูลสำเร็จ!\n\nขั้นตอนถัดไป:\n1. เราจะตรวจสอบข้อมูลและเอกสารภายใน 24 ชั่วโมง\n2. หากผ่านการตรวจสอบ เพลงจะถูกส่งไปยังแพลตฟอร์มต่างๆ\n3. คุณจะได้รับอีเมลยืนยันเมื่อเพลงพร้อมให้ฟัง\n\nขอบคุณที่เลือกใช้บริการ The Music Maker Thailand!');
+            const progress = (currentStep - 1) / (totalSteps - 1) * 100;
+            document.querySelector('.progress-bar').style.width = progress + '%';
             
-            // Reset form and go back to step 1
-            this.reset();
-            currentStep = 1;
-            for (let i = 1; i <= totalSteps; i++) {
-                document.getElementById(`step${i}`).classList.add('hidden');
-            }
-            document.getElementById('step1').classList.remove('hidden');
-            document.querySelector('.progress-bar').style.width = '0%';
             updateStepCircles();
-        });
-
-        // Handle file uploads with visual feedback
-        document.getElementById('audioFile').addEventListener('change', function(e) {
-            if (e.target.files.length > 0) {
-                const fileName = e.target.files[0].name;
-                const fileSize = (e.target.files[0].size / 1024 / 1024).toFixed(2);
-                e.target.parentElement.querySelector('p').textContent = `เลือกไฟล์: ${fileName} (${fileSize} MB)`;
-            }
-        });
-
-        document.getElementById('coverFile').addEventListener('change', function(e) {
-            if (e.target.files.length > 0) {
-                const fileName = e.target.files[0].name;
-                e.target.parentElement.querySelector('p').textContent = `เลือกรูปภาพ: ${fileName}`;
-            }
-        });
-
-        // Handle document uploads
-        ['idCard', 'copyrightDoc', 'powerOfAttorney'].forEach(id => {
-            document.getElementById(id).addEventListener('change', function(e) {
-                if (e.target.files.length > 0) {
-                    const fileName = e.target.files[0].name;
-                    e.target.parentElement.querySelector('p').textContent = `เลือกไฟล์: ${fileName}`;
-                }
-            });
-        });
-
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        // Close modals when clicking outside
-        window.addEventListener('click', function(e) {
-            if (e.target.classList.contains('modal')) {
-                e.target.style.display = 'none';
-            }
-        });
-
-        // Update summary in step 4
-        function updateSummary() {
-            // This would normally pull from form fields
-            document.getElementById('summaryArtist').textContent = 'ตัวอย่างศิลปิน';
-            document.getElementById('summarySong').textContent = 'ตัวอย่างเพลง';
-            document.getElementById('summaryGenre').textContent = 'Pop';
-            document.getElementById('summaryDate').textContent = '2024-12-01';
         }
+    }
 
-        // Initialize
+    function prevStep() {
+        if (currentStep > 1) {
+            document.getElementById(`step${currentStep}`).classList.add('hidden');
+            document.querySelector(`.step:nth-child(${currentStep})`).classList.remove('active');
+            
+            currentStep--;
+            document.getElementById(`step${currentStep}`).classList.remove('hidden');
+            document.querySelector(`.step:nth-child(${currentStep})`).classList.add('active');
+            document.querySelector(`.step:nth-child(${currentStep})`).classList.remove('completed');
+            
+            const progress = (currentStep - 1) / (totalSteps - 1) * 100;
+            document.querySelector('.progress-bar').style.width = progress + '%';
+            
+            updateStepCircles();
+        }
+    }
+
+    function updateStepCircles() {
+        for (let i = 1; i <= totalSteps; i++) {
+            const stepElement = document.querySelector(`.step:nth-child(${i})`);
+            const circle = stepElement.querySelector('div');
+            
+            if (i < currentStep) {
+                circle.className = 'w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3';
+                circle.textContent = '✓';
+            } else if (i === currentStep) {
+                circle.className = 'w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3';
+                circle.textContent = i;
+            } else {
+                circle.className = 'w-8 h-8 bg-gray-300 text-gray-600 rounded-full flex items-center justify-center text-sm font-bold mr-3';
+                circle.textContent = i;
+            }
+        }
+    }
+
+    document.getElementById('uploadForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('🎉 ส่งข้อมูลสำเร็จ!');
+        this.reset();
+        currentStep = 1;
+        for (let i = 1; i <= totalSteps; i++) {
+            document.getElementById(`step${i}`).classList.add('hidden');
+        }
+        document.getElementById('step1').classList.remove('hidden');
+        document.querySelector('.progress-bar').style.width = '0%';
         updateStepCircles();
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9749903ad334894c',t:'MTc1NjEwODkwNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    });
+
+    updateStepCircles();
+</script>
+
+</body>
 </html>
+
 
 
 
