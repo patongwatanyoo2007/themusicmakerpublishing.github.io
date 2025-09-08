@@ -131,12 +131,30 @@
           <input type="text" id="albumName" placeholder="ชื่ออัลบั้ม" class="w-full p-3 border rounded">
           <select id="genre" class="w-full p-3 border rounded" required>
             <option value="">ประเภทเพลง*</option>
-            <option>Pop</option><option>Rock</option><option>Hip Hop/Rap</option>
-            <option>Country</option><option>Indie</option><option>อื่นๆ</option>
+            <option>Pop - ป๊อป</option> 
+            <option>Rock - ร็อค</option> 
+            <option>Country - ลูกทุ่ง</option> 
+            <option>Indie - อินดี้</option>
+            <option>Hip Hop/Rap - ฮิปฮอป/แร็พ</option> 
+            <option>Electronic - อิเล็กทรอนิกส์</option> 
+            <option>Jazz - แจ๊ส</option> 
+            <option>Classical - คลาสสิก</option> 
+            <option>Folk - โฟล์ค</option> 
+            <option>R&B/Soul - อาร์แอนด์บี/โซล</option> 
+            <option>Alternative - อัลเทอร์เนทีฟ</option> 
+            <option>World Music - เวิลด์มิวสิก</option> 
+            <option>Instrumental - เพลงบรรเลง</option> 
+            <option>อื่นๆ</option>
           </select>
           <select id="language" class="w-full p-3 border rounded" required>
             <option value="">ภาษาเพลง*</option>
-            <option>ไทย</option><option>อังกฤษ</option><option>อื่นๆ</option>
+            <option>ไทย - Thai</option>
+            <option>อังกฤษ - English</option>
+            <option>จีน - Chinese</option> 
+            <option>ญี่ปุ่น - Japanese</option> 
+            <option>เกาหลี - Korean</option>
+            <option>รัสเซีย - Russian</option>
+            <option>อื่นๆ - More</option>
           </select>
         </div>
         <div class="space-y-4">
@@ -153,18 +171,21 @@
       </div>
     </div>
 
-    <!-- Step 2: อัปโหลดไฟล์ -->
-    <div id="step2" class="step-content hidden">
-      <h2 class="text-3xl font-bold mb-6">ไฟล์เพลงและภาพปก</h2>
-      <div class="grid lg:grid-cols-2 gap-6">
-        <input type="file" id="audioFile" accept=".mp3,.wav,.flac" class="w-full p-3 border rounded" required>
-        <input type="file" id="coverFile" accept=".jpg,.jpeg,.png" class="w-full p-3 border rounded" required>
+    <!-- Step 2: File Upload --> 
+      <div id="step2" class="step-content hidden"> 
+          <h4 class="text-2xl font-bold mb-6 text-gray-800">ไฟล์เพลงและภาพปก</h4> 
+          <div class="grid lg:grid-cols-2 gap-8"> <div> 
+              <label class="block text-sm font-medium text-gray-700 mb-2">ไฟล์เพลง *</label> <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-purple-400 transition-colors"> 
+                  <div class="text-4xl mb-4">🎵</div> <p class="text-gray-600 mb-2">ลากไฟล์เพลงมาวางที่นี่</p> 
+                  <p class="text-sm text-gray-500 mb-4">รองรับ: MP3, WAV, FLAC (ขนาดไม่เกิน 200MB)</p> <button type="button" onclick="document.getElementById('audioFile').click()" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors"> เลือกไฟล์เพลง </button> 
+                  <input type="file" id="audioFile" accept=".mp3,.wav,.flac" class="hidden"> </div> <div class="mt-4 p-4 bg-blue-50 rounded-lg"> <h5 class="font-semibold text-blue-800 mb-2">ข้อกำหนดไฟล์เพลง:</h5> <ul class="text-sm text-blue-700 space-y-1"> <li>• คุณภาพ: อย่างน้อย 16-bit/44.1kHz</li> <li>• แนะนำ: 24-bit/48kHz หรือสูงกว่า</li> 
+                      <li>• ไม่มี DRM หรือการป้องกันลิขสิทธิ์</li> <li>• ไม่มีเสียงรบกวนหรือเสียงดัง</li> </ul> </div> </div> <div> <label class="block text-sm font-medium text-gray-700 mb-2">ภาพปกอัลบั้ม *</label> <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-purple-400 transition-colors"> <div class="text-4xl mb-4">🖼️</div> 
+                          <p class="text-gray-600 mb-2">ลากไฟล์รูปภาพมาวางที่นี่</p> <p class="text-sm text-gray-500 mb-4">รองรับ: JPG, PNG (ขนาดไม่เกิน 10MB)</p> <button type="button" onclick="document.getElementById('coverFile').click()" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors"> เลือกรูปภาพ </button> <input type="file" id="coverFile" accept=".jpg,.jpeg,.png" class="hidden"> 
+                      </div> <div class="mt-4 p-4 bg-green-50 rounded-lg"> <h5 class="font-semibold text-green-800 mb-2">ข้อกำหนดภาพปก:</h5> <ul class="text-sm text-green-700 space-y-1"> <li>• ขนาด: 1440x1440 หรือ 3000x3000 พิกเซล (แนะนำ)</li> <li>• อัตราส่วน: 1:1 (สี่เหลี่ยมจัตุรัส)</li> <li>• ความละเอียด: อย่างน้อย 300 DPI</li> <li>• ไม่มีข้อความติดต่อหรือโลโก้แพลตฟอร์ม</li> </ul> </div> </div> </div> <div class="flex justify-between"> 
+                          <button type="button" onclick="prevStep()" class="bg-gray-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-600 transition-colors"> ย้อนกลับ </button> 
+                          <button type="button" onclick="nextStep()" class="bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors"> ถัดไป </button> 
+                      </div> 
       </div>
-      <div class="flex justify-between mt-6">
-        <button class="bg-gray-500 text-white px-6 py-3 rounded" onclick="prevStep()">ย้อนกลับ</button>
-        <button class="bg-purple-600 text-white px-6 py-3 rounded" onclick="nextStep()">ถัดไป</button>
-      </div>
-    </div>
 
     <!-- Step 3: OAC -->
     <div id="step3" class="step-content hidden">
@@ -776,6 +797,7 @@ function submitForm(){ alert("ส่งข้อมูลและอัปโ�
 
 </body>
 </html>
+
 
 
 
