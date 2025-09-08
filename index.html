@@ -57,7 +57,7 @@
                 <nav class="hidden md:flex space-x-6">
                     <a href="#home" class="hover:text-blue-200 transition-colors">หน้าแรก</a>
                     <a href="#services" class="hover:text-blue-200 transition-colors">บริการ</a>
-                    <a href="#upload.html" class="hover:text-blue-200 transition-colors" onclick="scrollToUpload()">อัปโหลด</a>
+                    <a href="#upload" class="hover:text-blue-200 transition-colors" onclick="scrollToUpload()">อัปโหลด</a>
                     <a href="#pricing" class="hover:text-blue-200 transition-colors">ราคา</a>
                     <a href="#support" class="hover:text-blue-200 transition-colors">ช่วยเหลือ</a>
                 </nav>
@@ -583,80 +583,9 @@
             </div>
         </div>
     </div>
-            <script>
-    let currentStep = 1;
-    const totalSteps = 4;
-
-    function nextStep() {
-        if (currentStep < totalSteps) {
-            document.getElementById(`step${currentStep}`).classList.add('hidden');
-            document.querySelector(`.step:nth-child(${currentStep})`).classList.remove('active');
-            document.querySelector(`.step:nth-child(${currentStep})`).classList.add('completed');
-            
-            currentStep++;
-            document.getElementById(`step${currentStep}`).classList.remove('hidden');
-            document.querySelector(`.step:nth-child(${currentStep})`).classList.add('active');
-            
-            const progress = (currentStep - 1) / (totalSteps - 1) * 100;
-            document.querySelector('.progress-bar').style.width = progress + '%';
-            
-            updateStepCircles();
-        }
-    }
-
-    function prevStep() {
-        if (currentStep > 1) {
-            document.getElementById(`step${currentStep}`).classList.add('hidden');
-            document.querySelector(`.step:nth-child(${currentStep})`).classList.remove('active');
-            
-            currentStep--;
-            document.getElementById(`step${currentStep}`).classList.remove('hidden');
-            document.querySelector(`.step:nth-child(${currentStep})`).classList.add('active');
-            document.querySelector(`.step:nth-child(${currentStep})`).classList.remove('completed');
-            
-            const progress = (currentStep - 1) / (totalSteps - 1) * 100;
-            document.querySelector('.progress-bar').style.width = progress + '%';
-            
-            updateStepCircles();
-        }
-    }
-
-    function updateStepCircles() {
-        for (let i = 1; i <= totalSteps; i++) {
-            const stepElement = document.querySelector(`.step:nth-child(${i})`);
-            const circle = stepElement.querySelector('div');
-            
-            if (i < currentStep) {
-                circle.className = 'w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3';
-                circle.textContent = '✓';
-            } else if (i === currentStep) {
-                circle.className = 'w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3';
-                circle.textContent = i;
-            } else {
-                circle.className = 'w-8 h-8 bg-gray-300 text-gray-600 rounded-full flex items-center justify-center text-sm font-bold mr-3';
-                circle.textContent = i;
-            }
-        }
-    }
-
-    document.getElementById('uploadForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('🎉 ส่งข้อมูลสำเร็จ!');
-        this.reset();
-        currentStep = 1;
-        for (let i = 1; i <= totalSteps; i++) {
-            document.getElementById(`step${i}`).classList.add('hidden');
-        }
-        document.getElementById('step1').classList.remove('hidden');
-        document.querySelector('.progress-bar').style.width = '0%';
-        updateStepCircles();
-    });
-
-    updateStepCircles();
-</script>
-
 </body>
 </html>
+
 
 
 
