@@ -740,23 +740,43 @@
     updateStepCircles();
 </script>
 
-        
-        
-  <script>      
-        
-        // ฟังก์ชัน scroll
-function scrollToUpload(e){
-  e.preventDefault(); // ป้องกัน anchor default behavior
-  document.getElementById('upload').scrollIntoView({ behavior: 'smooth' });
-
-  // แสดง Step 1 เวลาเข้ามาที่หน้า
-  const steps = document.querySelectorAll('.step-content');
-  steps.forEach(s => s.classList.add('hidden'));
-  document.getElementById('step1').classList.remove('hidden');
+<script>
+function nextStep(){
+  const current = document.querySelector('.step-content:not(.hidden)');
+  const next = current.nextElementSibling;
+  if(next){
+    current.classList.add('hidden');
+    next.classList.remove('hidden');
+    if(next.id==='step4') updateSummary();
+  }
 }
+function prevStep(){
+  const current = document.querySelector('.step-content:not(.hidden)');
+  const prev = current.previousElementSibling;
+  if(prev){
+    current.classList.add('hidden');
+    prev.classList.remove('hidden');
+  }
+}
+function updateSummary(){
+  document.getElementById('summaryArtist').textContent = document.getElementById('artistName').value || '-';
+  document.getElementById('summarySong').textContent = document.getElementById('songName').value || '-';
+  document.getElementById('summaryGenre').textContent = document.getElementById('genre').value || '-';
+  document.getElementById('summaryDate').textContent = document.getElementById('releaseDate').value || '-';
+}
+function checkOAC(){
+  const link = document.getElementById('youtubeLink').value;
+  const subs = document.getElementById('subscribers').value;
+  if(!link || subs<0){ alert("กรุณากรอกข้อมูลให้ถูกต้อง"); return false; }
+  alert("ส่งคำขอ OAC เรียบร้อย!");
+  return false;
+}
+function submitForm(){ alert("ส่งข้อมูลและอัปโหลดเพลงเรียบร้อย!"); }
 </script>
+
 </body>
 </html>
+
 
 
 
