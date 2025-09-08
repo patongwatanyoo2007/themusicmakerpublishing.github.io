@@ -113,6 +113,10 @@
         </div>
     </section>
 
+    <section id="upload" class="step-content">
+  <!-- ใส่โค้ด Step 1–4 ของการอัปโหลดเพลงที่นี่ -->
+</section>
+    
     <!-- Free Banner -->
     <section class="py-12 bg-gradient-to-r from-green-400 to-emerald-500 text-white">
         <div class="container mx-auto px-6 text-center">
@@ -583,8 +587,20 @@
             </div>
         </div>
     </div>
+    <script>
+function scrollToUpload() {
+    const uploadSection = document.getElementById('upload');
+    if(uploadSection){
+        uploadSection.scrollIntoView({ behavior: 'smooth' });
+        // เปิด Step 1 อัตโนมัติ
+        document.querySelectorAll('.step-content').forEach(s => s.classList.remove('active'));
+        uploadSection.classList.add('active');
+    }
+}
+</script>
 </body>
 </html>
+
 
 
 
