@@ -5,159 +5,114 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>อัปโหลดเพลง</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<style>
-.step-content { display: none; }
-.step-content.active { display: block; }
-.btn-next, .btn-prev, .btn-submit { cursor: pointer; }
-</style>
 </head>
-<body class="bg-gray-50 py-10">
+<body>
 
-<div class="container mx-auto px-6 max-w-4xl space-y-10">
+<!-- Upload Section -->
+<section id="upload" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-6 max-w-4xl space-y-10">
 
-  <!-- Step 1: ข้อมูลพื้นฐาน -->
-  <section id="step1" class="step-content active">
-    <h2 class="text-3xl font-bold mb-6">ข้อมูลพื้นฐาน</h2>
-    <div class="grid lg:grid-cols-2 gap-6">
-      <div class="space-y-4">
-        <div><label>ชื่อศิลปิน *</label><input type="text" id="artistName" placeholder="ใส่ชื่อศิลปิน" class="w-full p-3 border rounded" required></div>
-        <div><label>ชื่อเพลง *</label><input type="text" id="songName" placeholder="ใส่ชื่อเพลง" class="w-full p-3 border rounded" required></div>
-        <div><label>ชื่ออัลบั้ม</label><input type="text" id="albumName" placeholder="ใส่ชื่ออัลบั้ม" class="w-full p-3 border rounded"></div>
-        <div>
-          <label>ประเภทเพลง *</label>
+    <!-- Step 1: ข้อมูลพื้นฐาน -->
+    <div id="step1" class="step-content active">
+      <h2 class="text-3xl font-bold mb-6">ข้อมูลพื้นฐาน</h2>
+      <div class="grid lg:grid-cols-2 gap-6">
+        <div class="space-y-4">
+          <input type="text" id="artistName" placeholder="ชื่อศิลปิน*" class="w-full p-3 border rounded" required>
+          <input type="text" id="songName" placeholder="ชื่อเพลง*" class="w-full p-3 border rounded" required>
+          <input type="text" id="albumName" placeholder="ชื่ออัลบั้ม" class="w-full p-3 border rounded">
           <select id="genre" class="w-full p-3 border rounded" required>
-            <option value="">เลือกประเภทเพลง</option>
-            <option>Pop - ป๊อป</option>
-            <option>Rock - ร็อค</option>
-            <option>Country - ลูกทุ่ง</option>
-            <option>Indie - อินดี้</option>
-            <option>Hip Hop/Rap - ฮิปฮอป/แร็พ</option>
-            <option>Electronic - อิเล็กทรอนิกส์</option>
-            <option>Jazz - แจ๊ส</option>
-            <option>Classical - คลาสสิก</option>
-            <option>Folk - โฟล์ค</option>
-            <option>R&B/Soul - อาร์แอนด์บี/โซล</option>
-            <option>Alternative - อัลเทอร์เนทีฟ</option>
-            <option>World Music - เวิลด์มิวสิก</option>
-            <option>Instrumental - เพลงบรรเลง</option>
-            <option>อื่นๆ</option>
+            <option value="">ประเภทเพลง*</option>
+            <option>Pop</option><option>Rock</option><option>Hip Hop/Rap</option>
+            <option>Country</option><option>Indie</option><option>อื่นๆ</option>
           </select>
-        </div>
-        <div>
-          <label>ภาษาของเพลง *</label>
           <select id="language" class="w-full p-3 border rounded" required>
-            <option value="">เลือกภาษา</option>
-            <option>ไทย</option>
-            <option>อังกฤษ</option>
-            <option>จีน</option>
-            <option>ญี่ปุ่น</option>
-            <option>เกาหลี</option>
-            <option>อื่นๆ</option>
+            <option value="">ภาษาเพลง*</option>
+            <option>ไทย</option><option>อังกฤษ</option><option>อื่นๆ</option>
           </select>
         </div>
+        <div class="space-y-4">
+          <input type="date" id="releaseDate" class="w-full p-3 border rounded" required>
+          <input type="text" id="composer" placeholder="ผู้แต่งเพลง*" class="w-full p-3 border rounded" required>
+          <input type="text" id="lyricist" placeholder="ผู้แต่งเนื้อร้อง*" class="w-full p-3 border rounded" required>
+          <input type="text" id="producer" placeholder="ผู้ผลิตเพลง" class="w-full p-3 border rounded">
+          <input type="text" id="studio" placeholder="สตูดิโอที่บันทึก" class="w-full p-3 border rounded">
+        </div>
       </div>
-      <div class="space-y-4">
-        <div><label>วันที่ปล่อยเพลง *</label><input type="date" id="releaseDate" class="w-full p-3 border rounded" required></div>
-        <div><label>ผู้แต่งเพลง *</label><input type="text" id="composer" placeholder="ชื่อผู้แต่งเพลง" class="w-full p-3 border rounded" required></div>
-        <div><label>ผู้แต่งเนื้อร้อง *</label><input type="text" id="lyricist" placeholder="ชื่อผู้แต่งเนื้อร้อง" class="w-full p-3 border rounded" required></div>
-        <div><label>ผู้ผลิตเพลง</label><input type="text" id="producer" placeholder="ชื่อโปรดิวเซอร์" class="w-full p-3 border rounded"></div>
-        <div><label>สตูดิโอที่บันทึก</label><input type="text" id="studio" placeholder="ชื่อสตูดิโอ" class="w-full p-3 border rounded"></div>
+      <textarea id="description" rows="4" class="w-full p-3 border rounded mt-4" placeholder="คำอธิบายเพลง"></textarea>
+      <div class="flex justify-end mt-6">
+        <button class="bg-purple-600 text-white px-6 py-3 rounded" onclick="nextStep()">ถัดไป</button>
       </div>
     </div>
-    <div class="mt-4">
-      <label>คำอธิบายเพลง</label>
-      <textarea id="description" rows="4" class="w-full p-3 border rounded" placeholder="เล่าเรื่องราวหรือแรงบันดาลใจของเพลง"></textarea>
-    </div>
-    <div class="flex justify-end mt-6">
-      <button class="btn-next bg-purple-600 text-white px-6 py-3 rounded" onclick="nextStep()">ถัดไป</button>
-    </div>
-  </section>
 
-  <!-- Step 2: อัปโหลดไฟล์ -->
-  <section id="step2" class="step-content">
-    <h2 class="text-3xl font-bold mb-6">ไฟล์เพลงและภาพปก</h2>
-    <div class="grid lg:grid-cols-2 gap-6">
-      <div>
-        <label>ไฟล์เพลง *</label>
+    <!-- Step 2: อัปโหลดไฟล์ -->
+    <div id="step2" class="step-content hidden">
+      <h2 class="text-3xl font-bold mb-6">ไฟล์เพลงและภาพปก</h2>
+      <div class="grid lg:grid-cols-2 gap-6">
         <input type="file" id="audioFile" accept=".mp3,.wav,.flac" class="w-full p-3 border rounded" required>
-      </div>
-      <div>
-        <label>ภาพปกอัลบั้ม *</label>
         <input type="file" id="coverFile" accept=".jpg,.jpeg,.png" class="w-full p-3 border rounded" required>
       </div>
-    </div>
-    <div class="flex justify-between mt-6">
-      <button class="btn-prev bg-gray-500 text-white px-6 py-3 rounded" onclick="prevStep()">ย้อนกลับ</button>
-      <button class="btn-next bg-purple-600 text-white px-6 py-3 rounded" onclick="nextStep()">ถัดไป</button>
-    </div>
-  </section>
-
-  <!-- Step 3: OAC -->
-  <section id="step3" class="step-content">
-    <h2 class="text-3xl font-bold mb-6">ขอ Official Artist Channel (OAC)</h2>
-    <form id="oacForm" onsubmit="return checkOAC()" class="space-y-4">
-      <div>
-        <label>ลิงก์ YouTube ของศิลปิน *</label>
-        <input type="url" id="youtubeLink" class="w-full p-3 border rounded" required>
+      <div class="flex justify-between mt-6">
+        <button class="bg-gray-500 text-white px-6 py-3 rounded" onclick="prevStep()">ย้อนกลับ</button>
+        <button class="bg-purple-600 text-white px-6 py-3 rounded" onclick="nextStep()">ถัดไป</button>
       </div>
-      <div>
-        <label>จำนวนผู้ติดตาม *</label>
-        <input type="number" id="subscribers" min="0" class="w-full p-3 border rounded" required>
+    </div>
+
+    <!-- Step 3: OAC -->
+    <div id="step3" class="step-content hidden">
+      <h2 class="text-3xl font-bold mb-6">ขอ Official Artist Channel (OAC)</h2>
+      <form id="oacForm" onsubmit="return checkOAC()" class="space-y-4">
+        <input type="url" id="youtubeLink" placeholder="ลิงก์ YouTube*" class="w-full p-3 border rounded" required>
+        <input type="number" id="subscribers" placeholder="จำนวนผู้ติดตาม*" min="0" class="w-full p-3 border rounded" required>
+        <button type="submit" class="bg-purple-600 text-white px-6 py-3 rounded">ส่งคำขอ OAC</button>
+      </form>
+      <div class="flex justify-between mt-6">
+        <button class="bg-gray-500 text-white px-6 py-3 rounded" onclick="prevStep()">ย้อนกลับ</button>
+        <button class="bg-purple-600 text-white px-6 py-3 rounded" onclick="nextStep()">ถัดไป</button>
       </div>
-      <button type="submit" class="bg-purple-600 text-white px-6 py-3 rounded">ส่งคำขอ OAC</button>
-    </form>
-    <div class="flex justify-between mt-6">
-      <button class="btn-prev bg-gray-500 text-white px-6 py-3 rounded" onclick="prevStep()">ย้อนกลับ</button>
-      <button class="btn-next bg-purple-600 text-white px-6 py-3 rounded" onclick="nextStep()">ถัดไป</button>
     </div>
-  </section>
 
-  <!-- Step 4: Preview + Submit -->
-  <section id="step4" class="step-content">
-    <h2 class="text-3xl font-bold mb-6">สรุปข้อมูลก่อนส่ง</h2>
-    <div class="space-y-2">
-      <p><strong>ศิลปิน:</strong> <span id="summaryArtist">-</span></p>
-      <p><strong>เพลง:</strong> <span id="summarySong">-</span></p>
-      <p><strong>ประเภท:</strong> <span id="summaryGenre">-</span></p>
-      <p><strong>วันที่ปล่อย:</strong> <span id="summaryDate">-</span></p>
+    <!-- Step 4: Preview + Submit -->
+    <div id="step4" class="step-content hidden">
+      <h2 class="text-3xl font-bold mb-6">สรุปข้อมูลก่อนส่ง</h2>
+      <div class="space-y-2">
+        <p><strong>ศิลปิน:</strong> <span id="summaryArtist">-</span></p>
+        <p><strong>เพลง:</strong> <span id="summarySong">-</span></p>
+        <p><strong>ประเภท:</strong> <span id="summaryGenre">-</span></p>
+        <p><strong>วันที่ปล่อย:</strong> <span id="summaryDate">-</span></p>
+      </div>
+      <div class="flex justify-between mt-6">
+        <button class="bg-gray-500 text-white px-6 py-3 rounded" onclick="prevStep()">ย้อนกลับ</button>
+        <button class="bg-green-600 text-white px-6 py-3 rounded" onclick="submitForm()">ส่งข้อมูลและอัปโหลดเพลง</button>
+      </div>
     </div>
-    <div class="flex justify-between mt-6">
-      <button class="btn-prev bg-gray-500 text-white px-6 py-3 rounded" onclick="prevStep()">ย้อนกลับ</button>
-      <button class="btn-submit bg-green-600 text-white px-6 py-3 rounded" onclick="submitForm()">ส่งข้อมูลและอัปโหลดเพลง</button>
-    </div>
-  </section>
 
-</div>
+  </div>
+</section>
 
 <script>
-// Step navigation
-function nextStep() {
-  const current = document.querySelector('.step-content.active');
+function nextStep(){
+  const current = document.querySelector('.step-content:not(.hidden)');
   const next = current.nextElementSibling;
   if(next){
-    current.classList.remove('active');
-    next.classList.add('active');
+    current.classList.add('hidden');
+    next.classList.remove('hidden');
     if(next.id==='step4') updateSummary();
   }
 }
-function prevStep() {
-  const current = document.querySelector('.step-content.active');
+function prevStep(){
+  const current = document.querySelector('.step-content:not(.hidden)');
   const prev = current.previousElementSibling;
   if(prev){
-    current.classList.remove('active');
-    prev.classList.add('active');
+    current.classList.add('hidden');
+    prev.classList.remove('hidden');
   }
 }
-
-// Update preview summary
-function updateSummary() {
+function updateSummary(){
   document.getElementById('summaryArtist').textContent = document.getElementById('artistName').value || '-';
   document.getElementById('summarySong').textContent = document.getElementById('songName').value || '-';
   document.getElementById('summaryGenre').textContent = document.getElementById('genre').value || '-';
   document.getElementById('summaryDate').textContent = document.getElementById('releaseDate').value || '-';
 }
-
-// OAC form check
 function checkOAC(){
   const link = document.getElementById('youtubeLink').value;
   const subs = document.getElementById('subscribers').value;
@@ -165,11 +120,7 @@ function checkOAC(){
   alert("ส่งคำขอ OAC เรียบร้อย!");
   return false;
 }
-
-// Submit form demo
-function submitForm(){
-  alert("ส่งข้อมูลและอัปโหลดเพลงเรียบร้อย!");
-}
+function submitForm(){ alert("ส่งข้อมูลและอัปโหลดเพลงเรียบร้อย!"); }
 </script>
 
 </body>
