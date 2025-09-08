@@ -1,42 +1,122 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Music Maker Thailand Distribution - Home</title>
-  <link rel="stylesheet" href="style.css">
+  <title>The Music Maker Thailand Distribution</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f9f9f9; color:#333; }
+    header { background:#1db954; color:white; padding:15px; text-align:center; }
+    nav a { color:white; margin:0 10px; text-decoration:none; font-weight:bold; }
+    nav a:hover { text-decoration:underline; }
+    section { padding:40px 20px; max-width:800px; margin:auto; }
+    h1,h2 { margin-bottom:15px; }
+    form input, form select, form button { width:100%; padding:10px; margin:8px 0; border-radius:5px; border:1px solid #ccc; }
+    form button { background:#1db954; color:white; border:none; cursor:pointer; font-weight:bold; }
+    form button:hover { background:#17a44d; }
+    ul { margin:15px 0; padding-left:20px; }
+    footer { text-align:center; padding:15px; background:#222; color:#aaa; }
+  </style>
+  <script>
+    function checkOAC() {
+      const subs = document.getElementById("subscribers").value;
+      if (subs < 5) {
+        alert("❌ ต้องมีผู้ติดตามอย่างน้อย 5 คนเพื่อขอ OAC");
+        return false;
+      } else {
+        alert("✅ ส่งคำขอ OAC เรียบร้อยแล้ว");
+        return true;
+      }
+    }
+    function showSection(id) {
+      document.querySelectorAll("section").forEach(sec => sec.style.display="none");
+      document.getElementById(id).style.display="block";
+    }
+    window.onload = () => showSection("home");
+  </script>
 </head>
 <body>
-  <!-- ส่วน Header -->
   <header>
     <h1>The Music Maker Thailand Distribution</h1>
     <nav>
-      <a href="home.html">หน้าแรก</a>
-      <a href="upload.html">อัปโหลดเพลง</a>
-      <a href="platforms.html">แพลตฟอร์ม</a>
-      <a href="terms.html">ข้อกำหนด</a>
-      <a href="artist.html">บัญชีศิลปิน</a>
+      <a href="#" onclick="showSection('home')">หน้าแรก</a>
+      <a href="#" onclick="showSection('upload')">อัปโหลดเพลง</a>
+      <a href="#" onclick="showSection('platforms')">แพลตฟอร์ม</a>
+      <a href="#" onclick="showSection('terms')">ข้อกำหนด</a>
+      <a href="#" onclick="showSection('artist')">บัญชีศิลปิน</a>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
+  <!-- Home -->
+  <section id="home">
     <h2>เผยแพร่เพลงของคุณฟรี</h2>
-    <p>
-      ระบบ Distribution ของเรา ช่วยให้ศิลปินทุกคนอัปโหลดเพลงลงสตรีมมิ่ง
-      เช่น Spotify, Joox, Apple Music, Plern, YouTube Music และอื่นๆ ได้ฟรี
-    </p>
-    <a href="upload.html" class="btn">เริ่มอัปโหลดเพลง</a>
+    <p>ระบบนี้ช่วยให้ศิลปินอัปโหลดเพลงฟรีเพื่อเผยแพร่ไปยัง Spotify, Joox, Apple Music, Plern, YouTube Music และอื่น ๆ</p>
+    <button onclick="showSection('upload')">เริ่มอัปโหลด</button>
   </section>
 
-  <!-- เกี่ยวกับ -->
-  <section class="about">
-    <h2>เกี่ยวกับเรา</h2>
-    <p>
-      The Music Maker Thailand Distribution คือระบบที่ช่วยให้ศิลปินอินดี้
-      หรือใครก็ตามที่อยากเผยแพร่เพลง สามารถเข้าถึงผู้ฟังได้ทั่วโลก
-      โดยไม่มีค่าใช้จ่ายใดๆ
-    </p>
+  <!-- Upload -->
+  <section id="upload" style="display:none">
+    <h2>ฟอร์มอัปโหลดเพลง</h2>
+    <form id="uploadForm">
+      <label>ชื่อศิลปิน</label>
+      <input type="text" required>
+      <label>ชื่อเพลง</label>
+      <input type="text" required>
+      <label>ประเภท</label>
+      <select required>
+        <option>ซิงเกิล</option><option>EP</option><option>อัลบั้ม</option>
+      </select>
+      <label>ไฟล์เพลง (WAV)</label>
+      <input type="file" accept="audio/wav" required>
+      <label>ภาพปก (JPG/PNG 1440x1440)</label>
+      <input type="file" accept="image/jpeg,image/png" required>
+      <label>เลือกแพลตฟอร์ม</label>
+      <select multiple size="6" required>
+        <option>Spotify</option><option>Joox</option><option>Apple Music</option>
+        <option>Plern</option><option>YouTube Music</option><option>Deezer</option>
+        <option>TikTok Music</option><option>Amazon Music</option>
+      </select>
+      <label>ยืนยันลิขสิทธิ์</label>
+      <select required>
+        <option>เจ้าของลิขสิทธิ์ 100%</option>
+        <option>เพลง AI (มีสิทธิ์)</option>
+        <option>คัฟเวอร์ (ได้รับอนุญาต)</option>
+      </select>
+      <button type="submit">ส่งเพลง</button>
+    </form>
+  </section>
+
+  <!-- Platforms -->
+  <section id="platforms" style="display:none">
+    <h2>แพลตฟอร์มสตรีมมิ่ง</h2>
+    <ul>
+      <li>Spotify</li><li>Joox</li><li>Apple Music</li><li>Plern</li>
+      <li>YouTube Music</li><li>Deezer</li><li>TikTok Music</li><li>Amazon Music</li>
+    </ul>
+    <p><em>และอีกมากมายทั่วโลก</em></p>
+  </section>
+
+  <!-- Terms -->
+  <section id="terms" style="display:none">
+    <h2>ข้อกำหนดการให้บริการ</h2>
+    <ul>
+      <li>ไฟล์เพลงต้องเป็น .wav</li>
+      <li>ภาพปก 1440x1440 (JPG/PNG)</li>
+      <li>ต้องเป็นเจ้าของลิขสิทธิ์ หรือได้รับอนุญาต</li>
+      <li>เพลงคุณภาพต่ำจะไม่เผยแพร่</li>
+    </ul>
+  </section>
+
+  <!-- Artist -->
+  <section id="artist" style="display:none">
+    <h2>ขอ Official Artist Channel (OAC)</h2>
+    <form onsubmit="return checkOAC()">
+      <label>ลิงก์ YouTube</label>
+      <input type="url" required>
+      <label>จำนวนผู้ติดตาม</label>
+      <input type="number" id="subscribers" min="0" required>
+      <button type="submit">ส่งคำขอ OAC</button>
+    </form>
   </section>
 
   <footer>
