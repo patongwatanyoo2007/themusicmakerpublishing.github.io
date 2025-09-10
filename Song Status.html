@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Song Upload Status - The Music Maker Thailand</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
+    body { font-family: 'Kanit', sans-serif; background: #f0f4f8; }
+    .progress-bar { width: 0%; height: 6px; background: linear-gradient(90deg,#667eea,#764ba2); transition: width 0.3s ease; border-radius: 3px; }
+  </style>
+</head>
+<body class="p-6">
+
+  <div class="max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-6">
+    <h1 class="text-3xl font-bold mb-6 text-gray-800">Song Upload Status</h1>
+
+    <!-- File Inputs -->
+    <div class="mb-4">
+      <label class="block text-gray-700 font-medium mb-2">Select Song File:</label>
+      <input type="file" id="songFileInput" accept=".mp3,.wav,.flac" class="border rounded p-2 w-full">
+    </div>
+
+    <div class="mb-4">
+      <label class="block text-gray-700 font-medium mb-2">Select Cover Image:</label>
+      <input type="file" id="coverFileInput" accept=".jpg,.jpeg,.png" class="border rounded p-2 w-full">
+    </div>
+
+    <button id="uploadBtn" class="bg-purple-600 text-white px-6 py-2 rounded hover:bg-purple-700 transition-colors">Upload</button>
+
+    <!-- Progress Bar -->
+    <div class="mt-6 w-full bg-gray-200 rounded h-2">
+      <div id="uploadProgress" class="progress-bar"></div>
+    </div>
+
+    <!-- Status Text -->
+    <p id="uploadStatusText" class="mt-4 text-gray-700 font-medium">Waiting for upload...</p>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+    import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-storage.js";
+
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT.firebaseapp.com",
+      projectId: "YOUR_PROJECT",
+      storageBucket: "YOUR_PROJECT.appspot.com",
+      messagingSenderId: "SENDER_ID",
+      appId: "APP_ID"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const storage = getStorage(app);
+
+    const songInput = document.getElementById('songFileInput');
+    const coverInput = document.getElementById('coverFileInput');
+    const uploadBtn = document.getElementById('uploadBtn');
+    const progressBar = document.getElementById('uploadProgress');
+    const statusText = document.getElementById('uploadStatusText');
+
+    function uploadFile(file, folder) {
+      return new Promise((resolve, reject) => {
+        const storageRef = ref(storage, `${folder}/${file.name}`);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on('state_changed',
+          (snapshot) => {
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            progressBar.style.width = progress + '%';
+            statusText.textContent = `Uploading ${file.name}: ${Math.floor(progress)}%`;
+          },
+          (error) => {
+            statusText.textContent = `Upload failed for ${file.name}`;
+            statusText.classList.add('text-red-500');
+            reject(error);
+          },
+          () => {
+            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+              statusText.textContent = `${file.name} uploaded successfully ✅`;
+              resolve(downloadURL);
+            });
+          }
+        );
+      });
+    }
+
+    uploadBtn.addEventListener('click', async () => {
+      const songFile = songInput.files[0];
+      const coverFile = coverInput.files[0];
+      if (!songFile || !coverFile) {
+        alert("Please select both song and cover files!");
+        return;
+      }
+
+      statusText.classList.remove('text-red-500');
+      progressBar.style.width = '0%';
+
+      try {
+        const songURL = await uploadFile(songFile, 'songs');
+        const coverURL = await uploadFile(coverFile, 'covers');
+
+        statusText.innerHTML = `Upload completed!<br>
+                                <a href="${songURL}" target="_blank" class="text-blue-600 underline">Song URL</a><br>
+                                <a href="${coverURL}" target="_blank" class="text-blue-600 underline">Cover URL</a>`;
+      } catch (err) {
+        console.error(err);
+      }
+    });
+  </script>
+
+</body>
+</html>
