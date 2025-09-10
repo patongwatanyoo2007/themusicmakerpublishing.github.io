@@ -109,6 +109,270 @@
             </div> 
         </div> 
     </header> 
+  <!-- Support Section --> 
+    <section id="support" class="py-20 bg-gray-50"> 
+        <div class="container mx-auto px-6"> 
+            <div class="text-center mb-16"> 
+                <h3 class="text-4xl font-bold mb-6 text-gray-800">ศูนย์ช่วยเหลือ</h3> 
+                <p class="text-xl text-gray-600">เรายินดีช่วยเหลือคุณตลอด 24 ชั่วโมง</p> 
+            </div> 
+            <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto"> 
+                <div> 
+                    <h4 class="text-2xl font-bold mb-6">คำถามที่พบบ่อย</h4> 
+                    <div class="space-y-4"> 
+                        <div class="bg-white rounded-lg shadow-sm"> 
+                            <button class="w-full text-left p-6 font-semibold hover:bg-gray-50 transition-colors" onclick="toggleFAQ(this)"> 
+                                ใช้เวลานานแค่ไหนในการแจกจ่ายเพลง? <span class="float-right">+</span> 
+                            </button> 
+                            <div class="hidden p-6 pt-0 text-gray-600"> 
+                                โดยปกติใช้เวลา 24-48 ชั่วโมงหลังจากการตรวจสอบเอกสารเสร็จสิ้น แพลตฟอร์มบางแห่งอาจใช้เวลาถึง 7 วัน 
+                            </div> 
+                        </div> 
+                        <div class="bg-white rounded-lg shadow-sm"> 
+                            <button class="w-full text-left p-6 font-semibold hover:bg-gray-50 transition-colors" onclick="toggleFAQ(this)"> 
+                                ฉันจะได้รับเงินจากการฟังเพลงอย่างไร? <span class="float-right">+</span> 
+                            </button> 
+                            <div class="hidden p-6 pt-0 text-gray-600"> 
+                                เราจ่ายเงินทุกเดือน ผ่านการโอนเงินเข้าบัญชี เมื่อยอดรวมถึง 100 บาทขึ้นไป คุณจะได้รับ <strong class="text-green-600">100% ของรายได้</strong> ไม่หักค่าบริการใดๆ 
+                            </div> 
+                        </div> 
+                        <div class="bg-white rounded-lg shadow-sm"> 
+                            <button class="w-full text-left p-6 font-semibold hover:bg-gray-50 transition-colors" onclick="toggleFAQ(this)"> 
+                                ฉันสามารถลบเพลงออกจากแพลตฟอร์มได้หรือไม่? <span class="float-right">+</span> 
+                            </button> 
+                            <div class="hidden p-6 pt-0 text-gray-600"> 
+                                ได้ คุณสามารถลบเพลงได้ตลอดเวลาผ่านแดชบอร์ด การลบจะมีผลภายใน 24-48 ชั่วโมง 
+                            </div> 
+                        </div> 
+                        <div class="bg-white rounded-lg shadow-sm"> 
+                            <button class="w-full text-left p-6 font-semibold hover:bg-gray-50 transition-colors" onclick="toggleFAQ(this)"> 
+                                จำเป็นต้องมีลิขสิทธิ์หรือไม่? <span class="float-right">+</span> 
+                            </button> 
+                            <div class="hidden p-6 pt-0 text-gray-600"> 
+                                จำเป็น คุณต้องเป็นเจ้าของลิขสิทธิ์หรือได้รับอนุญาตจากเจ้าของ เราต้องการเอกสาร OAC เพื่อยืนยัน 
+                            </div> 
+                        </div> 
+                    </div> 
+                </div> 
+                <div> 
+                    <h4 class="text-2xl font-bold mb-6">ติดต่อเรา</h4> 
+                    <div class="space-y-6"> 
+                        <div class="bg-white p-6 rounded-xl shadow-sm card-hover"> 
+                            <div class="flex items-center mb-4"> 
+                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4"> 
+                                    <span class="text-blue-600 text-xl">📧</span> 
+                                </div> 
+                                <div> 
+                                    <h5 class="font-semibold">อีเมลสนับสนุน</h5> 
+                                    <p class="text-gray-600">support@musicmaker.th</p> 
+                                </div> 
+                            </div> 
+                            <p class="text-sm text-gray-500">ตอบกลับภายใน 2 ชั่วโมง</p> 
+                        </div> 
+                        <div class="bg-white p-6 rounded-xl shadow-sm card-hover"> 
+                            <div class="flex items-center mb-4"> 
+                                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4"> 
+                                    <span class="text-green-600 text-xl">💬</span> 
+                                </div> 
+                                <div> 
+                                    <h5 class="font-semibold">Line Official</h5> 
+                                    <p class="text-gray-600">@musicmakerthailand</p> 
+                                </div> 
+                            </div> 
+                            <p class="text-sm text-gray-500">แชทสดตลอด 24 ชั่วโมง</p> 
+                        </div> 
+                        <div class="bg-white p-6 rounded-xl shadow-sm card-hover"> 
+                            <div class="flex items-center mb-4"> 
+                                <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4"> 
+                                    <span class="text-purple-600 text-xl">📞</span> 
+                                </div> 
+                                <div> 
+                                    <h5 class="font-semibold">โทรศัพท์</h5> 
+                                    <p class="text-gray-600">02-XXX-XXXX</p> 
+                                </div> 
+                            </div> 
+                            <p class="text-sm text-gray-500">จันทร์-ศุกร์ 9:00-18:00</p> 
+                        </div> 
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+    </section> 
+
+    <!-- Footer --> 
+    <footer class="bg-gray-800 text-white py-12"> 
+        <div class="container mx-auto px-6"> 
+            <div class="grid lg:grid-cols-4 gap-8"> 
+                <div> 
+                    <div class="flex items-center space-x-3 mb-6"> 
+                        <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center"> 
+                            <span class="text-xl">🎵</span> 
+                        </div> 
+                        <span class="text-xl font-bold">The Music Maker Thailand</span> 
+                    </div> 
+                    <p class="text-gray-400 mb-4">แพลตฟอร์มแจกจ่ายเพลงชั้นนำของไทย ช่วยศิลปินไทยเข้าถึงผู้ฟังทั่วโลก</p> 
+                    <div class="flex space-x-4"> 
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">📘</a> 
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">📷</a> 
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">🐦</a> 
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">📺</a> 
+                    </div> 
+                </div> 
+                <div> 
+                    <h5 class="font-bold mb-4">บริการ</h5> 
+                    <ul class="space-y-2 text-gray-400"> 
+                        <li><a href="#" class="hover:text-white transition-colors">แจกจ่ายเพลง</a></li> 
+                        <li><a href="#" class="hover:text-white transition-colors">การตลาดเพลง</a></li> 
+                        <li><a href="#" class="hover:text-white transition-colors">รายงานและวิเคราะห์</a></li> 
+                        <li><a href="#" class="hover:text-white transition-colors">Playlist Pitching</a></li> 
+                    </ul> 
+                </div> 
+                <div> 
+                    <h5 class="font-bold mb-4">ช่วยเหลือ</h5> 
+                    <ul class="space-y-2 text-gray-400"> 
+                        <li><a href="#" class="hover:text-white transition-colors">คำถามที่พบบ่อย</a></li> 
+                        <li><a href="#" class="hover:text-white transition-colors">คู่มือการใช้งาน</a></li> 
+                        <li><a href="#" class="hover:text-white transition-colors">ติดต่อเรา</a></li> 
+                        <li><a href="#" class="hover:text-white transition-colors">รายงานปัญหา</a></li> 
+                    </ul> 
+                </div> 
+                <div> 
+                    <h5 class="font-bold mb-4">กฎหมาย</h5> 
+                    <ul class="space-y-2 text-gray-400"> 
+                        <li><a href="#" class="hover:text-white transition-colors">ข้อกำหนดการใช้งาน</a></li> 
+                        <li><a href="#" class="hover:text-white transition-colors">นโยบายความเป็นส่วนตัว</a></li> 
+                        <li><a href="#" class="hover:text-white transition-colors">นโยบายลิขสิทธิ์</a></li> 
+                        <li><a href="#" class="hover:text-white transition-colors">การคืนเงิน</a></li> 
+                    </ul> 
+                </div> 
+            </div> 
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400"> 
+                <p>© 2024 The Music Maker Thailand Distribution. สงวนลิขสิทธิ์ทุกประการ.</p> 
+            </div> 
+        </div> 
+    </footer> 
+
+    <!-- Modals --> 
+    <!-- Terms Modal --> 
+    <div id="termsModal" class="modal"> 
+        <div class="modal-content"> 
+            <div class="flex justify-between items-center mb-6"> 
+                <h3 class="text-2xl font-bold">ข้อกำหนดและเงื่อนไขการใช้บริการ</h3> 
+                <button onclick="closeModal('termsModal')" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button> 
+            </div> 
+            <div class="space-y-4 text-sm text-gray-700 max-h-96 overflow-y-auto"> 
+                <h4 class="font-bold text-lg">1. การยอมรับข้อกำหนด</h4> 
+                <p>การใช้บริการของ The Music Maker Thailand Distribution ถือว่าคุณยอมรับข้อกำหนดและเงื่อนไขทั้งหมดนี้</p> 
+                <h4 class="font-bold text-lg">2. ลิขสิทธิ์และความเป็นเจ้าของ</h4> 
+                <p>คุณรับรองว่าคุณเป็นเจ้าของลิขสิทธิ์ของเนื้อหาที่อัปโหลด หรือได้รับอนุญาตอย่างถูกต้องตามกฎหมาย</p> 
+                <h4 class="font-bold text-lg">3. การใช้บริการ</h4> 
+                <p>คุณตกลงที่จะใช้บริการเพื่อวัตถุประสงค์ที่ถูกต้องตามกฎหมายเท่านั้น</p> 
+                <h4 class="font-bold text-lg">4. การจ่ายเงิน</h4> 
+                <p>เราจะจ่ายเงินรายได้จากการสตรีมให้คุณตามเงื่อนไขที่กำหนด หักค่าบริการตามแผนที่เลือก</p> 
+                <h4 class="font-bold text-lg">5. การยกเลิกบริการ</h4> 
+                <p>เราขอสงวนสิทธิ์ในการยกเลิกบริการหากพบการละเมิดข้อกำหนดหรือกฎหมาย</p> 
+                <h4 class="font-bold text-lg">6. ความรับผิดชอบ</h4> 
+                <p>เราไม่รับผิดชอบต่อความเสียหายที่เกิดจากการใช้บริการ ยกเว้นกรณีที่กฎหมายกำหนดไว้</p> 
+                <h4 class="font-bold text-lg">7. การแก้ไขข้อกำหนด</h4> 
+                <p>เราขอสงวนสิทธิ์ในการแก้ไขข้อกำหนดเหล่านี้โดยแจ้งให้ทราบล่วงหน้า</p> 
+            </div> 
+            <div class="mt-6 text-center"> 
+                <button onclick="closeModal('termsModal')" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors"> 
+                    ปิด 
+                </button> 
+            </div> 
+        </div> 
+    </div> 
+
+    <!-- Privacy Modal --> 
+    <div id="privacyModal" class="modal"> 
+        <div class="modal-content"> 
+            <div class="flex justify-between items-center mb-6"> 
+                <h3 class="text-2xl font-bold">นโยบายความเป็นส่วนตัว</h3> 
+                <button onclick="closeModal('privacyModal')" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button> 
+            </div> 
+            <div class="space-y-4 text-sm text-gray-700 max-h-96 overflow-y-auto"> 
+                <h4 class="font-bold text-lg">การเก็บรวบรวมข้อมูล</h4> 
+                <p>เราเก็บรวบรวมข้อมูลส่วนบุคคลที่จำเป็นสำหรับการให้บริการ รวมถึง:</p> 
+                <ul class="list-disc list-inside ml-4"> 
+                    <li>ข้อมูลการติดต่อ (ชื่อ, อีเมล, เบอร์โทร)</li> 
+                    <li>ข้อมูลการชำระเงิน</li> 
+                    <li>ข้อมูลการใช้งานเว็บไซต์</li> 
+                    <li>ข้อมูลเพลงและเนื้อหาที่อัปโหลด</li> 
+                </ul> 
+                <h4 class="font-bold text-lg">การใช้ข้อมูล</h4> 
+                <p>เราใช้ข้อมูลของคุณเพื่อ:</p> 
+                <ul class="list-disc list-inside ml-4"> 
+                    <li>ให้บริการแจกจ่ายเพลง</li> 
+                    <li>ประมวลผลการชำระเงิน</li> 
+                    <li>ติดต่อสื่อสารเกี่ยวกับบริการ</li> 
+                    <li>ปรับปรุงคุณภาพบริการ</li> 
+                </ul> 
+                <h4 class="font-bold text-lg">การแบ่งปันข้อมูล</h4> 
+                <p>เราไม่แบ่งปันข้อมูลส่วนบุคคลของคุณกับบุคคลที่สาม ยกเว้น:</p> 
+                <ul class="list-disc list-inside ml-4"> 
+                    <li>แพลตฟอร์มสตรีมมิ่งที่จำเป็นสำหรับการแจกจ่าย</li> 
+                    <li>ผู้ให้บริการชำระเงิน</li> 
+                    <li>กรณีที่กฎหมายกำหนด</li> 
+                </ul> 
+                <h4 class="font-bold text-lg">ความปลอดภัย</h4> 
+                <p>เราใช้มาตรการรักษาความปลอดภัยที่เหมาะสมเพื่อปกป้องข้อมูลของคุณ</p> 
+                <h4 class="font-bold text-lg">สิทธิของคุณ</h4> 
+                <p>คุณมีสิทธิ์ในการเข้าถึง แก้ไข หรือลบข้อมูลส่วนบุคคลของคุณ</p> 
+            </div> 
+            <div class="mt-6 text-center"> 
+                <button onclick="closeModal('privacyModal')" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors"> 
+                    ปิด 
+                </button> 
+            </div> 
+        </div> 
+    </div> 
+
+    <!-- Demo Modal --> 
+    <div id="demoModal" class="modal"> 
+        <div class="modal-content"> 
+            <div class="flex justify-between items-center mb-6"> 
+                <h3 class="text-2xl font-bold">ตัวอย่างการทำงาน</h3> 
+                <button onclick="closeModal('demoModal')" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button> 
+            </div> 
+            <div class="text-center"> 
+                <div class="w-32 h-32 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full mx-auto mb-6 flex items-center justify-center"> 
+                    <span class="text-white text-4xl">🎵</span> 
+                </div> 
+                <h4 class="text-xl font-bold mb-4">ระบบแจกจ่ายเพลงอัตโนมัติ</h4> 
+                <p class="text-gray-600 mb-6">เมื่อคุณอัปโหลดเพลง ระบบจะทำการ:</p> 
+                <div class="text-left space-y-3 mb-6"> 
+                    <div class="flex items-center"> 
+                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3"> 
+                            <span class="text-green-600 text-sm">✓</span> 
+                        </div> 
+                        <span>ตรวจสอบคุณภาพไฟล์เสียง</span> 
+                    </div> 
+                    <div class="flex items-center"> 
+                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3"> 
+                            <span class="text-green-600 text-sm">✓</span> 
+                        </div> 
+                        <span>ยืนยันเอกสารลิขสิทธิ์</span> 
+                    </div> 
+                    <div class="flex items-center"> 
+                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3"> 
+                            <span class="text-green-600 text-sm">✓</span> 
+                        </div> 
+                        <span>ส่งไปยัง 150+ แพลตฟอร์ม</span> 
+                    </div> 
+                    <div class="flex items-center"> 
+                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3"> 
+                            <span class="text-green-600 text-sm">✓</span> 
+                        </div> 
+                        <span>สร้างรายงานและสถิติ</span> 
+                    </div> 
+                </div> 
+                <button onclick="closeModal('demoModal')" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors"> 
+                    เข้าใจแล้ว 
+                </button> 
+            </div> 
+        </div> 
+    </div> 
 </head>
 <body class="bg-gray-100 text-gray-800">
 
@@ -163,4 +427,5 @@
 
 </body>
 </html>
+
 
