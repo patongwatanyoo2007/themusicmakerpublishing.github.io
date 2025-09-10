@@ -794,9 +794,48 @@ function checkOAC(){
 }
 function submitForm(){ alert("ส่งข้อมูลและอัปโหลดเพลงเรียบร้อย!"); }
 </script>
+            <script type="module">
+    // 1. ใส่ Firebase SDK
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+    import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-storage.js";
+
+    // 2. แทนที่ firebaseConfig ของคุณ
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT.firebaseapp.com",
+      projectId: "YOUR_PROJECT",
+      storageBucket: "YOUR_PROJECT.appspot.com",
+      messagingSenderId: "SENDER_ID",
+      appId: "APP_ID"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const storage = getStorage(app);
+
+    function uploadFile(file, folder) {
+      const storageRef = ref(storage, `${folder}/${file.name}`);
+      return uploadBytes(storageRef, file)
+        .then(snapshot => getDownloadURL(snapshot.ref));
+    }
+
+    window.handleUpload = async function() {
+      const songFile = document.getElementById("song").files[0];
+      const coverFile = document.getElementById("cover").files[0];
+      if (!songFile || !coverFile) { alert("เลือกไฟล์ให้ครบ!"); return; }
+
+      const songUrl = await uploadFile(songFile, "songs");
+      const coverUrl = await uploadFile(coverFile, "covers");
+
+      document.getElementById("result").innerHTML = `
+        <p>Song URL: <a href="${songUrl}" target="_blank">${songUrl}</a></p>
+        <p>Cover URL: <a href="${coverUrl}" target="_blank">${coverUrl}</a></p>
+      `;
+    }
+  </script>
 
 </body>
 </html>
+
 
 
 
