@@ -1,20 +1,137 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
-
+/* Global Styles */
 body {
-  font-family: 'Kanit', sans-serif;
-  background-color: #111;
-  color: #fff;
+    font-family: 'Kanit', sans-serif;
+    line-height: 1.6;
 }
 
+/* Header */
 .gradient-bg {
-  background: linear-gradient(135deg, #5a189a, #e91e63);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
+/* Card Hover Effect */
 .card-hover {
-  transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-hover:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    transition: width 0.3s ease;
+}
+
+/* Step Circles */
+.step {
+    opacity: 0.5;
+}
+
+.step.active {
+    opacity: 1;
+}
+
+.step.completed {
+    opacity: 1;
+    color: #10b981;
+}
+
+.step.completed .step-circle {
+    background-color: #10b981;
+    color: white;
+}
+
+.step.active .step-circle {
+    background-color: #667eea;
+    color: white;
+}
+
+.step-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #667eea;
+    color: white;
+}
+
+td.status-approved {
+    color: #10b981;
+    font-weight: 600;
+}
+
+td.status-pending {
+    color: #f59e0b;
+    font-weight: 600;
+}
+
+td.status-rejected {
+    color: #ef4444;
+    font-weight: 600;
+}
+
+/* Page Sections */
+.page-section {
+    display: none;
+}
+
+.page-section.active {
+    display: block;
+}
+
+/* Logo Grid */
+.logo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    align-items: center;
+    justify-items: center;
+}
+
+.logo-grid img {
+    max-height: 60px;
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+
+.logo-grid img:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .grid-lg:grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-lg:grid-cols-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .logo-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
