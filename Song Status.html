@@ -7,105 +7,39 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
-    body {
-      font-family: 'Kanit', sans-serif;
-    }
-    .gradient-bg {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    }
-    .card-hover {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card-hover:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    }
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.5);
-    }
-    .modal-content {
-      background-color: white;
-      margin: 5% auto;
-      padding: 20px;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 800px;
-      max-height: 80vh;
-      overflow-y: auto;
-    }
-    .progress-bar {
-      width: 0%;
-      height: 4px;
-      background: linear-gradient(90deg, #667eea, #764ba2);
-      transition: width 0.3s ease;
-    }
-    .step {
-      opacity: 0.5;
-    }
-    .step.active {
-      opacity: 1;
-    }
-    .step.completed {
-      opacity: 1;
-      color: #10b981;
-    }
-    #platforms-logos h2 {
-      margin-bottom: 20px;
-      font-size: 1.5rem;
-      color: #333;
-    }
-    .logo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 20px;
-      align-items: center;
-      justify-items: center;
-    }
-    .logo-grid img {
-      max-height: 60px;
-      object-fit: contain;
-      transition: transform 0.3s;
-    }
-    .logo-grid img:hover {
-      transform: scale(1.1);
-    }
+    body { font-family: 'Kanit', sans-serif; }
+    .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 12px 8px; border: 1px solid #ddd; text-align: left; }
+    th { background-color: #667eea; color: white; }
+    td.status-approved { color: #10b981; font-weight: 600; }
+    td.status-pending { color: #f59e0b; font-weight: 600; }
+    td.status-rejected { color: #ef4444; font-weight: 600; }
   </style>
 </head>
 <body class="bg-gray-50">
   <!-- Header -->
   <header class="gradient-bg text-white shadow-lg sticky top-0 z-50">
-    <div class="container mx-auto px-6 py-4">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center space-x-3">
-          <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-            <span class="text-2xl">🎵</span>
-          </div>
-          <div>
-            <h1 class="text-2xl font-bold">The Music Maker Thailand</h1>
-            <p class="text-sm opacity-90">Distribution Platform</p>
-          </div>
+    <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+          <span class="text-2xl">🎵</span>
         </div>
-        <nav class="hidden md:flex space-x-6">
-          <a href="index.html" class="hover:text-blue-200 transition-colors">หน้าแรก</a>
-          <a href="index.html#services" class="hover:text-blue-200 transition-colors">บริการ</a>
-          <a href="index.html#upload-section" class="hover:text-blue-200 transition-colors">อัปโหลด</a>
-          <a href="index.html#pricing" class="hover:text-blue-200 transition-colors">ราคา</a>
-          <a href="index.html#support" class="hover:text-blue-200 transition-colors">ช่วยเหลือ</a>
-          <a href="song-status.html" class="hover:text-blue-200 transition-colors font-bold">สถานะอัปโหลดเพลง</a>
-        </nav>
-        <button class="md:hidden text-white">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
+        <div>
+          <h1 class="text-2xl font-bold">The Music Maker Thailand</h1>
+          <p class="text-sm opacity-90">Distribution Platform</p>
+        </div>
       </div>
+      <nav class="hidden md:flex space-x-6">
+        <a href="index.html" class="hover:text-blue-200 transition-colors">หน้าแรก</a>
+        <a href="index.html#services" class="hover:text-blue-200 transition-colors">บริการ</a>
+        <a href="index.html#upload-section" class="hover:text-blue-200 transition-colors">อัปโหลด</a>
+        <a href="index.html#pricing" class="hover:text-blue-200 transition-colors">ราคา</a>
+        <a href="index.html#support" class="hover:text-blue-200 transition-colors">ช่วยเหลือ</a>
+        <a href="song-status.html" class="hover:text-blue-200 transition-colors font-bold">สถานะอัปโหลดเพลง</a>
+      </nav>
     </div>
   </header>
 
@@ -114,196 +48,105 @@
     <div class="container mx-auto px-6 max-w-4xl">
       <div class="text-center mb-12">
         <h2 class="text-4xl font-bold mb-6 text-gray-800">เช็คสถานะเพลง</h2>
-        <p class="text-xl text-gray-600">ตรวจสอบสถานะการอัปโหลดเพลงของคุณ</p>
+        <p class="text-xl text-gray-600">ค้นหาสถานะเพลงด้วยชื่อเพลงหรือศิลปิน</p>
       </div>
 
       <div class="bg-white rounded-2xl shadow-lg p-8">
         <form id="statusForm" class="flex flex-col gap-6">
           <div>
-            <label for="songId" class="block text-lg font-medium text-gray-800 mb-2">กรอกรหัสเพลง:</label>
-            <input type="text" id="songId" placeholder="เช่น 5063785164485" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+            <label for="searchInput" class="block text-lg font-medium text-gray-800 mb-2">กรอกชื่อเพลงหรือศิลปิน:</label>
+            <input type="text" id="searchInput" placeholder="เช่น เพลงรัก / ศิลปินชื่อดัง" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
           </div>
-          <button type="submit" class="bg-purple-600 text-white p-4 rounded-lg font-semibold hover:bg-purple-700 transition-colors">ตรวจสอบสถานะ</button>
+          <button type="submit" class="bg-purple-600 text-white p-4 rounded-lg font-semibold hover:bg-purple-700 transition-colors">ค้นหา</button>
         </form>
 
-        <div id="result" class="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200 hidden">
-          <div class="flex items-center mb-4">
-            <div id="statusIcon" class="w-12 h-12 rounded-full flex items-center justify-center mr-4"></div>
-            <h3 id="statusTitle" class="text-xl font-bold"></h3>
-          </div>
-          <div id="statusDetails" class="space-y-2 text-gray-700"></div>
+        <div id="result" class="mt-8 hidden">
+          <table class="rounded-lg overflow-hidden shadow-md">
+            <thead>
+              <tr>
+                <th>รหัส</th>
+                <th>ชื่อเพลง</th>
+                <th>ศิลปิน</th>
+                <th>คำร้อง</th>
+                <th>ทำนอง</th>
+                <th>เรียบเรียง</th>
+                <th>หมายเหตุ</th>
+                <th>สถานะ</th>
+              </tr>
+            </thead>
+            <tbody id="statusTableBody">
+              <!-- Rows will be inserted here dynamically -->
+            </tbody>
+          </table>
         </div>
-      </div>
-
-      <div class="mt-12 bg-blue-50 rounded-2xl p-8">
-        <h3 class="text-2xl font-bold mb-4 text-gray-800">คำแนะนำในการใช้งาน</h3>
-        <ul class="space-y-3 text-gray-700">
-          <li class="flex items-start">
-            <span class="text-purple-600 mr-3">•</span>
-            <span>รหัสเพลงคือเลข 13 หลักที่คุณได้รับหลังจากอัปโหลดเพลงเสร็จสิ้น</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-purple-600 mr-3">•</span>
-            <span>สถานะเพลงจะถูกอัปเดตทุก 24 ชั่วโมง</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-purple-600 mr-3">•</span>
-            <span>หากมีข้อสงสัยสามารถติดต่อฝ่ายสนับสนุนได้ตลอด 24 ชั่วโมง</span>
-          </li>
-        </ul>
       </div>
     </div>
   </section>
-
-  <!-- Footer -->
-  <footer class="bg-gray-800 text-white py-12">
-    <div class="container mx-auto px-6">
-      <div class="grid lg:grid-cols-4 gap-8">
-        <div>
-          <div class="flex items-center space-x-3 mb-6">
-            <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center">
-              <span class="text-xl">🎵</span>
-            </div>
-            <span class="text-xl font-bold">The Music Maker Thailand</span>
-          </div>
-          <p class="text-gray-400 mb-4">แพลตฟอร์มแจกจ่ายเพลงชั้นนำของไทย ช่วยศิลปินไทยเข้าถึงผู้ฟังทั่วโลก</p>
-          <div class="flex space-x-4">
-            <a href="#" class="text-gray-400 hover:text-white transition-colors">📘</a>
-            <a href="#" class="text-gray-400 hover:text-white transition-colors">📷</a>
-            <a href="#" class="text-gray-400 hover:text-white transition-colors">🐦</a>
-            <a href="#" class="text-gray-400 hover:text-white transition-colors">📺</a>
-          </div>
-        </div>
-        <div>
-          <h5 class="font-bold mb-4">บริการ</h5>
-          <ul class="space-y-2 text-gray-400">
-            <li><a href="#" class="hover:text-white transition-colors">แจกจ่ายเพลง</a></li>
-            <li><a href="#" class="hover:text-white transition-colors">การตลาดเพลง</a></li>
-            <li><a href="#" class="hover:text-white transition-colors">รายงานและวิเคราะห์</a></li>
-            <li><a href="#" class="hover:text-white transition-colors">Playlist Pitching</a></li>
-          </ul>
-        </div>
-        <div>
-          <h5 class="font-bold mb-4">ช่วยเหลือ</h5>
-          <ul class="space-y-2 text-gray-400">
-            <li><a href="#" class="hover:text-white transition-colors">คำถามที่พบบ่อย</a></li>
-            <li><a href="#" class="hover:text-white transition-colors">คู่มือการใช้งาน</a></li>
-            <li><a href="#" class="hover:text-white transition-colors">ติดต่อเรา</a></li>
-            <li><a href="#" class="hover:text-white transition-colors">รายงานปัญหา</a></li>
-          </ul>
-        </div>
-        <div>
-          <h5 class="font-bold mb-4">กฎหมาย</h5>
-          <ul class="space-y-2 text-gray-400">
-            <li><a href="#" class="hover:text-white transition-colors">ข้อกำหนดการใช้งาน</a></li>
-            <li><a href="#" class="hover:text-white transition-colors">นโยบายความเป็นส่วนตัว</a></li>
-            <li><a href="#" class="hover:text-white transition-colors">นโยบายลิขสิทธิ์</a></li>
-            <li><a href="#" class="hover:text-white transition-colors">การคืนเงิน</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-        <p>© 2024 The Music Maker Thailand Distribution. สงวนลิขสิทธิ์ทุกประการ.</p>
-      </div>
-    </div>
-  </footer>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const form = document.getElementById('statusForm');
       const resultDiv = document.getElementById('result');
-      const statusIcon = document.getElementById('statusIcon');
-      const statusTitle = document.getElementById('statusTitle');
-      const statusDetails = document.getElementById('statusDetails');
-      
+      const tableBody = document.getElementById('statusTableBody');
+
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const songId = document.getElementById('songId').value.trim();
-        
-        if(!songId) {
-          alert("กรุณากรอกรหัสเพลง");
+        const query = document.getElementById('searchInput').value.trim();
+
+        if(!query) {
+          alert("กรุณากรอกชื่อเพลงหรือศิลปิน");
           return;
         }
-        
+
         // Show loading state
         resultDiv.classList.remove('hidden');
-        statusIcon.className = 'w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4';
-        statusIcon.innerHTML = '<span class="text-blue-600 text-xl">⏳</span>';
-        statusTitle.textContent = 'กำลังตรวจสอบ...';
-        statusDetails.innerHTML = '<p>กรุณารอสักครู่</p>';
-        
+        tableBody.innerHTML = `<tr><td colspan="8" class="text-center p-4">กำลังค้นหา...</td></tr>`;
+
         // Simulate API call
         setTimeout(() => {
-          // This is a mock response - replace with actual API call
-          const mockResponses = [
-            {
-              status: "approved",
-              title: "เพลงได้รับอนุมัติแล้ว ✅",
-              details: [
-                "เพลงของคุณได้รับการอนุมัติแล้ว",
-                "เพลงจะปรากฏบนแพลตฟอร์มภายใน 24-48 ชั่วโมง",
-                "คุณจะได้รับอีเมลยืนยันเมื่อเพลงปรากฏบนแพลตฟอร์มทั้งหมด"
-              ]
-            },
-            {
-              status: "pending",
-              title: "เพลงอยู่ระหว่างการตรวจสอบ ⏳",
-              details: [
-                "เพลงของคุณอยู่ในขั้นตอนการตรวจสอบ",
-                "โดยปกติจะใช้เวลา 24-48 ชั่วโมง",
-                "หากมีปัญหาทางทีมงานจะติดต่อกลับ"
-              ]
-            },
-            {
-              status: "rejected",
-              title: "เพลงถูกปฏิเสธ ❌",
-              details: [
-                "เพลงของคุณไม่ผ่านการตรวจสอบ",
-                "เหตุผล: ไฟล์เสียงไม่ตรงตามมาตรฐาน",
-                "กรุณาตรวจสอบและอัปโหลดใหม่อีกครั้ง"
-              ]
-            },
-            {
-              status: "notfound",
-              title: "ไม่พบข้อมูลเพลง ⚠️",
-              details: [
-                "ไม่พบรหัสเพลงที่คุณกรอก",
-                "กรุณาตรวจสอบรหัสเพลงอีกครั้ง",
-                "หรือติดต่อฝ่ายสนับสนุนหากมีข้อสงสัย"
-              ]
-            }
+          // Mock data - replace with actual API call
+          const mockData = [
+            { id: '5063785164485', name: 'อีกกี่วันจะได้พบเธอ', artist: 'MPLGPatong2007', lyrics: 'ผู้ใช้', melody: 'ผู้ใช้', arrangement: 'ทีมงาน', note: '', status: 'approved' },
+            { id: '5063785164486', name: 'เพลงรักเรา', artist: 'ศิลปิน A', lyrics: 'A', melody: 'A', arrangement: 'A', note: '', status: 'pending' },
+            { id: '5063785164487', name: 'เพลงเศร้า', artist: 'ศิลปิน B', lyrics: 'B', melody: 'B', arrangement: 'B', note: 'มีปัญหาไฟล์', status: 'rejected' }
           ];
-          
-          // Randomly select a response for demo
-          const response = mockResponses[Math.floor(Math.random() * mockResponses.length)];
-          
-          // Update UI based on response
-          resultDiv.classList.remove('hidden');
-          
-          if(response.status === "approved") {
-            statusIcon.className = 'w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4';
-            statusIcon.innerHTML = '<span class="text-green-600 text-xl">✅</span>';
-          } else if(response.status === "pending") {
-            statusIcon.className = 'w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4';
-            statusIcon.innerHTML = '<span class="text-yellow-600 text-xl">⏳</span>';
-          } else if(response.status === "rejected") {
-            statusIcon.className = 'w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4';
-            statusIcon.innerHTML = '<span class="text-red-600 text-xl">❌</span>';
-          } else {
-            statusIcon.className = 'w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4';
-            statusIcon.innerHTML = '<span class="text-blue-600 text-xl">⚠️</span>';
+
+          // Filter by query (name or artist)
+          const results = mockData.filter(item => 
+            item.name.toLowerCase().includes(query.toLowerCase()) ||
+            item.artist.toLowerCase().includes(query.toLowerCase())
+          );
+
+          if(results.length === 0) {
+            tableBody.innerHTML = `<tr><td colspan="8" class="text-center p-4 text-red-500">ไม่พบข้อมูลเพลง</td></tr>`;
+            return;
           }
-          
-          statusTitle.textContent = response.title;
-          
-          // Build details HTML
-          let detailsHTML = '';
-          response.details.forEach(detail => {
-            detailsHTML += `<p class="flex items-start"><span class="text-purple-600 mr-2">•</span> ${detail}</p>`;
+
+          // Build table rows with emoji icons
+          let rowsHTML = '';
+          results.forEach(item => {
+            let statusClass = '';
+            let statusEmoji = '';
+            if(item.status === 'approved') { statusClass = 'status-approved'; statusEmoji = '✅'; }
+            else if(item.status === 'pending') { statusClass = 'status-pending'; statusEmoji = '⏳'; }
+            else if(item.status === 'rejected') { statusClass = 'status-rejected'; statusEmoji = '❌'; }
+
+            rowsHTML += `
+              <tr>
+                <td>${item.id}</td>
+                <td>${item.name}</td>
+                <td>${item.artist}</td>
+                <td>${item.lyrics}</td>
+                <td>${item.melody}</td>
+                <td>${item.arrangement}</td>
+                <td>${item.note}</td>
+                <td class="${statusClass}">${statusEmoji} ${item.status}</td>
+              </tr>
+            `;
           });
-          statusDetails.innerHTML = detailsHTML;
-          
-        }, 1500); // Simulate network delay
+
+          tableBody.innerHTML = rowsHTML;
+        }, 1000);
       });
     });
   </script>
