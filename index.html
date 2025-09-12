@@ -187,8 +187,39 @@
             </div> 
         </section> 
 
+        <!-- Free Banner --> 
+        <section class="py-12 bg-gradient-to-r from-green-400 to-emerald-500 text-white"> 
+            <div class="container mx-auto px-6 text-center"> 
+                <div class="max-w-4xl mx-auto"> 
+                    <h3 class="text-3xl font-bold mb-4">🎉 บริการฟรี 100 ไม่มีค่าใช้จ่ายแอบแฝง</h3> 
+                    <p class="text-xl mb-6">ไม่ต้องจ่ายค่าสมัคร ไม่ต้องจ่ายค่าธรรมเนียม ไม่หักเปอร์เซ็นต์ รับเงินเต็ม 100%</p> 
+                    <div class="grid md:grid-cols-4 gap-6 text-center"> 
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4"> 
+                            <div class="text-2xl font-bold">0฿</div> 
+                            <div class="text-sm">ค่าสมัคร</div> 
+                        </div> 
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4"> 
+                            <div class="text-2xl font-bold">0฿</div> 
+                            <div class="text-sm">ค่าอัปโหลด</div> 
+                        </div> 
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4"> 
+                            <div class="text-2xl font-bold">0%</div> 
+                            <div class="text-sm">หักค่าบริการ</div> 
+                        </div> 
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4"> 
+                            <div class="text-2xl font-bold">100%</div> 
+                            <div class="text-sm">รับเงินเต็ม</div> 
+                        </div> 
+                    </div> 
+                </div> 
+            </div> 
+        </section> 
+    </div>
+
+    <!-- Upload Page Section -->
+    <div id="upload-page" class="page-section">
         <!-- Upload Section --> 
-        <section id="upload-section" class="py-20 bg-gray-50"> 
+        <section class="py-20 bg-gray-50"> 
             <div class="container mx-auto px-6 max-w-4xl"> 
                 <h2 class="text-4xl font-bold text-center mb-12">อัปโหลดเพลงของคุณ</h2> 
                 
@@ -278,7 +309,7 @@
                                 <p class="text-sm text-gray-500 mb-4">รองรับไฟล์: MP3, WAV, FLAC</p>
                                 <button type="button" onclick="document.getElementById('song').click()" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors">เลือกไฟล์เพลง</button> 
                                 <input type="file" id="song" accept=".mp3,.wav,.flac" class="hidden"> 
-                                <div id="audioFileName" class="mt-4 text-sm text-gray-700 font-medium"></div> 
+                                <div id="audioFileName" class="mt-4 text-sm tex-gray-700 font-medium"></div> 
                                 <div id="audioFileSize" class="text-xs text-gray-500"></div>
                             </div> 
                         </div> 
@@ -287,7 +318,7 @@
                             <label class="block text-sm font-medium text-gray-700 mb-2">ภาพปกอัลบั้ม *</label> 
                             <div id="cover-drop-zone" class="drop-zone border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-purple-400 transition-colors cursor-pointer"> 
                                 <div class="drop-icon text-4xl mb-4">🖼️</div> 
-                                <p class="text-gray-600 mb-2">ลากไฟล์รูปภาพมาวางที่นี่ หรือคลิกเพื่อเลือกไฟล์</p> 
+                                <p class="text-gray-600mb-2">ลากไฟล์รูปภาพมาวางที่นี่ หรือคลิกเพื่อเลือกไฟล์</p> 
                                 <p class="text-sm text-gray-500 mb-4">รองรับไฟล์: JPG, JPEG, PNG (ขนาดแนะนำ: 3000x3000px)</p>
                                 <button type="button" onclick="document.getElementById('cover').click()" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors">เลือกรูปภาพ</button> 
                                 <input type="file" id="cover" accept=".jpg,.jpeg,.png" class="hidden"> 
@@ -332,35 +363,10 @@
                 </div> 
             </div> 
         </section> 
+    </div>
 
-        <!-- Free Banner --> 
-        <section class="py-12 bg-gradient-to-r from-green-400 to-emerald-500 text-white"> 
-            <div class="container mx-auto px-6 text-center"> 
-                <div class="max-w-4xl mx-auto"> 
-                    <h3 class="text-3xl font-bold mb-4">🎉 บริการฟรี 100% ไม่มีค่าใช้จ่ายแอบแฝง</h3> 
-                    <p class="text-xl mb-6">ไม่ต้องจ่ายค่าสมัคร ไม่ต้องจ่ายค่าธรรมเนียม ไม่หักเปอร์เซ็นต์ รับเงินเต็ม 100%</p> 
-                    <div class="grid md:grid-cols-4 gap-6 text-center"> 
-                        <div class="bg-white bg-opacity-20 rounded-lg p-4"> 
-                            <div class="text-2xl font-bold">0฿</div> 
-                            <div class="text-sm">ค่าสมัคร</div> 
-                        </div> 
-                        <div class="bg-white bg-opacity-20 rounded-lg p-4"> 
-                            <div class="text-2xl font-bold">0฿</div> 
-                            <div class="text-sm">ค่าอัปโหลด</div> 
-                        </div> 
-                        <div class="bg-white bg-opacity-20 rounded-lg p-4"> 
-                            <div class="text-2xl font-bold">0%</div> 
-                            <div class="text-sm">หักค่าบริการ</div> 
-                        </div> 
-                        <div class="bg-white bg-opacity-20 rounded-lg p-4"> 
-                            <div class="text-2xl font-bold">100%</div> 
-                            <div class="text-sm">รับเงินเต็ม</div> 
-                        </div> 
-                    </div> 
-                </div> 
-            </div> 
-        </section> 
-
+    <!-- Services Page Section -->
+    <div id="services-page" class="page-section">
         <!-- Services Section --> 
         <section id="services" class="py-20 bg-white"> 
             <div class="container mx-auto px-6"> 
@@ -374,7 +380,7 @@
                             <span class="text-white text-2xl">🌍</span> 
                         </div> 
                         <h4 class="text-2xl font-bold mb-4">แจกจ่ายทั่วโลก</h4> 
-                        <p class="text-gray-700 mb-6">ส่งเพลงของคุณไปยัง 150+ แพลตฟอร์มสตรีมมิ่งทั่วโลก รวมถึง Spotify, Apple Music, YouTube Music, Amazon Music และอื่นๆ</p> 
+                        <p class="text-gray-00 mb-6">ส่งเพลงของคุณไปยัง 150+ แพลตฟอร์มสตรีมมิ่งทั่วโลก รวมถึง Spotify, Apple Music, YouTube Music, Amazon Music และอื่นๆ</p> 
                         <ul class="text-sm text-gray-600 space-y-2"> 
                             <li>✓ Spotify (ทั่วโลก)</li> 
                             <li>✓ Apple Music & iTunes</li> 
@@ -388,7 +394,7 @@
                         <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mb-6"> 
                             <span class="text-white text-2xl">📊</span> 
                         </div> 
-                        <h4 class="text-2xl font-bold mb-4">รายงานและวิเคราะห์</h4> 
+                        <h4 class="text-2xl font-bold mb-4"รายงานและวิเคราะห์</h4> 
                         <p class="text-gray-700 mb-6">ติดตามผลงานของคุณด้วยรายงานที่ละเอียด รู้จำนวนการฟัง รายได้ และข้อมูลผู้ฟังแบบเรียลไทม์</p> 
                         <ul class="text-sm text-gray-600 space-y-2"> 
                             <li>✓ รายงานการฟังรายวัน</li> 
@@ -403,7 +409,7 @@
                         <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mb-6"> 
                             <span class="text-white text-2xl">🎯</span> 
                         </div> 
-                        <h4 class="text-2xl font-bold mb-4">การตลาดและโปรโมท</h4> 
+                        <h4 class="text-2xl font-bold mb-4">กรตลาดและโปรโมท</h4> 
                         <p class="text-gray-700 mb-6">เครื่องมือช่วยโปรโมทเพลงของคุณ รวมถึงการสร้าง Pre-save, Smart Link และแคมเปญโฆษณา</p> 
                         <ul class="text-sm text-gray-600 space-y-2"> 
                             <li>✓ Smart Link สำหรับแชร์</li> 
@@ -436,7 +442,10 @@
                 </section> 
             </div> 
         </section> 
+    </div>
 
+    <!-- Pricing Page Section -->
+    <div id="pricing-page" class="page-section">
         <!-- Pricing Section --> 
         <section id="pricing" class="py-20 bg-white"> 
             <div class="container mx-auto px-6"> 
@@ -453,7 +462,7 @@
                             <span class="text-2xl">🆓</span> 
                         </div> 
                         <h4 class="text-2xl font-bold mb-4">Free Forever</h4> 
-                        <div class="text-5xl font-bold mb-2">ฟรี</div> 
+                        <div clss="text-5xl font-bold mb-2">ฟรี</div> 
                         <div class="text-lg opacity-90 mb-2">ตลอดชีพ</div> 
                         <p class="opacity-90 mb-8">ไม่มีค่าสมัคร ไม่มีค่าธรรมเนียมแอบแฝง</p> 
                         <ul class="text-left space-y-3 mb-8"> 
@@ -494,7 +503,7 @@
                         </div> 
                         <h4 class="text-2xl font-bold mb-4">Enterprise</h4> 
                         <div class="text-4xl font-bold text-purple-600 mb-2">฿999</div> 
-                        <p class="text-gray-600 mb-8">ต่อเดือน</p> 
+                        <p class="text-gray-600 mb-">ต่อเดือน</p> 
                         <ul class="text-left space-y-3 mb-8"> 
                             <li class="flex items-center"><span class="text-green-500 mr-3">✓</span> ทุกอย่างใน Pro</li> 
                             <li class="flex items-center"><span class="text-green-500 mr-3">✓</span> Account Manager เฉพาะ</li> 
@@ -509,7 +518,10 @@
                 </div> 
             </div> 
         </section> 
+    </div>
 
+    <!-- Support Page Section -->
+    <div id="support-page" class="page-section">
         <!-- Support Section --> 
         <section id="support" class="py-20 bg-gray-50"> 
             <div class="container mx-auto px-6"> 
@@ -564,8 +576,8 @@
                                         <span class="text-blue-600 text-xl">📧</span> 
                                     </div> 
                                     <div> 
-                                        <h5 class="font-semibold">อีเมลสนับสนุน</h5> 
-                                        <p class="text-gray-600"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f98d919c948c8a909a9498929c8b898c9b95908a9190979eb99e94989095d79a9694">[email&#160;protected]</a></p> 
+                                        <h5 class="font-semiold">อีเมลสนับสนุน</h5> 
+                                        <p class="text-gray-600">themusicmakerpublishing@gmail.com</p> 
                                     </div> 
                                 </div> 
                                 <p class="text-sm text-gray-500">ตอบกลับภายใน 2 ชั่วโมง</p> 
@@ -580,7 +592,7 @@
                                         <p class="text-gray-600">@musicmakerthailand</p> 
                                     </div> 
                                 </div> 
-                                <p class="text-sm text-gray-500">แชทสดตลอด 24 ชั่วโมง</p> 
+                                <p class="text-sm text-gay-500">แชทสดตลอด 24 ชั่วโมง</p> 
                             </div> 
                             <div class="bg-white p-6 rounded-xl shadow-sm card-hover"> 
                                 <div class="flex items-center mb-4"> 
@@ -588,7 +600,7 @@
                                         <span class="text-purple-600 text-xl">📞</span> 
                                     </div> 
                                     <div> 
-                                        <h5 class="font-semibold">โทรศัพท์</h5> 
+                                        <h5 class="font-emibold">โทรศัพท์</h5> 
                                         <p class="text-gray-600">02-XXX-XXXX</p> 
                                     </div> 
                                 </div> 
@@ -652,30 +664,30 @@
                         </div> 
                         <span class="text-xl font-bold">The Music Maker Thailand</span> 
                     </div> 
-                    <p class="text-gray-400 mb-4">แพลตฟอร์มแจกจ่ายเพลงชั้นนำของไทย ช่วยศิลปินไทยเข้าถึงผู้ฟังทั่วโลก</p> 
+                    <p class="tex-gray-400 mb-4">แพลตฟอร์มแจกจ่ายเพลงชั้นนำของไทย ช่วยศิลปินไทยเข้าถึงผู้ฟังทั่วโลก</p> 
                     <div class="flex space-x-4"> 
                         <a href="#" class="text-gray-400 hover:text-white transition-colors">📘</a> 
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">📷</a> 
+                        <a href="#" class="text-gray-400 hover:text-white transitio-colors">📷</a> 
                         <a href="#" class="text-gray-400 hover:text-white transition-colors">🐦</a> 
                         <a href="#" class="text-gray-400 hover:text-white transition-colors">📺</a> 
                     </div> 
                 </div> 
                 <div> 
-                    <h5 class="font-bold mb-4">บริการ</h5> 
+                 <h5 class="font-bold mb-4">บริการ</h5> 
                     <ul class="space-y-2 text-gray-400"> 
-                        <li><a href="#" class="hover:text-white transition-colors">แจกจ่ายเพลง</a></li> 
-                        <li><a href="#" class="hover:text-white transition-colors">การตลาดเพลง</a></li> 
-                        <li><a href="#" class="hover:text-white transition-colors">รายงานและวิเคราะห์</a></li> 
-                        <li><a href="#" class="hover:text-white transition-colors">Playlist Pitching</a></li> 
+                        <li><a href="#" onclick="showPage('services')" class="hover:text-white transition-colors">แจกจ่ายเพลง</a></li> 
+                        <li><a href="#" onclick="showPage('services')" class="hover:text-white transition-colors">การตลาดเพลง</a></li> 
+                        <li><a href="#" onclick="showPage('services')" class="hover:text-white transition-colors">รายงานและวิเคราะห์</a></li> 
+                        <li><a href="#" onclick="showPage('services')" class="hover:text-white transition-colors">Playlist Pitching</a></li> 
                     </ul> 
                 </div> 
                 <div> 
                     <h5 class="font-bold mb-4">ช่วยเหลือ</h5> 
                     <ul class="space-y-2 text-gray-400"> 
-                        <li><a href="#" class="hover:text-white transition-colors">คำถามที่พบบ่อย</a></li> 
-                        <li><a href="#" class="hover:text-white transition-colors">คู่มือการใช้งาน</a></li> 
-                        <li><a href="#" class="hover:text-white transition-colors">ติดต่อเรา</a></li> 
-                        <li><a href="#" class="hover:text-white transition-colors">รายงานปัญหา</a></li> 
+                        <li><a href="#" onclick="showPage('support')" class="hover:text-white transition-colors">คำถามที่พบบ่อย</a></li> 
+                        <li><a href="#" onclick="showPage('support')" class="hover:text-white transition-colors">คู่มือการใช้งาน</a></li> 
+                        <li><a href="#" onclick="showPage('support')" class="hover:text-white transition-colors">ติดต่อเรา</a></li> 
+                        <li><a href="#" onclick="showPage('support')" class="hover:text-white transition-colors">รายงานปัญหา</a></li> 
                     </ul> 
                 </div> 
                 <div> 
@@ -779,7 +791,7 @@
                 <div class="w-32 h-32 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full mx-auto mb-6 flex items-center justify-center"> 
                     <span class="text-white text-4xl">🎵</span> 
                 </div> 
-                <h4 class="text-xl font-bold mb-4">ระบบแจกจ่ายเพลงอัตโนมัติ</h4> 
+                <h4 class="text-xl font-bold mb-4">ระบบแกจ่ายเพลงอัตโนมัติ</h4> 
                 <p class="text-gray-600 mb-6">เมื่อคุณอัปโหลดเพลง ระบบจะทำการ:</p> 
                 <div class="text-left space-y-3 mb-6"> 
                     <div class="flex items-center"> 
@@ -814,7 +826,7 @@
         </div> 
     </div> 
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script> 
+    <script> 
         // Initialize variables
         let currentStep = 1;
         const totalSteps = 4;
@@ -946,7 +958,7 @@
                         // Add success styling
                         audioFileName.classList.add('text-green-600');
                         audioFileSize.classList.add('text-green-500');
-                    } else {
+                   } else {
                         audioFileName.textContent = '';
                         audioFileSize.textContent = '';
                         audioFileName.classList.remove('text-green-600');
@@ -977,7 +989,7 @@
                         reader.onload = (e) => {
                             coverPreview.src = e.target.result;
                             coverPreview.classList.remove('hidden');
-                        }
+                       }
                         reader.readAsDataURL(file);
                     } else {
                         coverFileName.textContent = '';
