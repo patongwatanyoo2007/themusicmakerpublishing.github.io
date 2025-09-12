@@ -84,6 +84,31 @@
         td.status-rejected { color: #ef4444; font-weight: 600; }
         .page-section { display: none; }
         .page-section.active { display: block; }
+        
+        /* Drag and Drop Styles */
+        .drop-zone {
+            transition: all 0.3s ease;
+        }
+        .drop-zone.drag-over {
+            border-color: #8b5cf6 !important;
+            background-color: #f3f4f6 !important;
+            transform: scale(1.02);
+        }
+        .drop-zone.drag-over .drop-icon {
+            animation: bounce 1s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        .file-preview {
+            max-width: 200px;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
     </style> 
 </head> 
 <body class="bg-gray-50"> 
@@ -247,24 +272,28 @@
                         <!-- เพลง --> 
                         <div> 
                             <label class="block text-sm font-medium text-gray-700 mb-2">ไฟล์เพลง *</label> 
-                            <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-purple-400 transition-colors"> 
-                                <div class="text-4xl mb-4">🎵</div> 
-                                <p class="text-gray-600 mb-2">ลากไฟล์เพลงมาวางที่นี่</p> 
+                            <div id="audio-drop-zone" class="drop-zone border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-purple-400 transition-colors cursor-pointer"> 
+                                <div class="drop-icon text-4xl mb-4">🎵</div> 
+                                <p class="text-gray-600 mb-2">ลากไฟล์เพลงมาวางที่นี่ หรือคลิกเพื่อเลือกไฟล์</p> 
+                                <p class="text-sm text-gray-500 mb-4">รองรับไฟล์: MP3, WAV, FLAC</p>
                                 <button type="button" onclick="document.getElementById('song').click()" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors">เลือกไฟล์เพลง</button> 
                                 <input type="file" id="song" accept=".mp3,.wav,.flac" class="hidden"> 
-                                <p id="audioFileName" class="mt-2 text-sm text-gray-700"></p> 
+                                <div id="audioFileName" class="mt-4 text-sm text-gray-700 font-medium"></div> 
+                                <div id="audioFileSize" class="text-xs text-gray-500"></div>
                             </div> 
                         </div> 
                         <!-- ภาพปก --> 
                         <div> 
                             <label class="block text-sm font-medium text-gray-700 mb-2">ภาพปกอัลบั้ม *</label> 
-                            <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-purple-400 transition-colors"> 
-                                <div class="text-4xl mb-4">🖼️</div> 
-                                <p class="text-gray-600 mb-2">ลากไฟล์รูปภาพมาวางที่นี่</p> 
+                            <div id="cover-drop-zone" class="drop-zone border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-purple-400 transition-colors cursor-pointer"> 
+                                <div class="drop-icon text-4xl mb-4">🖼️</div> 
+                                <p class="text-gray-600 mb-2">ลากไฟล์รูปภาพมาวางที่นี่ หรือคลิกเพื่อเลือกไฟล์</p> 
+                                <p class="text-sm text-gray-500 mb-4">รองรับไฟล์: JPG, JPEG, PNG (ขนาดแนะนำ: 3000x3000px)</p>
                                 <button type="button" onclick="document.getElementById('cover').click()" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors">เลือกรูปภาพ</button> 
                                 <input type="file" id="cover" accept=".jpg,.jpeg,.png" class="hidden"> 
-                                <p id="coverFileName" class="mt-2 text-sm text-gray-700"></p> 
-                                <img id="coverPreview" class="mt-2 w-32 h-32 object-cover rounded-lg hidden"> 
+                                <div id="coverFileName" class="mt-4 text-sm text-gray-700 font-medium"></div> 
+                                <div id="coverFileSize" class="text-xs text-gray-500"></div>
+                                <img id="coverPreview" class="file-preview mx-auto hidden"> 
                             </div> 
                         </div> 
                     </div> 
@@ -536,7 +565,7 @@
                                     </div> 
                                     <div> 
                                         <h5 class="font-semibold">อีเมลสนับสนุน</h5> 
-                                        <p class="text-gray-600">themusicmakerpublishing@gmail.com</p> 
+                                        <p class="text-gray-600"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f98d919c948c8a909a9498929c8b898c9b95908a9190979eb99e94989095d79a9694">[email&#160;protected]</a></p> 
                                     </div> 
                                 </div> 
                                 <p class="text-sm text-gray-500">ตอบกลับภายใน 2 ชั่วโมง</p> 
@@ -785,7 +814,7 @@
         </div> 
     </div> 
 
-    <script> 
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script> 
         // Initialize variables
         let currentStep = 1;
         const totalSteps = 4;
@@ -804,39 +833,157 @@
             window.scrollTo(0, 0);
         }
         
-        // File upload handlers
-        document.addEventListener('DOMContentLoaded', function() {
-            // แสดงชื่อไฟล์เพลงทันที
+        // Utility function to format file size
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+        
+        // Drag and Drop functionality
+        function setupDragAndDrop() {
+            const audioDropZone = document.getElementById('audio-drop-zone');
+            const coverDropZone = document.getElementById('cover-drop-zone');
             const audioInput = document.getElementById('song');
-            const audioFileName = document.getElementById('audioFileName');
+            const coverInput = document.getElementById('cover');
             
-            if (audioInput) {
-                audioInput.addEventListener('change', () => {
-                    if (audioInput.files.length > 0) {
-                        audioFileName.textContent = `ไฟล์ที่เลือก: ${audioInput.files[0].name}`;
-                    } else {
-                        audioFileName.textContent = '';
+            // Audio file drag and drop
+            if (audioDropZone && audioInput) {
+                audioDropZone.addEventListener('click', () => audioInput.click());
+                
+                audioDropZone.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    audioDropZone.classList.add('drag-over');
+                });
+                
+                audioDropZone.addEventListener('dragleave', (e) => {
+                    e.preventDefault();
+                    audioDropZone.classList.remove('drag-over');
+                });
+                
+                audioDropZone.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    audioDropZone.classList.remove('drag-over');
+                    
+                    const files = e.dataTransfer.files;
+                    if (files.length > 0) {
+                        const file = files[0];
+                        if (file.type.startsWith('audio/') || 
+                            file.name.toLowerCase().endsWith('.mp3') || 
+                            file.name.toLowerCase().endsWith('.wav') || 
+                            file.name.toLowerCase().endsWith('.flac')) {
+                            
+                            // Create a new FileList-like object
+                            const dt = new DataTransfer();
+                            dt.items.add(file);
+                            audioInput.files = dt.files;
+                            
+                            // Trigger change event
+                            audioInput.dispatchEvent(new Event('change'));
+                        } else {
+                            alert('กรุณาเลือกไฟล์เสียงที่รองรับ (MP3, WAV, FLAC)');
+                        }
                     }
                 });
             }
             
-            // แสดงชื่อไฟล์และ preview รูปปกทันที
+            // Cover image drag and drop
+            if (coverDropZone && coverInput) {
+                coverDropZone.addEventListener('click', () => coverInput.click());
+                
+                coverDropZone.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    coverDropZone.classList.add('drag-over');
+                });
+                
+                coverDropZone.addEventListener('dragleave', (e) => {
+                    e.preventDefault();
+                    coverDropZone.classList.remove('drag-over');
+                });
+                
+                coverDropZone.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    coverDropZone.classList.remove('drag-over');
+                    
+                    const files = e.dataTransfer.files;
+                    if (files.length > 0) {
+                        const file = files[0];
+                        if (file.type.startsWith('image/')) {
+                            // Create a new FileList-like object
+                            const dt = new DataTransfer();
+                            dt.items.add(file);
+                            coverInput.files = dt.files;
+                            
+                            // Trigger change event
+                            coverInput.dispatchEvent(new Event('change'));
+                        } else {
+                            alert('กรุณาเลือกไฟล์รูปภาพที่รองรับ (JPG, JPEG, PNG)');
+                        }
+                    }
+                });
+            }
+        }
+        
+        // File upload handlers
+        document.addEventListener('DOMContentLoaded', function() {
+            // Setup drag and drop functionality
+            setupDragAndDrop();
+            
+            // Audio file input handler
+            const audioInput = document.getElementById('song');
+            const audioFileName = document.getElementById('audioFileName');
+            const audioFileSize = document.getElementById('audioFileSize');
+            
+            if (audioInput) {
+                audioInput.addEventListener('change', () => {
+                    if (audioInput.files.length > 0) {
+                        const file = audioInput.files[0];
+                        audioFileName.textContent = `📁 ${file.name}`;
+                        audioFileSize.textContent = `ขนาดไฟล์: ${formatFileSize(file.size)}`;
+                        
+                        // Add success styling
+                        audioFileName.classList.add('text-green-600');
+                        audioFileSize.classList.add('text-green-500');
+                    } else {
+                        audioFileName.textContent = '';
+                        audioFileSize.textContent = '';
+                        audioFileName.classList.remove('text-green-600');
+                        audioFileSize.classList.remove('text-green-500');
+                    }
+                });
+            }
+            
+            // Cover image input handler
             const coverInput = document.getElementById('cover');
             const coverFileName = document.getElementById('coverFileName');
+            const coverFileSize = document.getElementById('coverFileSize');
             const coverPreview = document.getElementById('coverPreview');
             
             if (coverInput) {
                 coverInput.addEventListener('change', () => {
                     if (coverInput.files.length > 0) {
-                        coverFileName.textContent = `ไฟล์ที่เลือก: ${coverInput.files[0].name}`;
+                        const file = coverInput.files[0];
+                        coverFileName.textContent = `🖼️ ${file.name}`;
+                        coverFileSize.textContent = `ขนาดไฟล์: ${formatFileSize(file.size)}`;
+                        
+                        // Add success styling
+                        coverFileName.classList.add('text-green-600');
+                        coverFileSize.classList.add('text-green-500');
+                        
+                        // Show image preview
                         const reader = new FileReader();
                         reader.onload = (e) => {
                             coverPreview.src = e.target.result;
                             coverPreview.classList.remove('hidden');
                         }
-                        reader.readAsDataURL(coverInput.files[0]);
+                        reader.readAsDataURL(file);
                     } else {
                         coverFileName.textContent = '';
+                        coverFileSize.textContent = '';
+                        coverFileName.classList.remove('text-green-600');
+                        coverFileSize.classList.remove('text-green-500');
                         coverPreview.src = '';
                         coverPreview.classList.add('hidden');
                     }
@@ -1014,8 +1161,16 @@
             document.getElementById('song').value = '';
             document.getElementById('cover').value = '';
             document.getElementById('audioFileName').textContent = '';
+            document.getElementById('audioFileSize').textContent = '';
             document.getElementById('coverFileName').textContent = '';
+            document.getElementById('coverFileSize').textContent = '';
             document.getElementById('coverPreview').classList.add('hidden');
+            
+            // Remove success styling
+            document.getElementById('audioFileName').classList.remove('text-green-600');
+            document.getElementById('audioFileSize').classList.remove('text-green-500');
+            document.getElementById('coverFileName').classList.remove('text-green-600');
+            document.getElementById('coverFileSize').classList.remove('text-green-500');
             
             // Go back to first step
             document.getElementById(`step${currentStep}`).classList.add('hidden');
@@ -1057,5 +1212,3 @@
     </script> 
 </body> 
 </html>
-
-
