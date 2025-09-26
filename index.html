@@ -109,6 +109,39 @@
             border-radius: 8px;
             margin-top: 10px;
         }
+
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(102, 126, 234, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .mobile-menu.show {
+            display: block;
+        }
+        
+        /* Responsive improvements */
+        @media (max-width: 768px) {
+            .logo-grid {
+                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+                gap: 15px;
+            }
+            .logo-grid img {
+                max-height: 40px;
+            }
+            table {
+                font-size: 12px;
+            }
+            th, td {
+                padding: 8px 4px;
+            }
+        }
     </style> 
 </head> 
 <body class="bg-gray-50"> 
@@ -133,12 +166,23 @@
                     <a href="#" onclick="showPage('support')" class="hover:text-blue-200 transition-colors">ช่วยเหลือ</a> 
                     <a href="#" onclick="showPage('song-status')" class="hover:text-blue-200 transition-colors font-bold">สถานะอัปโหลดเพลง</a> 
                 </nav> 
-                <button class="md:hidden text-white"> 
+                <button class="md:hidden text-white" onclick="toggleMobileMenu()"> 
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> 
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> 
                     </svg> 
                 </button> 
-            </div> 
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu">
+                <div class="flex flex-col space-y-2 p-4">
+                    <a href="#" onclick="showPage('home')" class="hover:text-blue-200 transition-colors py-2">หน้าแรก</a>
+                    <a href="#" onclick="showPage('services')" class="hover:text-blue-200 transition-colors py-2">บริการ</a>
+                    <a href="#" onclick="showPage('upload')" class="hover:text-blue-200 transition-colors py-2">อัปโหลด</a>
+                    <a href="#" onclick="showPage('pricing')" class="hover:text-blue-200 transition-colors py-2">ราคา</a>
+                    <a href="#" onclick="showPage('support')" class="hover:text-blue-200 transition-colors py-2">ช่วยเหลือ</a>
+                    <a href="#" onclick="showPage('song-status')" class="hover:text-blue-200 transition-colors py-2 font-bold">สถานะอัปโหลดเพลง</a>
+                </div>
+            </div>
         </div> 
     </header> 
 
@@ -149,8 +193,8 @@
             <div class="container mx-auto px-6"> 
                 <div class="grid lg:grid-cols-2 gap-12 items-center"> 
                     <div> 
-                        <h2 class="text-5xl font-bold mb-6">แจกจ่ายเพลงของคุณสู่โลก</h2> 
-                        <p class="text-xl mb-8 leading-relaxed">อัปโหลดเพลงของคุณไปยังแพลตฟอร์มสตรีมมิ่งชั้นนำทั่วโลก รวม 150+ แพลตฟอร์ม <span class="bg-yellow-300 text-yellow-900 px-3 py-1 rounded-full font-bold">100% ฟรี ตลอดชีพ!</span> ไม่มีค่าสมัคร ไม่มีค่าธรรมเนียมแอบแฝง รับเงิน 100% ไม่หักค่าบริการ</p> 
+                        <h2 class="text-3xl md:text-5xl font-bold mb-6">แจกจ่ายเพลงของคุณสู่โลก</h2> 
+                        <p class="text-lg md:text-xl mb-8 leading-relaxed">อัปโหลดเพลงของคุณไปยังแพลตฟอร์มสตรีมมิ่งชั้นนำทั่วโลก รวม 150+ แพลตฟอร์ม <span class="bg-yellow-300 text-yellow-900 px-3 py-1 rounded-full font-bold">100% ฟรี ตลอดชีพ!</span> ไม่มีค่าสมัคร ไม่มีค่าธรรมเนียมแอบแฝง รับเงิน 100% ไม่หักค่าบริการ</p> 
                         <div class="flex flex-col sm:flex-row gap-4"> 
                             <button onclick="showPage('upload')" class="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors shadow-lg"> 
                                 เริ่มอัปโหลดเลย 
@@ -191,8 +235,8 @@
         <section class="py-12 bg-gradient-to-r from-green-400 to-emerald-500 text-white"> 
             <div class="container mx-auto px-6 text-center"> 
                 <div class="max-w-4xl mx-auto"> 
-                    <h3 class="text-3xl font-bold mb-4">🎉 บริการฟรี 100 ไม่มีค่าใช้จ่ายแอบแฝง</h3> 
-                    <p class="text-xl mb-6">ไม่ต้องจ่ายค่าสมัคร ไม่ต้องจ่ายค่าธรรมเนียม ไม่หักเปอร์เซ็นต์ รับเงินเต็ม 100%</p> 
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4">🎉 บริการฟรี 100% ไม่มีค่าใช้จ่ายแอบแฝง</h3> 
+                    <p class="text-lg md:text-xl mb-6">ไม่ต้องจ่ายค่าสมัคร ไม่ต้องจ่ายค่าธรรมเนียม ไม่หักเปอร์เซ็นต์ รับเงินเต็ม 100%</p> 
                     <div class="grid md:grid-cols-4 gap-6 text-center"> 
                         <div class="bg-white bg-opacity-20 rounded-lg p-4"> 
                             <div class="text-2xl font-bold">0฿</div> 
@@ -225,7 +269,7 @@
                 
                 <!-- Progress Bar --> 
                 <div class="mb-8"> 
-                    <div class="flex justify-between mb-2"> 
+                    <div class="flex justify-between mb-2 text-sm md:text-base"> 
                         <div class="step active flex items-center"> 
                             <div class="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">1</div> 
                             <span>ข้อมูลพื้นฐาน</span> 
@@ -252,10 +296,10 @@
                     <h2 class="text-3xl font-bold mb-6">ข้อมูลพื้นฐาน</h2> 
                     <div class="grid lg:grid-cols-2 gap-6"> 
                         <div class="space-y-4"> 
-                            <input type="text" id="artistName" placeholder="ชื่อศิลปิน*" class="w-full p-3 border rounded" required> 
-                            <input type="text" id="songName" placeholder="ชื่อเพลง*" class="w-full p-3 border rounded" required> 
-                            <input type="text" id="albumName" placeholder="ชื่ออัลบั้ม" class="w-full p-3 border rounded"> 
-                            <select id="genre" class="w-full p-3 border rounded" required> 
+                            <input type="text" id="artistName" placeholder="ชื่อศิลปิน*" class="w-full p-3 border rounded focus:ring-2 focus:ring-purple-600 focus:border-transparent" required> 
+                            <input type="text" id="songName" placeholder="ชื่อเพลง*" class="w-full p-3 border rounded focus:ring-2 focus:ring-purple-600 focus:border-transparent" required> 
+                            <input type="text" id="albumName" placeholder="ชื่ออัลบั้ม" class="w-full p-3 border rounded focus:ring-2 focus:ring-purple-600 focus:border-transparent"> 
+                            <select id="genre" class="w-full p-3 border rounded focus:ring-2 focus:ring-purple-600 focus:border-transparent" required> 
                                 <option value="">ประเภทเพลง*</option> 
                                 <option>Pop - ป๊อป</option> 
                                 <option>Rock - ร็อค</option> 
@@ -272,7 +316,7 @@
                                 <option>Instrumental - เพลงบรรเลง</option> 
                                 <option>อื่นๆ</option> 
                             </select> 
-                            <select id="language" class="w-full p-3 border rounded" required> 
+                            <select id="language" class="w-full p-3 border rounded focus:ring-2 focus:ring-purple-600 focus:border-transparent" required> 
                                 <option value="">ภาษาเพลง*</option> 
                                 <option>ไทย - Thai</option> 
                                 <option>อังกฤษ - English</option> 
@@ -284,16 +328,16 @@
                             </select> 
                         </div> 
                         <div class="space-y-4"> 
-                            <input type="date" id="releaseDate" class="w-full p-3 border rounded" required> 
-                            <input type="text" id="composer" placeholder="ผู้แต่งเพลง*" class="w-full p-3 border rounded" required> 
-                            <input type="text" id="lyricist" placeholder="ผู้แต่งเนื้อร้อง*" class="w-full p-3 border rounded" required> 
-                            <input type="text" id="producer" placeholder="ผู้ผลิตเพลง" class="w-full p-3 border rounded"> 
-                            <input type="text" id="studio" placeholder="สตูดิโอที่บันทึก" class="w-full p-3 border rounded"> 
+                            <input type="date" id="releaseDate" class="w-full p-3 border rounded focus:ring-2 focus:ring-purple-600 focus:border-transparent" required> 
+                            <input type="text" id="composer" placeholder="ผู้แต่งเพลง*" class="w-full p-3 border rounded focus:ring-2 focus:ring-purple-600 focus:border-transparent" required> 
+                            <input type="text" id="lyricist" placeholder="ผู้แต่งเนื้อร้อง*" class="w-full p-3 border rounded focus:ring-2 focus:ring-purple-600 focus:border-transparent" required> 
+                            <input type="text" id="producer" placeholder="ผู้ผลิตเพลง" class="w-full p-3 border rounded focus:ring-2 focus:ring-purple-600 focus:border-transparent"> 
+                            <input type="text" id="studio" placeholder="สตูดิโอที่บันทึก" class="w-full p-3 border rounded focus:ring-2 focus:ring-purple-600 focus:border-transparent"> 
                         </div> 
                     </div> 
-                    <textarea id="description" rows="4" class="w-full p-3 border rounded mt-4" placeholder="คำอธิบายเพลง"></textarea> 
+                    <textarea id="description" rows="4" class="w-full p-3 border rounded mt-4 focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="คำอธิบายเพลง"></textarea> 
                     <div class="flex justify-end mt-6"> 
-                        <button class="bg-purple-600 text-white px-6 py-3 rounded" onclick="nextStep()">ถัดไป</button> 
+                        <button class="bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors" onclick="nextStep()">ถัดไป</button> 
                     </div> 
                 </div> 
                 <!-- Step 2: File Upload --> 
@@ -309,7 +353,7 @@
                                 <p class="text-sm text-gray-500 mb-4">รองรับไฟล์: MP3, WAV, FLAC</p>
                                 <button type="button" onclick="document.getElementById('song').click()" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors">เลือกไฟล์เพลง</button> 
                                 <input type="file" id="song" accept=".mp3,.wav,.flac" class="hidden"> 
-                                <div id="audioFileName" class="mt-4 text-sm tex-gray-700 font-medium"></div> 
+                                <div id="audioFileName" class="mt-4 text-sm text-gray-700 font-medium"></div> 
                                 <div id="audioFileSize" class="text-xs text-gray-500"></div>
                             </div> 
                         </div> 
@@ -318,17 +362,17 @@
                             <label class="block text-sm font-medium text-gray-700 mb-2">ภาพปกอัลบั้ม *</label> 
                             <div id="cover-drop-zone" class="drop-zone border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-purple-400 transition-colors cursor-pointer"> 
                                 <div class="drop-icon text-4xl mb-4">🖼️</div> 
-                                <p class="text-gray-600mb-2">ลากไฟล์รูปภาพมาวางที่นี่ หรือคลิกเพื่อเลือกไฟล์</p> 
+                                <p class="text-gray-600 mb-2">ลากไฟล์รูปภาพมาวางที่นี่ หรือคลิกเพื่อเลือกไฟล์</p> 
                                 <p class="text-sm text-gray-500 mb-4">รองรับไฟล์: JPG, JPEG, PNG (ขนาดแนะนำ: 1440x1440px หรือ 3000x3000px)</p>
                                 <button type="button" onclick="document.getElementById('cover').click()" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors">เลือกรูปภาพ</button> 
                                 <input type="file" id="cover" accept=".jpg,.jpeg,.png" class="hidden"> 
                                 <div id="coverFileName" class="mt-4 text-sm text-gray-700 font-medium"></div> 
                                 <div id="coverFileSize" class="text-xs text-gray-500"></div>
-                                <img id="coverPreview" class="file-preview mx-auto hidden"> 
+                                <img id="coverPreview" class="file-preview mx-auto hidden" alt="Cover Preview"> 
                             </div> 
                         </div> 
                     </div> 
-                    <div class="flex justify-between mt-4"> 
+                    <div class="flex justify-between mt-6"> 
                         <button type="button" onclick="prevStep()" class="bg-gray-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-600 transition-colors">ย้อนกลับ</button> 
                         <button type="button" onclick="nextStep()" class="bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors">ถัดไป</button> 
                     </div> 
@@ -337,28 +381,34 @@
                 <!-- Step 3: OAC --> 
                 <div id="step3" class="step-content hidden"> 
                     <h2 class="text-3xl font-bold mb-6">ขอ Official Artist Channel (OAC)</h2> 
+                    <div class="bg-blue-50 p-6 rounded-lg mb-6">
+                        <h4 class="font-semibold text-blue-800 mb-2">ข้อมูลเกี่ยวกับ OAC</h4>
+                        <p class="text-blue-700 text-sm">Official Artist Channel จะช่วยให้เพลงของคุณแสดงในหน้าศิลปินแบบเป็นทางการบนแพลตฟอร์มต่างๆ</p>
+                    </div>
                     <form id="oacForm" onsubmit="return checkOAC()" class="space-y-4"> 
-                        <input type="url" id="youtubeLink" placeholder="ลิงก์ YouTube*" class="w-full p-3 border rounded" required> 
-                        <input type="number" id="subscribers" placeholder="จำนวนผู้ติดตาม*" min="0" class="w-full p-3 border rounded" required> 
-                        <button type="submit" class="bg-purple-600 text-white px-6 py-3 rounded">ส่งคำขอ OAC</button> 
+                        <input type="url" id="youtubeLink" placeholder="ลิงก์ YouTube*" class="w-full p-3 border rounded focus:ring-2 focus:ring-purple-600 focus:border-transparent" required> 
+                        <input type="number" id="subscribers" placeholder="จำนวนผู้ติดตาม*" min="0" class="w-full p-3 border rounded focus:ring-2 focus:ring-purple-600 focus:border-transparent" required> 
+                        <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">ส่งคำขอ OAC</button> 
                     </form> 
                     <div class="flex justify-between mt-6"> 
-                        <button class="bg-gray-500 text-white px-6 py-3 rounded" onclick="prevStep()">ย้อนกลับ</button> 
-                        <button class="bg-purple-600 text-white px-6 py-3 rounded" onclick="nextStep()">ถัดไป</button> 
+                        <button class="bg-gray-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-600 transition-colors" onclick="prevStep()">ย้อนกลับ</button> 
+                        <button class="bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors" onclick="nextStep()">ถัดไป</button> 
                     </div> 
                 </div> 
                 <!-- Step 4: Preview + Submit --> 
                 <div id="step4" class="step-content hidden"> 
                     <h2 class="text-3xl font-bold mb-6">สรุปข้อมูลก่อนส่ง</h2> 
-                    <div class="space-y-2"> 
-                        <p><strong>ศิลปิน:</strong> <span id="summaryArtist">-</span></p> 
-                        <p><strong>เพลง:</strong> <span id="summarySong">-</span></p> 
-                        <p><strong>ประเภท:</strong> <span id="summaryGenre">-</span></p> 
-                        <p><strong>วันที่ปล่อย:</strong> <span id="summaryDate">-</span></p> 
-                    </div> 
+                    <div class="bg-white p-6 rounded-lg shadow-sm border">
+                        <div class="space-y-3"> 
+                            <p><strong>ศิลปิน:</strong> <span id="summaryArtist" class="text-gray-700">-</span></p> 
+                            <p><strong>เพลง:</strong> <span id="summarySong" class="text-gray-700">-</span></p> 
+                            <p><strong>ประเภท:</strong> <span id="summaryGenre" class="text-gray-700">-</span></p> 
+                            <p><strong>วันที่ปล่อย:</strong> <span id="summaryDate" class="text-gray-700">-</span></p> 
+                        </div> 
+                    </div>
                     <div class="flex justify-between mt-6"> 
-                        <button class="bg-gray-500 text-white px-6 py-3 rounded" onclick="prevStep()">ย้อนกลับ</button> 
-                        <button class="bg-green-600 text-white px-6 py-3 rounded" onclick="submitForm()">ส่งข้อมูลและอัปโหลดเพลง</button> 
+                        <button class="bg-gray-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-600 transition-colors" onclick="prevStep()">ย้อนกลับ</button> 
+                        <button class="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors" onclick="submitForm()">ส่งข้อมูลและอัปโหลดเพลง</button> 
                     </div> 
                 </div> 
             </div> 
@@ -380,7 +430,7 @@
                             <span class="text-white text-2xl">🌍</span> 
                         </div> 
                         <h4 class="text-2xl font-bold mb-4">แจกจ่ายทั่วโลก</h4> 
-                        <p class="text-gray-00 mb-6">ส่งเพลงของคุณไปยัง 150+ แพลตฟอร์มสตรีมมิ่งทั่วโลก รวมถึง Spotify, Apple Music, YouTube Music, Amazon Music และอื่นๆ</p> 
+                        <p class="text-gray-700 mb-6">ส่งเพลงของคุณไปยัง 150+ แพลตฟอร์มสตรีมมิ่งทั่วโลก รวมถึง Spotify, Apple Music, YouTube Music, Amazon Music และอื่นๆ</p> 
                         <ul class="text-sm text-gray-600 space-y-2"> 
                             <li>✓ Spotify (ทั่วโลก)</li> 
                             <li>✓ Apple Music & iTunes</li> 
@@ -394,7 +444,7 @@
                         <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mb-6"> 
                             <span class="text-white text-2xl">📊</span> 
                         </div> 
-                        <h4 class="text-2xl font-bold mb-4"รายงานและวิเคราะห์</h4> 
+                        <h4 class="text-2xl font-bold mb-4">รายงานและวิเคราะห์</h4> 
                         <p class="text-gray-700 mb-6">ติดตามผลงานของคุณด้วยรายงานที่ละเอียด รู้จำนวนการฟัง รายได้ และข้อมูลผู้ฟังแบบเรียลไทม์</p> 
                         <ul class="text-sm text-gray-600 space-y-2"> 
                             <li>✓ รายงานการฟังรายวัน</li> 
@@ -409,7 +459,7 @@
                         <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mb-6"> 
                             <span class="text-white text-2xl">🎯</span> 
                         </div> 
-                        <h4 class="text-2xl font-bold mb-4">กรตลาดและโปรโมท</h4> 
+                        <h4 class="text-2xl font-bold mb-4">การตลาดและโปรโมท</h4> 
                         <p class="text-gray-700 mb-6">เครื่องมือช่วยโปรโมทเพลงของคุณ รวมถึงการสร้าง Pre-save, Smart Link และแคมเปญโฆษณา</p> 
                         <ul class="text-sm text-gray-600 space-y-2"> 
                             <li>✓ Smart Link สำหรับแชร์</li> 
@@ -423,21 +473,47 @@
                 </div> 
                 <!-- Platform Showcase --> 
                 <section id="platforms-logos" style="text-align:center; padding:40px;"> 
-                    <h2>Music Distribution all Stores 120 Platforms+</h2> 
+                    <h2>Music Distribution all Stores 150+ Platforms</h2> 
                     <div class="logo-grid"> 
-                        <img src="joox.png" alt="Joox"> 
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify"> 
-                        <img src="apple music.png" alt="Apple Music"> 
-                        <img src="tidal.png" alt="Tidal"> 
-                        <img src="youtube music.png" alt="YouTube Music"> 
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"> 
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" alt="Facebook"> 
-                        <img src="tiktok.png" alt="TikTok"> 
-                        <img src="amazon music.png" alt="Amazon Music"> 
-                        <img src="deezer.png" alt="Deezer"> 
-                        <img src="soundcloud.png" alt="SoundCloud"> 
-                        <img src="napster.png" alt="Napster"> 
-                        <img src="line melody.png" alt="LINE Melody"> 
+                        <div class="bg-gray-100 p-4 rounded-lg flex items-center justify-center">
+                            <span class="text-red-600 font-bold">JOOX</span>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg flex items-center justify-center">
+                            <span class="text-green-500 font-bold">Spotify</span>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg flex items-center justify-center">
+                            <span class="text-gray-800 font-bold">Apple Music</span>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg flex items-center justify-center">
+                            <span class="text-black font-bold">TIDAL</span>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg flex items-center justify-center">
+                            <span class="text-red-600 font-bold">YouTube Music</span>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg flex items-center justify-center">
+                            <span class="text-purple-600 font-bold">Instagram</span>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg flex items-center justify-center">
+                            <span class="text-blue-600 font-bold">Facebook</span>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg flex items-center justify-center">
+                            <span class="text-black font-bold">TikTok</span>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg flex items-center justify-center">
+                            <span class="text-blue-600 font-bold">Amazon Music</span>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg flex items-center justify-center">
+                            <span class="text-orange-500 font-bold">Deezer</span>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg flex items-center justify-center">
+                            <span class="text-orange-600 font-bold">SoundCloud</span>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg flex items-center justify-center">
+                            <span class="text-blue-500 font-bold">Napster</span>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg flex items-center justify-center">
+                            <span class="text-green-500 font-bold">LINE Melody</span>
+                        </div>
                     </div> 
                 </section> 
             </div> 
@@ -462,7 +538,7 @@
                             <span class="text-2xl">🆓</span> 
                         </div> 
                         <h4 class="text-2xl font-bold mb-4">Free Forever</h4> 
-                        <div clss="text-5xl font-bold mb-2">ฟรี</div> 
+                        <div class="text-5xl font-bold mb-2">ฟรี</div> 
                         <div class="text-lg opacity-90 mb-2">ตลอดชีพ</div> 
                         <p class="opacity-90 mb-8">ไม่มีค่าสมัคร ไม่มีค่าธรรมเนียมแอบแฝง</p> 
                         <ul class="text-left space-y-3 mb-8"> 
@@ -503,7 +579,7 @@
                         </div> 
                         <h4 class="text-2xl font-bold mb-4">Enterprise</h4> 
                         <div class="text-4xl font-bold text-purple-600 mb-2">฿999</div> 
-                        <p class="text-gray-600 mb-">ต่อเดือน</p> 
+                        <p class="text-gray-600 mb-8">ต่อเดือน</p> 
                         <ul class="text-left space-y-3 mb-8"> 
                             <li class="flex items-center"><span class="text-green-500 mr-3">✓</span> ทุกอย่างใน Pro</li> 
                             <li class="flex items-center"><span class="text-green-500 mr-3">✓</span> Account Manager เฉพาะ</li> 
@@ -576,7 +652,7 @@
                                         <span class="text-blue-600 text-xl">📧</span> 
                                     </div> 
                                     <div> 
-                                        <h5 class="font-semiold">อีเมลสนับสนุน</h5> 
+                                        <h5 class="font-semibold">อีเมลสนับสนุน</h5> 
                                         <p class="text-gray-600">themusicmakerpublishing@gmail.com</p> 
                                     </div> 
                                 </div> 
@@ -592,7 +668,7 @@
                                         <p class="text-gray-600">@musicmakerthailand</p> 
                                     </div> 
                                 </div> 
-                                <p class="text-sm text-gay-500">แชทสดตลอด 24 ชั่วโมง</p> 
+                                <p class="text-sm text-gray-500">แชทสดตลอด 24 ชั่วโมง</p> 
                             </div> 
                             <div class="bg-white p-6 rounded-xl shadow-sm card-hover"> 
                                 <div class="flex items-center mb-4"> 
@@ -600,7 +676,7 @@
                                         <span class="text-purple-600 text-xl">📞</span> 
                                     </div> 
                                     <div> 
-                                        <h5 class="font-emibold">โทรศัพท์</h5> 
+                                        <h5 class="font-semibold">โทรศัพท์</h5> 
                                         <p class="text-gray-600">02-XXX-XXXX</p> 
                                     </div> 
                                 </div> 
@@ -630,23 +706,25 @@
                         <button type="submit" class="bg-purple-600 text-white p-4 rounded-lg font-semibold hover:bg-purple-700 transition-colors">ค้นหา</button>
                     </form>
                     <div id="song-status-result" class="mt-8 hidden">
-                        <table class="rounded-lg overflow-hidden shadow-md">
-                            <thead>
-                                <tr>
-                                    <th>รหัส</th>
-                                    <th>ชื่อเพลง</th>
-                                    <th>ศิลปิน</th>
-                                    <th>คำร้อง</th>
-                                    <th>ทำนอง</th>
-                                    <th>เรียบเรียง</th>
-                                    <th>หมายเหตุ</th>
-                                    <th>สถานะ</th>
-                                </tr>
-                            </thead>
-                            <tbody id="song-status-table-body">
-                                <!-- Rows will be inserted here dynamically -->
-                            </tbody>
-                        </table>
+                        <div class="overflow-x-auto">
+                            <table class="rounded-lg overflow-hidden shadow-md">
+                                <thead>
+                                    <tr>
+                                        <th>รหัส</th>
+                                        <th>ชื่อเพลง</th>
+                                        <th>ศิลปิน</th>
+                                        <th>คำร้อง</th>
+                                        <th>ทำนอง</th>
+                                        <th>เรียบเรียง</th>
+                                        <th>หมายเหตุ</th>
+                                        <th>สถานะ</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="song-status-table-body">
+                                    <!-- Rows will be inserted here dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -664,16 +742,16 @@
                         </div> 
                         <span class="text-xl font-bold">The Music Maker Thailand</span> 
                     </div> 
-                    <p class="tex-gray-400 mb-4">แพลตฟอร์มแจกจ่ายเพลงชั้นนำของไทย ช่วยศิลปินไทยเข้าถึงผู้ฟังทั่วโลก</p> 
+                    <p class="text-gray-400 mb-4">แพลตฟอร์มแจกจ่ายเพลงชั้นนำของไทย ช่วยศิลปินไทยเข้าถึงผู้ฟังทั่วโลก</p> 
                     <div class="flex space-x-4"> 
                         <a href="#" class="text-gray-400 hover:text-white transition-colors">📘</a> 
-                        <a href="#" class="text-gray-400 hover:text-white transitio-colors">📷</a> 
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">📷</a> 
                         <a href="#" class="text-gray-400 hover:text-white transition-colors">🐦</a> 
                         <a href="#" class="text-gray-400 hover:text-white transition-colors">📺</a> 
                     </div> 
                 </div> 
                 <div> 
-                 <h5 class="font-bold mb-4">บริการ</h5> 
+                    <h5 class="font-bold mb-4">บริการ</h5> 
                     <ul class="space-y-2 text-gray-400"> 
                         <li><a href="#" onclick="showPage('services')" class="hover:text-white transition-colors">แจกจ่ายเพลง</a></li> 
                         <li><a href="#" onclick="showPage('services')" class="hover:text-white transition-colors">การตลาดเพลง</a></li> 
@@ -693,8 +771,8 @@
                 <div> 
                     <h5 class="font-bold mb-4">กฎหมาย</h5> 
                     <ul class="space-y-2 text-gray-400"> 
-                        <li><a href="#" class="hover:text-white transition-colors">ข้อกำหนดการใช้งาน</a></li> 
-                        <li><a href="#" class="hover:text-white transition-colors">นโยบายความเป็นส่วนตัว</a></li> 
+                        <li><a href="#" onclick="openModal('termsModal')" class="hover:text-white transition-colors">ข้อกำหนดการใช้งาน</a></li> 
+                        <li><a href="#" onclick="openModal('privacyModal')" class="hover:text-white transition-colors">นโยบายความเป็นส่วนตัว</a></li> 
                         <li><a href="#" class="hover:text-white transition-colors">นโยบายลิขสิทธิ์</a></li> 
                         <li><a href="#" class="hover:text-white transition-colors">การคืนเงิน</a></li> 
                     </ul> 
@@ -791,7 +869,7 @@
                 <div class="w-32 h-32 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full mx-auto mb-6 flex items-center justify-center"> 
                     <span class="text-white text-4xl">🎵</span> 
                 </div> 
-                <h4 class="text-xl font-bold mb-4">ระบบแกจ่ายเพลงอัตโนมัติ</h4> 
+                <h4 class="text-xl font-bold mb-4">ระบบแจกจ่ายเพลงอัตโนมัติ</h4> 
                 <p class="text-gray-600 mb-6">เมื่อคุณอัปโหลดเพลง ระบบจะทำการ:</p> 
                 <div class="text-left space-y-3 mb-6"> 
                     <div class="flex items-center"> 
@@ -831,8 +909,18 @@
         let currentStep = 1;
         const totalSteps = 4;
         
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('show');
+        }
+        
         // Page navigation
         function showPage(pageId) {
+            // Hide mobile menu if open
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.remove('show');
+            
             // Hide all pages
             document.querySelectorAll('.page-section').forEach(page => {
                 page.classList.remove('active');
@@ -842,7 +930,7 @@
             document.getElementById(pageId + '-page').classList.add('active');
             
             // Scroll to top
-            window.scrollTo(0, 0);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
         
         // Utility function to format file size
@@ -958,7 +1046,7 @@
                         // Add success styling
                         audioFileName.classList.add('text-green-600');
                         audioFileSize.classList.add('text-green-500');
-                   } else {
+                    } else {
                         audioFileName.textContent = '';
                         audioFileSize.textContent = '';
                         audioFileName.classList.remove('text-green-600');
@@ -989,7 +1077,7 @@
                         reader.onload = (e) => {
                             coverPreview.src = e.target.result;
                             coverPreview.classList.remove('hidden');
-                       }
+                        }
                         reader.readAsDataURL(file);
                     } else {
                         coverFileName.textContent = '';
@@ -1047,9 +1135,22 @@
                         results.forEach(item => {
                             let statusClass = '';
                             let statusEmoji = '';
-                            if(item.status === 'approved') { statusClass = 'status-approved'; statusEmoji = '✅'; }
-                            else if(item.status === 'pending') { statusClass = 'status-pending'; statusEmoji = '⏳'; }
-                            else if(item.status === 'rejected') { statusClass = 'status-rejected'; statusEmoji = '❌'; }
+                            let statusText = '';
+                            if(item.status === 'approved') { 
+                                statusClass = 'status-approved'; 
+                                statusEmoji = '✅'; 
+                                statusText = 'อนุมัติแล้ว';
+                            }
+                            else if(item.status === 'pending') { 
+                                statusClass = 'status-pending'; 
+                                statusEmoji = '⏳'; 
+                                statusText = 'รอการตรวจสอบ';
+                            }
+                            else if(item.status === 'rejected') { 
+                                statusClass = 'status-rejected'; 
+                                statusEmoji = '❌'; 
+                                statusText = 'ไม่อนุมัติ';
+                            }
                             rowsHTML += `
                                 <tr>
                                     <td>${item.id}</td>
@@ -1059,7 +1160,7 @@
                                     <td>${item.melody}</td>
                                     <td>${item.arrangement}</td>
                                     <td>${item.note}</td>
-                                    <td class="${statusClass}">${statusEmoji} ${item.status}</td>
+                                    <td class="${statusClass}">${statusEmoji} ${statusText}</td>
                                 </tr>
                             `;
                         });
@@ -1071,6 +1172,11 @@
         
         // Step navigation functions
         function nextStep() {
+            // Validate current step before proceeding
+            if (!validateCurrentStep()) {
+                return;
+            }
+            
             if (currentStep < totalSteps) {
                 document.getElementById(`step${currentStep}`).classList.add('hidden');
                 currentStep++;
@@ -1087,6 +1193,9 @@
                 if (currentStep === 4) {
                     updateSummary();
                 }
+                
+                // Scroll to top of form
+                document.querySelector('.container.mx-auto.px-6.max-w-4xl').scrollIntoView({ behavior: 'smooth' });
             }
         }
         
@@ -1102,7 +1211,37 @@
                 
                 // Update step indicators
                 updateStepCircles();
+                
+                // Scroll to top of form
+                document.querySelector('.container.mx-auto.px-6.max-w-4xl').scrollIntoView({ behavior: 'smooth' });
             }
+        }
+        
+        function validateCurrentStep() {
+            if (currentStep === 1) {
+                const requiredFields = ['artistName', 'songName', 'genre', 'language', 'releaseDate', 'composer', 'lyricist'];
+                for (let fieldId of requiredFields) {
+                    const field = document.getElementById(fieldId);
+                    if (!field.value.trim()) {
+                        field.focus();
+                        alert(`กรุณากรอก${field.placeholder}`);
+                        return false;
+                    }
+                }
+            } else if (currentStep === 2) {
+                const songFile = document.getElementById('song').files.length > 0;
+                const coverFile = document.getElementById('cover').files.length > 0;
+                
+                if (!songFile) {
+                    alert('กรุณาเลือกไฟล์เพลง');
+                    return false;
+                }
+                if (!coverFile) {
+                    alert('กรุณาเลือกภาพปกอัลบั้ม');
+                    return false;
+                }
+            }
+            return true;
         }
         
         function updateStepCircles() {
@@ -1149,14 +1288,44 @@
                 return false;
             }
             
-            alert("ส่งคำขอ OAC เรียบร้อย!");
+            // Show success message
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mt-4';
+            alertDiv.textContent = 'ส่งคำขอ OAC เรียบร้อย! ทีมงานจะตรวจสอบและติดต่อกลับภายใน 24-48 ชั่วโมง';
+            
+            const form = document.getElementById('oacForm');
+            form.appendChild(alertDiv);
+            
+            setTimeout(() => {
+                alertDiv.remove();
+            }, 5000);
+            
             return false;
         }
         
         function submitForm() {
-            alert("ส่งข้อมูลและอัปโหลดเพลงเรียบร้อย!");
+            // Show success message
+            const successMessage = document.createElement('div');
+            successMessage.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            successMessage.innerHTML = `
+                <div class="bg-white p-8 rounded-2xl max-w-md mx-4 text-center">
+                    <div class="text-green-500 text-6xl mb-4">✅</div>
+                    <h3 class="text-2xl font-bold mb-4">ส่งข้อมูลเรียบร้อย!</h3>
+                    <p class="text-gray-600 mb-6">เพลงของคุณอยู่ระหว่างการตรวจสอบ<br>จะได้รับการแจกจ่ายภายใน 24-48 ชั่วโมง</p>
+                    <button onclick="this.parentElement.parentElement.remove()" class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors">เข้าใจแล้ว</button>
+                </div>
+            `;
+            document.body.appendChild(successMessage);
             
-            // Reset form and go back to first step
+            // Reset form after a delay
+            setTimeout(() => {
+                resetForm();
+                showPage('home');
+            }, 3000);
+        }
+        
+        function resetForm() {
+            // Clear all form fields
             document.getElementById('artistName').value = '';
             document.getElementById('songName').value = '';
             document.getElementById('albumName').value = '';
@@ -1172,6 +1341,8 @@
             document.getElementById('subscribers').value = '';
             document.getElementById('song').value = '';
             document.getElementById('cover').value = '';
+            
+            // Clear file display
             document.getElementById('audioFileName').textContent = '';
             document.getElementById('audioFileSize').textContent = '';
             document.getElementById('coverFileName').textContent = '';
@@ -1184,7 +1355,7 @@
             document.getElementById('coverFileName').classList.remove('text-green-600');
             document.getElementById('coverFileSize').classList.remove('text-green-500');
             
-            // Go back to first step
+            // Reset to first step
             document.getElementById(`step${currentStep}`).classList.add('hidden');
             currentStep = 1;
             document.getElementById('step1').classList.remove('hidden');
@@ -1195,10 +1366,12 @@
         // Modal functions
         function openModal(modalId) {
             document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
         }
         
         function closeModal(modalId) {
             document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
         
         // FAQ toggle function
@@ -1218,10 +1391,22 @@
         // Close modal when clicking outside
         window.onclick = function(event) {
             if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
+                const modalId = event.target.id;
+                closeModal(modalId);
             }
         }
+        
+        // Prevent body scroll when modal is open
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                // Close any open modals
+                document.querySelectorAll('.modal').forEach(modal => {
+                    if (modal.style.display === 'block') {
+                        closeModal(modal.id);
+                    }
+                });
+            }
+        });
     </script> 
 </body> 
 </html>
-
