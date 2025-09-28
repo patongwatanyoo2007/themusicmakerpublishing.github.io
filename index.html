@@ -1,10 +1,9 @@
-
 <!DOCTYPE html> 
 <html lang="th"> 
 <head> 
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>The Music Maker Thailand Distribution - แจกจ่ายเพลงฟรี & สตรีมมิ่ง</title> 
+    <title>The Music Maker Thailand Distribution - แจกจ่ายเพลงฟรี</title> 
     <script src="https://cdn.tailwindcss.com"></script> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style> 
@@ -111,116 +110,6 @@
             border-radius: 8px;
             margin-top: 10px;
         }
-        
-        /* Music Player Styles */
-        .music-player {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid #e5e7eb;
-            padding: 16px;
-            z-index: 40;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-        .music-player.show {
-            transform: translateY(0);
-        }
-        .player-controls button {
-            background: none;
-            border: none;
-            color: #667eea;
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-        .player-controls button:hover {
-            background: rgba(102, 126, 234, 0.1);
-            transform: scale(1.1);
-        }
-        .play-btn {
-            background: #667eea !important;
-            color: white !important;
-            width: 48px;
-            height: 48px;
-            font-size: 1.2rem;
-        }
-        .play-btn:hover {
-            background: #5a67d8 !important;
-        }
-        .playlist-item {
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-        .playlist-item:hover {
-            background: rgba(255, 255, 255, 1);
-            transform: translateX(5px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        .playlist-item.active {
-            background: rgba(102, 126, 234, 0.1);
-            border-color: #667eea;
-        }
-        .playlist-item.playing {
-            background: rgba(102, 126, 234, 0.15);
-            border-color: #667eea;
-        }
-        .volume-container input {
-            width: 100px;
-            height: 6px;
-            background: rgba(102, 126, 234, 0.2);
-            border-radius: 3px;
-            outline: none;
-            -webkit-appearance: none;
-        }
-        .volume-container input::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 18px;
-            height: 18px;
-            background: #667eea;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-        .streaming-section {
-            padding: 40px 0;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
-        }
-
-        /* Slider Styles */
-        input[type="range"] {
-            -webkit-appearance: none;
-            appearance: none;
-            height: 6px;
-            border-radius: 3px;
-            background: rgba(102, 126, 234, 0.2);
-            outline: none;
-        }
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: #667eea;
-            cursor: pointer;
-        }
-        input[type="range"]::-moz-range-thumb {
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: #667eea;
-            cursor: pointer;
-            border: none;
-        }
     </style> 
 </head> 
 <body class="bg-gray-50"> 
@@ -234,12 +123,11 @@
                     </div> 
                     <div> 
                         <h1 class="text-2xl font-bold">The Music Maker Thailand</h1> 
-                        <p class="text-sm opacity-90">Distribution & Streaming Platform</p> 
+                        <p class="text-sm opacity-90">Distribution Platform</p> 
                     </div> 
                 </div> 
                 <nav class="hidden md:flex space-x-6"> 
                     <a href="#" onclick="showPage('home')" class="hover:text-blue-200 transition-colors">หน้าแรก</a> 
-                    <a href="#" onclick="showPage('streaming')" class="hover:text-blue-200 transition-colors">เล่นเพลง</a> 
                     <a href="#" onclick="showPage('services')" class="hover:text-blue-200 transition-colors">บริการ</a> 
                     <a href="#" onclick="showPage('upload')" class="hover:text-blue-200 transition-colors">อัปโหลด</a> 
                     <a href="#" onclick="showPage('pricing')" class="hover:text-blue-200 transition-colors">ราคา</a> 
@@ -262,14 +150,11 @@
             <div class="container mx-auto px-6"> 
                 <div class="grid lg:grid-cols-2 gap-12 items-center"> 
                     <div> 
-                        <h2 class="text-5xl font-bold mb-6">แจกจ่ายและสตรีมเพลงของคุณสู่โลก</h2> 
+                        <h2 class="text-5xl font-bold mb-6">แจกจ่ายเพลงของคุณสู่โลก</h2> 
                         <p class="text-xl mb-8 leading-relaxed">อัปโหลดเพลงของคุณไปยังแพลตฟอร์มสตรีมมิ่งชั้นนำทั่วโลก รวม 150+ แพลตฟอร์ม <span class="bg-yellow-300 text-yellow-900 px-3 py-1 rounded-full font-bold">100% ฟรี ตลอดชีพ!</span> ไม่มีค่าสมัคร ไม่มีค่าธรรมเนียมแอบแฝง รับเงิน 100% ไม่หักค่าบริการ</p> 
                         <div class="flex flex-col sm:flex-row gap-4"> 
                             <button onclick="showPage('upload')" class="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors shadow-lg"> 
                                 เริ่มอัปโหลดเลย 
-                            </button> 
-                            <button onclick="showPage('streaming')" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-purple-600 transition-colors"> 
-                                ฟังเพลงฟรี 
                             </button> 
                         </div> 
                     </div> 
@@ -300,483 +185,617 @@
             </div> 
         </section> 
 
-        <!-- Free Banner --> 
-        <section class="py-12 bg-gradient-to-r from-green-400 to-emerald-500 text-white"> 
-            <div class="container mx-auto px-6 text-center"> 
-                <div class="max-w-4xl mx-auto"> 
-                    <h3 class="text-3xl font-bold mb-4">🎉 บริการฟรี 100% ไม่มีค่าใช้จ่ายแอบแฝง</h3> 
-                    <p class="text-xl mb-6">ไม่ต้องจ่ายค่าสมัคร ไม่ต้องจ่ายค่าธรรมเนียม ไม่หักเปอร์เซ็นต์ รับเงินเต็ม 100%</p> 
-                    <div class="grid md:grid-cols-4 gap-6 text-center"> 
-                        <div class="bg-white bg-opacity-20 rounded-lg p-4"> 
-                            <div class="text-2xl font-bold">0฿</div> 
-                            <div class="text-sm">ค่าสมัคร</div> 
+        <!-- Platforms Section --> 
+        <section class="py-20 bg-white"> 
+            <div class="container mx-auto px-6"> 
+                <div class="text-center mb-16"> 
+                    <h2 class="text-4xl font-bold mb-4 text-gray-800">แพลตฟอร์มที่เรารองรับ</h2> 
+                    <p class="text-xl text-gray-600">เพลงของคุณจะปรากฏในทุกแพลตฟอร์มสตรีมมิ่งชั้นนำ</p> 
+                </div> 
+                <div id="platforms-logos" class="logo-grid max-w-6xl mx-auto">
+                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiB2aWV3Qm94PSIwIDAgMTIwIDYwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiByeD0iOCIgZmlsbD0iIzFFRDc2MEIiLz4KPHN2ZyB4PSIxMCIgeT0iMTUiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjRkZGRkZGIj4KPHBhdGggZD0iTTEyIDJDNi40NzcgMiAyIDYuNDc3IDIgMTJzNC40NzcgMTAgMTAgMTAgMTAtNC40NzcgMTAtMTBTMTcuNTIzIDIgMTIgMnptLS4wMDEgMTcuMDE2Yy00LjE5NyAwLTcuNTk2LTMuMzk5LTcuNTk2LTcuNTk2cy4zOTktNS4xOTYgNy41OTYtNy41OTZ2MTUuMTkyeiIvPgo8L3N2Zz4KPHR4dCB4PSI0NSIgeT0iMzAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNGRkZGRkYiPkJhbmRjYW1wPC90eHQ+Cjwvc3ZnPgo=" alt="Bandcamp" />
+                        <div class="text-sm mt-2 font-medium">Bandcamp</div>
+                    </div>
+                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiB2aWV3Qm94PSIwIDAgMTIwIDYwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiByeD0iOCIgZmlsbD0iIzAwMDAwMCIvPgo8c3ZnIHg9IjEwIiB5PSIxNSIgd2lkdGg9IjMwIiBoZWlnaHQ9IjMwIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IiNGRkZGRkYiPgo8cGF0aCBkPSJNMTIgMkM2LjQ3NyAyIDIgNi40NzcgMiAxMnM0LjQ3NyAxMCAxMCAxMCAxMC00LjQ3NyAxMC0xMFMxNy41MjMgMiAxMiAyek00IDEyYzAtNC40MTggMy41ODItOCA4LThzOCAzLjU4MiA4IDhWOHptOCAxdjNsNCAzLjVMMTIgMTN6Ii8+Cjwvc3ZnPgo8dHh0IHg9IjQ1IiB5PSIzMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI0ZGRkZGRiI+U3BvdGlmeTwvdHh0Pgo8L3N2Zz4K" alt="Spotify" />
+                        <div class="text-sm mt-2 font-medium">Spotify</div>
+                    </div>
+                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiB2aWV3Qm94PSIwIDAgMTIwIDYwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiByeD0iOCIgZmlsbD0iI0ZGM0QwMCIvPgo8c3ZnIHg9IjEwIiB5PSIxNSIgd2lkdGg9IjMwIiBoZWlnaHQ9IjMwIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IiNGRkZGRkYiPgo8cGF0aCBkPSJNOCAxOWg2VjlIOHYxMHptLTQgMGgzVjloM3YxMHptLTQgMGgzVjloLTNWMTl6Ii8+Cjwvc3ZnPgo8dHh0IHg9IjQ1IiB5PSIzMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI0ZGRkZGRiI+U291bmRDbG91ZDwvdHh0Pgo8L3N2Zz4K" alt="SoundCloud" />
+                        <div class="text-sm mt-2 font-medium">SoundCloud</div>
+                    </div>
+                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiB2aWV3Qm94PSIwIDAgMTIwIDYwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiByeD0iOCIgZmlsbD0iIzAwMDAyMiIvPgo8c3ZnIHg9IjEwIiB5PSIxNSIgd2lkdGg9IjMwIiBoZWlnaHQ9IjMwIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IiNGRkZGRkYiPgo8cGF0aCBkPSJNMTIgMkM2LjQ3IDIgMiA2LjQ3IDIgMTJzNC40NyAxMCAxMCAxMCAxMC00LjQ3IDEwLTEwUzE3LjUzIDIgMTIgMnptNCA4LjAzMmMuMDU3IDEuNTk1LS4wNjMgMy4yNS0uNTM1IDQuNzYyLTEuMzc3IDIuNjA0LTQuMzQ0IDQuMzI5LTcuMTQzIDQuMjUyQzYuMjIgMTkuMDA5IDQgMTguMTMzIDQgMTQuMDEyYzAtLjU3NS4yNDgtMy4wODMgMi43MDMtMy4wODNzNC40MDggMi4wOSA0LjQwOCA0LjM4NCIvPgo8L3N2Zz4KPHR4dCB4PSI0NSIgeT0iMzAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNGRkZGRkYiPkFwcGxlIE11c2ljPC90eHQ+Cjwvc3ZnPgo=" alt="Apple Music" />
+                        <div class="text-sm mt-2 font-medium">Apple Music</div>
+                    </div>
+                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiB2aWV3Qm94PSIwIDAgMTIwIDYwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiByeD0iOCIgZmlsbD0iI0ZGMDAwMCIvPgo8c3ZnIHg9IjEwIiB5PSIxNSIgd2lkdGg9IjMwIiBoZWlnaHQ9IjMwIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IiNGRkZGRkYiPgo8cGF0aCBkPSJNMTAuMDA3IDE4VjhIOC44MzJsLS4xOSAxLjQyNkM4LjQgOS45MSA3LjkyOCAxMCA3LjM3IDEwQzYuNSAxMCA1Ljk4NSAxMC41IDE1Ljk4NSAxMVMxNSA5LjUgMTMgOHM4LjUgMi41IDguNTQzIDMuNUMxOC41IDEwLjUgMTUgMTMgMTcgMTNjLS41IDAtMSAuNS0xIDFzLjUgMSAxIDFjMSAwIDItMSAyLTF2LTFoMVY4aDEuMTY4bC4xOSAxLjQyNmMuMjQyLS40ODYuNzE0LS45MjYgMS4yNzItLjkyNkMxOC41IDguNSAxOSA5IDM5IDEwczEwLjUgMiAzMSAyaDE3LjVsNS0xTDE5IDE4VzEwaDEuMDA3eiIvPgo8L3N2Zz4KPHR4dCB4PSI0NSIgeT0iMzAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNGRkZGRkYiPllvdVR1YmU8L3R4dD4KPC9zdmc+Cg==" alt="YouTube Music" />
+                        <div class="text-sm mt-2 font-medium">YouTube Music</div>
+                    </div>
+                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiB2aWV3Qm94PSIwIDAgMTIwIDYwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiByeD0iOCIgZmlsbD0iIzc1M0JCRCIvPgo8c3ZnIHg9IjEwIiB5PSIxNSIgd2lkdGg9IjMwIiBoZWlnaHQ9IjMwIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IiNGRkZGRkYiPgo8cGF0aCBkPSJNMTEuNzcgMyAyIDEyaDUuNzdMNy43NyAyMSAyMiAxMmgtNS43N0wxNi4yMyAzeiIvPgo8L3N2Zz4KPHR4dCB4PSI0NSIgeT0iMzAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNGRkZGRkYiPkpvb3g8L3R4dD4KPC9zdmc+Cg==" alt="Joox" />
+                        <div class="text-sm mt-2 font-medium">Joox</div>
+                    </div>
+                </div>
+                <div class="text-center mt-8">
+                    <p class="text-gray-600">และอีกกว่า 144 แพลตฟอร์มทั่วโลก</p>
+                </div>
+            </div> 
+        </section>
+
+        <!-- Features Section --> 
+        <section class="py-20 bg-gray-50"> 
+            <div class="container mx-auto px-6"> 
+                <div class="text-center mb-16"> 
+                    <h2 class="text-4xl font-bold mb-4 text-gray-800">ทำไมต้องเลือกเรา</h2> 
+                    <p class="text-xl text-gray-600">บริการแจกจ่ายเพลงที่ครบครันและน่าเชื่อถือที่สุดในประเทศไทย</p> 
+                </div> 
+                <div class="grid md:grid-cols-3 gap-8"> 
+                    <div class="bg-white rounded-2xl p-8 shadow-lg card-hover"> 
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6"> 
+                            <i class="fas fa-globe text-2xl text-purple-600"></i> 
                         </div> 
-                        <div class="bg-white bg-opacity-20 rounded-lg p-4"> 
-                            <div class="text-2xl font-bold">0฿</div> 
-                            <div class="text-sm">ค่าอัปโหลด</div> 
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">แจกจ่ายทั่วโลก</h3> 
+                        <p class="text-gray-600">เพลงของคุณจะปรากฏในแพลตฟอร์มสตรีมมิ่งกว่า 150+ แพลตฟอร์มทั่วโลก รวม Spotify, Apple Music, YouTube Music และอื่นๆ</p> 
+                    </div> 
+                    <div class="bg-white rounded-2xl p-8 shadow-lg card-hover"> 
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6"> 
+                            <i class="fas fa-dollar-sign text-2xl text-green-600"></i> 
                         </div> 
-                        <div class="bg-white bg-opacity-20 rounded-lg p-4"> 
-                            <div class="text-2xl font-bold">0%</div> 
-                            <div class="text-sm">หักค่าบริการ</div> 
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">100% ฟรี ตลอดชีพ</h3> 
+                        <p class="text-gray-600">ไม่มีค่าใช้จ่ายใดๆ ไม่มีค่าสมัคร ไม่มีค่าธรรมเนียมแอบแฝง รับเงิน 100% ไม่หักค่าบริการ</p> 
+                    </div> 
+                    <div class="bg-white rounded-2xl p-8 shadow-lg card-hover"> 
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6"> 
+                            <i class="fas fa-clock text-2xl text-blue-600"></i> 
                         </div> 
-                        <div class="bg-white bg-opacity-20 rounded-lg p-4"> 
-                            <div class="text-2xl font-bold">100%</div> 
-                            <div class="text-sm">รับเงินเต็ม</div> 
-                        </div> 
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">เร็วทันใจ</h3> 
+                        <p class="text-gray-600">เพลงของคุณจะปรากฏในแพลตฟอร์มต่างๆ ภายใน 24-48 ชั่วโมง อัปโหลดง่าย ไม่ซับซ้อน</p> 
                     </div> 
                 </div> 
             </div> 
-        </section> 
-    </div>
-
-    <!-- Streaming Page Section -->
-    <div id="streaming-page" class="page-section">
-        <section class="streaming-section">
-            <div class="container mx-auto px-6 max-w-6xl">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold mb-6 text-gray-800">🎵 เล่นเพลงฟรี</h2>
-                    <p class="text-xl text-gray-600">อัปโหลดและเล่นเพลงของคุณได้ทันที ไม่ต้องรอการอนุมัติ</p>
-                </div>
-
-                <!-- Upload Section for Streaming -->
-                <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
-                    <h3 class="text-2xl font-bold mb-6 text-center">อัปโหลดเพลงเพื่อเล่นทันที</h3>
-                    <div class="upload-area border-2 border-dashed border-purple-300 rounded-xl p-8 text-center cursor-pointer hover:border-purple-400 transition-colors" id="streamingUploadArea">
-                        <i class="fas fa-cloud-upload-alt text-6xl text-purple-500 mb-4"></i>
-                        <h4 class="text-xl font-semibold mb-2">ลากไฟล์เพลงมาวางที่นี่</h4>
-                        <p class="text-gray-600 mb-4">หรือคลิกเพื่อเลือกไฟล์เพลง</p>
-                        <p class="text-sm text-gray-500 mb-4">รองรับ MP3, WAV, OGG (สูงสุด 50MB)</p>
-                        <input type="file" id="streamingFileInput" accept="audio/*" multiple class="hidden">
-                        <button type="button" onclick="document.getElementById('streamingFileInput').click()" class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors">
-                            เลือกไฟล์เพลง
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Search Section -->
-                <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
-                    <div class="flex items-center bg-gray-100 rounded-full px-6 py-3 max-w-md mx-auto">
-                        <i class="fas fa-search text-gray-500 mr-3"></i>
-                        <input type="text" id="streamingSearchInput" placeholder="ค้นหาเพลง, ศิลปิน..." class="bg-transparent flex-1 outline-none">
-                        <button id="streamingClearSearch" class="text-gray-500 hover:text-gray-700">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Playlist Section -->
-                <div class="bg-white rounded-2xl shadow-lg p-8">
-                    <div class="flex justify-between items-center mb-6">
-                        <h3 class="text-2xl font-bold flex items-center">
-                            <i class="fas fa-music mr-3 text-purple-600"></i>
-                            Playlist ของคุณ
-                        </h3>
-                        <div class="flex gap-4">
-                            <button id="shuffleBtn" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-purple-100 hover:text-purple-600 transition-colors">
-                                <i class="fas fa-random mr-2"></i>สุ่มเพลง
-                            </button>
-                            <button id="clearAllBtn" class="px-4 py-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition-colors">
-                                <i class="fas fa-trash mr-2"></i>ลบทั้งหมด
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div id="streamingPlaylist" class="space-y-2">
-                        <div class="text-center py-12 text-gray-500">
-                            <i class="fas fa-music-slash text-4xl mb-4"></i>
-                            <p class="text-lg">ยังไม่มีเพลงใน Playlist</p>
-                            <p class="text-sm">อัปโหลดเพลงเพื่อเริ่มฟัง</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Services Page Section -->
-    <div id="services-page" class="page-section">
-        <section class="py-20 bg-gray-50">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center mb-16">บริการของเรา</h2>
-                <div class="grid lg:grid-cols-3 gap-8">
-                    <div class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow">
-                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-music text-2xl text-purple-600"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4">แจกจ่ายเพลง</h3>
-                        <p class="text-gray-600 mb-6">ส่งเพลงของคุณไปยังแพลตฟอร์มสตรีมมิ่งชั้นนำทั่วโลก รวม 150+ แพลตฟอร์ม</p>
-                        <ul class="text-left text-sm text-gray-600 space-y-2">
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Spotify</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Apple Music</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>YouTube Music</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Amazon Music</li>
-                        </ul>
-                    </div>
-                    <div class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow">
-                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-headphones text-2xl text-blue-600"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4">สตรีมมิ่งฟรี</h3>
-                        <p class="text-gray-600 mb-6">เล่นเพลงของคุณได้ทันที ไม่ต้องรอการอนุมัติ พร้อมระบบ Playlist</p>
-                        <ul class="text-left text-sm text-gray-600 space-y-2">
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>เล่นได้ทันที</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>จัดการ Playlist</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>ค้นหาเพลง</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>สุ่มเพลง</li>
-                        </ul>
-                    </div>
-                    <div class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow">
-                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-chart-line text-2xl text-green-600"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4">รายงานยอดฟัง</h3>
-                        <p class="text-gray-600 mb-6">ติดตามสถิติการฟังเพลงของคุณจากทุกแพลตฟอร์ม พร้อมรายงานรายได้</p>
-                        <ul class="text-left text-sm text-gray-600 space-y-2">
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>สถิติยอดฟัง</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>รายงานรายได้</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>กราฟแสดงผล</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>ข้อมูลผู้ฟัง</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
         </section>
     </div>
 
     <!-- Upload Page Section -->
     <div id="upload-page" class="page-section">
-        <!-- Upload Section --> 
-        <section class="py-20 bg-gray-50"> 
-            <div class="container mx-auto px-6 max-w-4xl"> 
-                <h2 class="text-4xl font-bold text-center mb-12">อัปโหลดเพลงเข้าระบบแจกจ่าย</h2> 
-                
-                <!-- Progress Bar --> 
-                <div class="mb-8"> 
-                    <div class="flex justify-between mb-2"> 
-                        <div class="step active flex items-center"> 
-                            <div class="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">1</div> 
-                            <span>ข้อมูลพื้นฐาน</span> 
-                        </div> 
-                        <div class="step flex items-center"> 
-                            <div class="w-8 h-8 bg-gray-300 text-gray-600 rounded-full flex items-center justify-center text-sm font-bold mr-3">2</div> 
-                            <span>ไฟล์เพลง</span> 
-                        </div> 
-                        <div class="step flex items-center"> 
-                            <div class="w-8 h-8 bg-gray-300 text-gray-600 rounded-full flex items-center justify-center text-sm font-bold mr-3">3</div> 
-                            <span>OAC</span> 
-                        </div> 
-                        <div class="step flex items-center"> 
-                            <div class="w-8 h-8 bg-gray-300 text-gray-600 rounded-full flex items-center justify-center text-sm font-bold mr-3">4</div> 
-                            <span>สรุปข้อมูล</span> 
-                        </div> 
-                    </div> 
-                    <div class="w-full bg-gray-200 rounded-full h-2"> 
-                        <div class="progress-bar"></div> 
-                    </div> 
-                </div> 
-                
-                <!-- Step 1: ข้อมูลพื้นฐาน --> 
-                <div id="step1" class="step-content"> 
-                    <h3 class="text-2xl font-bold mb-6">ข้อมูลพื้นฐาน</h3> 
-                    <div class="grid lg:grid-cols-2 gap-6"> 
-                        <div class="space-y-4"> 
-                            <input type="text" id="artistName" placeholder="ชื่อศิลปิน*" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent" required> 
-                            <input type="text" id="songName" placeholder="ชื่อเพลง*" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent" required> 
-                            <input type="text" id="albumName" placeholder="ชื่ออัลบั้ม" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"> 
-                            <select id="genre" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent" required> 
-                                <option value="">ประเภทเพลง*</option> 
-                                <option>Pop - ป๊อป</option> 
-                                <option>Rock - ร็อค</option> 
-                                <option>Country - ลูกทุ่ง</option> 
-                                <option>Indie - อินดี้</option> 
-                                <option>Hip Hop/Rap - ฮิปฮอป/แร็พ</option> 
-                                <option>Electronic - อิเล็กทรอนิกส์</option> 
-                                <option>Jazz - แจ๊ส</option> 
-                                <option>Classical - คลาสสิก</option> 
-                                <option>Folk - โฟล์ค</option> 
-                                <option>R&B/Soul - อาร์แอนด์บี/โซล</option> 
-                                <option>Alternative - อัลเทอร์เนทีฟ</option> 
-                                <option>World Music - เวิลด์มิวสิก</option> 
-                                <option>Instrumental - เพลงบรรเลง</option> 
-                                <option>อื่นๆ</option> 
-                            </select> 
-                            <select id="language" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent" required> 
-                                <option value="">ภาษาเพลง*</option> 
-                                <option>ไทย - Thai</option> 
-                                <option>อังกฤษ - English</option> 
-                                <option>จีน - Chinese</option> 
-                                <option>ญี่ปุ่น - Japanese</option> 
-                                <option>เกาหลี - Korean</option> 
-                                <option>รัสเซีย - Russian</option> 
-                                <option>อื่นๆ - More</option> 
-                            </select> 
-                        </div> 
-                        <div class="space-y-4"> 
-                            <input type="date" id="releaseDate" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent" required> 
-                            <input type="text" id="composer" placeholder="ผู้แต่งเพลง*" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent" required> 
-                            <input type="text" id="lyricist" placeholder="ผู้แต่งเนื้อร้อง*" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent" required> 
-                            <input type="text" id="producer" placeholder="ผู้ผลิตเพลง" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"> 
-                            <input type="text" id="studio" placeholder="สตูดิโอที่บันทึก" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"> 
-                        </div> 
-                    </div> 
-                    <textarea id="description" rows="4" class="w-full p-3 border rounded-lg mt-4 focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="คำอธิบายเพลง"></textarea> 
-                    <div class="flex justify-end mt-6"> 
-                        <button class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors" onclick="nextStep()">ถัดไป</button> 
-                    </div> 
-                </div> 
-                
-                <!-- Step 2: File Upload --> 
-                <div id="step2" class="step-content hidden"> 
-                    <h4 class="text-2xl font-bold mb-6 text-gray-800">ไฟล์เพลงและภาพปก</h4> 
-                    <div class="grid lg:grid-cols-2 gap-8"> 
-                        <!-- เพลง --> 
-                        <div> 
-                            <label class="block text-sm font-medium text-gray-700 mb-2">ไฟล์เพลง *</label> 
-                            <div id="audio-drop-zone" class="drop-zone border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-purple-400 transition-colors cursor-pointer"> 
-                                <div class="drop-icon text-4xl mb-4">🎵</div> 
-                                <p class="text-gray-600 mb-2">ลากไฟล์เพลงมาวางที่นี่ หรือคลิกเพื่อเลือกไฟล์</p> 
-                                <p class="text-sm text-gray-500 mb-4">รองรับไฟล์: MP3, WAV, FLAC</p>
-                                <button type="button" onclick="document.getElementById('song').click()" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors">เลือกไฟล์เพลง</button> 
-                                <input type="file" id="song" accept=".mp3,.wav,.flac" class="hidden"> 
-                                <div id="audioFileName" class="mt-4 text-sm text-gray-700 font-medium"></div> 
-                                <div id="audioFileSize" class="text-xs text-gray-500"></div>
-                            </div> 
-                        </div> 
-                        <!-- ภาพปก --> 
-                        <div> 
-                            <label class="block text-sm font-medium text-gray-700 mb-2">ภาพปกอัลบั้ม *</label> 
-                            <div id="cover-drop-zone" class="drop-zone border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-purple-400 transition-colors cursor-pointer"> 
-                                <div class="drop-icon text-4xl mb-4">🖼️</div> 
-                                <p class="text-gray-600 mb-2">ลากไฟล์รูปภาพมาวางที่นี่ หรือคลิกเพื่อเลือกไฟล์</p> 
-                                <p class="text-sm text-gray-500 mb-4">รองรับไฟล์: JPG, JPEG, PNG (ขนาดแนะนำ: 1440x1440px หรือ 3000x3000px)</p>
-                                <button type="button" onclick="document.getElementById('cover').click()" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors">เลือกรูปภาพ</button> 
-                                <input type="file" id="cover" accept=".jpg,.jpeg,.png" class="hidden"> 
-                                <div id="coverFileName" class="mt-4 text-sm text-gray-700 font-medium"></div> 
-                                <div id="coverFileSize" class="text-xs text-gray-500"></div>
-                                <img id="coverPreview" class="file-preview mx-auto hidden"> 
-                            </div> 
-                        </div> 
-                    </div> 
-                    <div class="flex justify-between mt-6"> 
-                        <button type="button" onclick="prevStep()" class="bg-gray-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-600 transition-colors">ย้อนกลับ</button> 
-                        <button type="button" onclick="nextStep()" class="bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors">ถัดไป</button> 
-                    </div> 
-                </div> 
-                
-                <!-- Step 3: OAC --> 
-                <div id="step3" class="step-content hidden"> 
-                    <h3 class="text-2xl font-bold mb-6">ขอ Official Artist Channel (OAC)</h3> 
-                    <form id="oacForm" onsubmit="return checkOAC()" class="space-y-4"> 
-                        <input type="url" id="youtubeLink" placeholder="ลิงก์ YouTube*" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent" required> 
-                        <input type="number" id="subscribers" placeholder="จำนวนผู้ติดตาม*" min="0" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent" required> 
-                        <button type="submit" class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors">ส่งคำขอ OAC</button> 
-                    </form> 
-                    <div class="flex justify-between mt-6"> 
-                        <button class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors" onclick="prevStep()">ย้อนกลับ</button> 
-                        <button class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors" onclick="nextStep()">ถัดไป</button> 
-                    </div> 
-                </div> 
-                
-                <!-- Step 4: Preview + Submit --> 
-                <div id="step4" class="step-content hidden"> 
-                    <h3 class="text-2xl font-bold mb-6">สรุปข้อมูลก่อนส่ง</h3> 
-                    <div class="bg-gray-50 rounded-lg p-6 space-y-3"> 
-                        <p><strong>ศิลปิน:</strong> <span id="summaryArtist">-</span></p> 
-                        <p><strong>เพลง:</strong> <span id="summarySong">-</span></p> 
-                        <p><strong>ประเภท:</strong> <span id="summaryGenre">-</span></p> 
-                        <p><strong>วันที่ปล่อย:</strong> <span id="summaryDate">-</span></p> 
-                        <p><strong>ผู้แต่งเพลง:</strong> <span id="summaryComposer">-</span></p>
-                        <p><strong>ผู้แต่งเนื้อร้อง:</strong> <span id="summaryLyricist">-</span></p>
-                    </div> 
-                    <div class="flex justify-between mt-6"> 
-                        <button class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors" onclick="prevStep()">ย้อนกลับ</button> 
-                        <button class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors" onclick="submitForm()">ส่งข้อมูลและอัปโหลดเพลง</button> 
-                    </div> 
-                </div> 
-            </div> 
-        </section> 
-    </div>
-
-    <!-- Pricing Page Section -->
-    <div id="pricing-page" class="page-section">
         <section class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center mb-8">แผนราคา</h2>
-                <p class="text-xl text-center text-gray-600 mb-16">เลือกแผนที่เหมาะกับคุณ - ฟรีตลอดชีพ!</p>
-                <div class="max-w-4xl mx-auto">
-                    <div class="bg-white rounded-2xl shadow-2xl p-12 text-center border-4 border-purple-500">
-                        <div class="bg-purple-500 text-white px-6 py-2 rounded-full inline-block mb-6">
-                            <span class="font-bold">แผน FREE - ฟรีตลอดชีพ!</span>
-                        </div>
-                        <div class="text-6xl font-bold mb-4">0฿</div>
-                        <div class="text-xl text-gray-600 mb-8">ไม่มีค่าใช้จ่าย ไม่มีค่าซ่อนเร้น</div>
-                        <div class="grid md:grid-cols-2 gap-8 text-left">
-                            <ul class="space-y-4">
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-green-500 text-xl mr-3"></i>
-                                    <span>แจกจ่ายไปยัง 150+ แพลตฟอร์ม</span>
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-green-500 text-xl mr-3"></i>
-                                    <span>รับเงิน 100% ไม่หักค่าบริการ</span>
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-green-500 text-xl mr-3"></i>
-                                    <span>สตรีมมิ่งฟรีแบบไม่จำกัด</span>
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-green-500 text-xl mr-3"></i>
-                                    <span>อัปโหลดเพลงได้ไม่จำกัด</span>
-                                </li>
-                            </ul>
-                            <ul class="space-y-4">
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-green-500 text-xl mr-3"></i>
-                                    <span>รายงานสถิติพื้นฐาน</span>
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-green-500 text-xl mr-3"></i>
-                                    <span>ติดตามสถานะเพลง</span>
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-green-500 text-xl mr-3"></i>
-                                    <span>ช่วยเหลือ 24/7</span>
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-green-500 text-xl mr-3"></i>
-                                    <span>ไม่มีสัญญาผูกมัด</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <button onclick="showPage('upload')" class="bg-purple-600 text-white px-12 py-4 rounded-full text-xl font-bold mt-12 hover:bg-purple-700 transition-colors">
-                            เริ่มใช้งานเลย
-                        </button>
-                    </div>
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4 text-gray-800">อัปโหลดเพลงของคุณ</h2>
+                    <p class="text-xl text-gray-600">กรอกข้อมูลและอัปโหลดไฟล์เพื่อเริ่มแจกจ่ายเพลงของคุณสู่โลก</p>
                 </div>
-            </div>
-        </section>
-    </div>
 
-    <!-- Support Page Section -->
-    <div id="support-page" class="page-section">
-        <section class="py-20 bg-gray-50">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center mb-16">ช่วยเหลือและสนับสนุน</h2>
-                <div class="grid lg:grid-cols-2 gap-12">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-8">คำถามที่พบบ่อย</h3>
+                <div class="max-w-2xl mx-auto bg-white rounded-2xl p-8 shadow-lg">
+                    <form id="uploadForm" class="space-y-6">
+                        <!-- Song Information -->
                         <div class="space-y-4">
-                            <div class="bg-white rounded-lg shadow-md">
-                                <button class="w-full p-6 text-left font-semibold hover:bg-gray-50 transition-colors" onclick="toggleFAQ(this)">
-                                    เพลงจะปรากฏในแพลตฟอร์มต่างๆ เมื่อไหร่?
-                                    <i class="fas fa-chevron-down float-right mt-1"></i>
-                                </button>
-                                <div class="faq-content hidden p-6 pt-0 text-gray-600">
-                                    เพลงจะปรากฏในแพลตฟอร์มต่างๆ ภายใน 24-48 ชั่วโมง หลังจากได้รับการอนุมัติ
-                                </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">ข้อมูลเพลง</h3>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">ชื่อเพลง *</label>
+                                <input type="text" name="songTitle" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="ระบุชื่อเพลง">
                             </div>
-                            <div class="bg-white rounded-lg shadow-md">
-                                <button class="w-full p-6 text-left font-semibold hover:bg-gray-50 transition-colors" onclick="toggleFAQ(this)">
-                                    ฉันจะได้รับเงินจากการสตรีมอย่างไร?
-                                    <i class="fas fa-chevron-down float-right mt-1"></i>
-                                </button>
-                                <div class="faq-content hidden p-6 pt-0 text-gray-600">
-                                    เราจะส่งเงินให้คุณทุกสิ้นเดือน โดยไม่หักค่าบริการ คุณจะได้รับเงิน 100%
-                                </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">ชื่อศิลปิน *</label>
+                                <input type="text" name="artistName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="ระบุชื่อศิลปิน">
                             </div>
-                            <div class="bg-white rounded-lg shadow-md">
-                                <button class="w-full p-6 text-left font-semibold hover:bg-gray-50 transition-colors" onclick="toggleFAQ(this)">
-                                    รูปแบบไฟล์เพลงที่รองรับคืออะไร?
-                                    <i class="fas fa-chevron-down float-right mt-1"></i>
-                                </button>
-                                <div class="faq-content hidden p-6 pt-0 text-gray-600">
-                                    รองรับไฟล์ MP3, WAV, และ FLAC ความละเอียดสูงสุด 24-bit/96kHz
-                                </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">ชื่ออัลบั้ม</label>
+                                <input type="text" name="albumName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="ระบุชื่ออัลบั้ม (ถ้ามี)">
                             </div>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold mb-8">ติดต่อเรา</h3>
-                        <div class="bg-white rounded-2xl shadow-lg p-8">
-                            <form class="space-y-6">
+
+                            <div class="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">ชื่อ</label>
-                                    <input type="text" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">อีเมล</label>
-                                    <input type="email" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">หัวข้อ</label>
-                                    <select class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
-                                        <option>เลือกหัวข้อ</option>
-                                        <option>ปัญหาการอัปโหลด</option>
-                                        <option>การชำระเงิน</option>
-                                        <option>ข้อมูลสถิติ</option>
-                                        <option>อื่นๆ</option>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">ประเภท</label>
+                                    <select name="genre" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                                        <option value="">เลือกประเภทเพลง</option>
+                                        <option value="pop">Pop</option>
+                                        <option value="rock">Rock</option>
+                                        <option value="jazz">Jazz</option>
+                                        <option value="blues">Blues</option>
+                                        <option value="classical">Classical</option>
+                                        <option value="electronic">Electronic</option>
+                                        <option value="hip-hop">Hip Hop</option>
+                                        <option value="r&b">R&B</option>
+                                        <option value="country">Country</option>
+                                        <option value="folk">Folk</option>
+                                        <option value="alternative">Alternative</option>
+                                        <option value="indie">Indie</option>
+                                        <option value="thai-pop">ลูกทุ่ง</option>
+                                        <option value="thai-folk">ลูกกรุง</option>
+                                        <option value="other">อื่นๆ</option>
                                     </select>
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">ข้อความ</label>
-                                    <textarea rows="4" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"></textarea>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">ปีที่ออก</label>
+                                    <input type="number" name="releaseYear" min="1900" max="2025" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="2024">
                                 </div>
-                                <button type="submit" class="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors">
-                                    ส่งข้อความ
-                                </button>
-                            </form>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
 
-    <!-- Song Status Page Section -->
-    <div id="song-status-page" class="page-section">
-        <section class="py-20 bg-gray-50">
-            <div class="container mx-auto px-6 max-w-4xl">
-                <h2 class="text-4xl font-bold text-center mb-8">ตรวจสอบสถานะเพลง</h2>
-                <p class="text-xl text-center text-gray-600 mb-12">กรอกข้อมูลเพื่อตรวจสอบสถานะการแจกจ่ายเพลงของคุณ</p>
-                
-                <div class="bg-white rounded-2xl shadow-lg p-8">
-                    <form id="song-status-form" class="space-y-6">
-                        <div class="grid md:grid-cols-2 gap-6">
+                        <!-- File Upload Section -->
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">ไฟล์เพลง</h3>
+                            
+                            <!-- Audio File Upload -->
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">ชื่อศิลปิน</label>
-                                <input type="text" id="statusArtistName" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="กรอกชื่อศิลปิน" required>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">ไฟล์เสียง *</label>
+                                <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center drop-zone" id="audioDropZone">
+                                    <div class="drop-icon">
+                                        <i class="fas fa-music text-4xl text-gray-400 mb-4"></i>
+                                    </div>
+                                    <p class="text-lg font-medium text-gray-700 mb-2">ลากและวางไฟล์เสียงที่นี่</p>
+                                    <p class="text-sm text-gray-500 mb-4">หรือคลิกเพื่อเลือกไฟล์</p>
+                                    <p class="text-xs text-gray-400">รองรับ: MP3, WAV, FLAC (ขนาดสูงสุด 100MB)</p>
+                                    <input type="file" id="audioFile" name="audioFile" accept="audio/*" required class="hidden">
+                                    <button type="button" onclick="document.getElementById('audioFile').click()" class="mt-4 bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors">
+                                        เลือกไฟล์เสียง
+                                    </button>
+                                </div>
+                                <div id="audioPreview" class="mt-4 hidden">
+                                    <div class="bg-gray-50 rounded-lg p-4">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center space-x-3">
+                                                <i class="fas fa-music text-purple-600"></i>
+                                                <span id="audioFileName" class="font-medium"></span>
+                                            </div>
+                                            <button type="button" onclick="removeAudioFile()" class="text-red-500 hover:text-red-700">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+
+                            <!-- Cover Art Upload -->
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">ชื่อเพลง</label>
-                                <input type="text" id="statusSongName" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="กรอกชื่อเพลง" required>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">ปกอัลบั้ม</label>
+                                <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center drop-zone" id="coverDropZone">
+                                    <div class="drop-icon">
+                                        <i class="fas fa-image text-4xl text-gray-400 mb-4"></i>
+                                    </div>
+                                    <p class="text-lg font-medium text-gray-700 mb-2">ลากและวางภาพปกอัลบั้มที่นี่</p>
+                                    <p class="text-sm text-gray-500 mb-4">หรือคลิกเพื่อเลือกภาพ</p>
+                                    <p class="text-xs text-gray-400">รองรับ: JPG, PNG (ขนาดแนะนำ 1400x1400 พิกเซล)</p>
+                                    <input type="file" id="coverFile" name="coverFile" accept="image/*" class="hidden">
+                                    <button type="button" onclick="document.getElementById('coverFile').click()" class="mt-4 bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors">
+                                        เลือกภาพปก
+                                    </button>
+                                </div>
+                                <div id="coverPreview" class="mt-4 hidden">
+                                    <div class="bg-gray-50 rounded-lg p-4">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center space-x-3">
+                                                <img id="coverImage" src="" alt="Preview" class="w-16 h-16 object-cover rounded">
+                                                <span id="coverFileName" class="font-medium"></span>
+                                            </div>
+                                            <button type="button" onclick="removeCoverFile()" class="text-red-500 hover:text-red-700">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="text-center">
-                            <button type="submit" class="bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors">
-                                ค้นหาสถานะเพลง
+
+                        <!-- Contact Information -->
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">ข้อมูลติดต่อ</h3>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">อีเมล *</label>
+                                <input type="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="อีเมลสำหรับติดต่อ">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">เบอร์โทรศัพท์</label>
+                                <input type="tel" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="เบอร์โทรศัพท์ (ถ้ามี)">
+                            </div>
+                        </div>
+
+                        <!-- Terms and Submit -->
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <input type="checkbox" id="terms" name="terms" required class="mt-1">
+                                <label for="terms" class="text-sm text-gray-600">
+                                    ฉันยอมรับ <a href="#" class="text-purple-600 hover:underline">ข้อกำหนดและเงื่อนไข</a> และ <a href="#" class="text-purple-600 hover:underline">นโยบายความเป็นส่วนตัว</a> รวมถึงยืนยันว่าฉันเป็นเจ้าของลิขสิทธิ์ของเพลงนี้
+                                </label>
+                            </div>
+
+                            <button type="submit" class="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-4 px-8 rounded-lg font-semibold text-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105">
+                                อัปโหลดและเริ่มแจกจ่าย
                             </button>
                         </div>
                     </form>
                 </div>
+            </div>
+        </section>
+    </div>
 
-                <!-- Status Results -->
-                <div id="status-results" class="mt-12 hidden">
-                    <h3 class="text-2xl font-bold mb-6">ผลการค้นหา</h3>
-                    <div class="bg-white rounded-2xl shadow-lg p-8">
-                        <div class="overflow-x-auto">
-                            <table id="status-table">
-                                <thead>
-                                    <tr>
-                                        <th>แพลตฟอร์ม</th>
-                                        <th>สถานะ</th>
-                                        <th>วันที่อัปเดต</th>
-                                        <th>หมายเหตุ</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="status-table-body">
-                                    <!-- Status results will be populated here -->
-                                </tbody>
-                            </table>
+    <!-- Services Page -->
+    <div id="services-page" class="page-section">
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4 text-gray-800">บริการของเรา</h2>
+                    <p class="text-xl text-gray-600">ครบครันทุกความต้องการสำหรับการแจกจ่ายเพลง</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 rounded-2xl p-8 card-hover">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-upload text-2xl text-purple-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">แจกจ่ายเพลง</h3>
+                        <p class="text-gray-600 mb-4">อัปโหลดเพลงของคุณไปยัง 150+ แพลตฟอร์มทั่วโลก</p>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li>• Spotify, Apple Music, YouTube Music</li>
+                            <li>• Amazon Music, Deezer, Tidal</li>
+                            <li>• SoundCloud, Bandcamp และอีกมากมาย</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl p-8 card-hover">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-chart-line text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">รายงานผลตอบแทน</h3>
+                        <p class="text-gray-600 mb-4">ติดตามยอดเล่นและรายได้แบบเรียลไทม์</p>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li>• รายงานรายได้รายเดือน</li>
+                            <li>• สถิติการเล่นแต่ละแพลตฟอร์ม</li>
+                            <li>• ข้อมูลผู้ฟังและภูมิศาสตร์</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl p-8 card-hover">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-shield-alt text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">ปกป้องลิขสิทธิ์</h3>
+                        <p class="text-gray-600 mb-4">ระบบจดจำและป้องกันการละเมิดลิขสิทธิ์</p>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li>• Content ID บน YouTube</li>
+                            <li>• การติดตามการใช้งานโดยไม่ได้รับอนุญาต</li>
+                            <li>• การอ้างสิทธิ์และเรียกเก็บรายได้</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl p-8 card-hover">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-music text-2xl text-yellow-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">มาสเตอริ่ง</h3>
+                        <p class="text-gray-600 mb-4">ปรับปรุงคุณภาพเสียงให้ได้มาตรฐานอุตสาหกรรม</p>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li>• AI Mastering อัตโนมัติ</li>
+                            <li>• ปรับระดับเสียงตามมาตรฐาน</li>
+                            <li>• เพิ่มความใสและความดัง</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl p-8 card-hover">
+                        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-headphones text-2xl text-red-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">ซัพพอร์ต 24/7</h3>
+                        <p class="text-gray-600 mb-4">ทีมงานพร้อมช่วยเหลือคุณตลอด 24 ชั่วโมง</p>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li>• แชทสดบนเว็บไซต์</li>
+                            <li>• อีเมลสนับสนุน</li>
+                            <li>• คู่มือและวิดีโอแนะนำ</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl p-8 card-hover">
+                        <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-rocket text-2xl text-indigo-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">โปรโมท</h3>
+                        <p class="text-gray-600 mb-4">เครื่องมือช่วยเหลือการตลาดและการโปรโมท</p>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li>• การส่งไปยัง Playlist</li>
+                            <li>• เครื่องมือโซเชียลมีเดีย</li>
+                            <li>• ข้อแนะนำการตลาด</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Pricing Page -->
+    <div id="pricing-page" class="page-section">
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4 text-gray-800">ราคาบริการ</h2>
+                    <p class="text-xl text-gray-600">ใช้งานฟรี 100% ตลอดชีพ ไม่มีค่าธรรมเนียมแอบแฝง</p>
+                </div>
+
+                <div class="max-w-4xl mx-auto">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg text-center">
+                        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-gift text-3xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-4 text-gray-800">ฟรี ตลอดชีพ</h3>
+                        <div class="text-6xl font-bold text-green-600 mb-4">
+                            ฿0
+                            <span class="text-lg text-gray-500">/ ตลอดชีพ</span>
+                        </div>
+                        <p class="text-xl text-gray-600 mb-8">ไม่มีค่าใช้จ่ายใดๆ รับเงิน 100% ไม่หักค่าบริการ</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 text-left mb-8">
+                            <div class="space-y-4">
+                                <h4 class="font-bold text-lg text-gray-800">✓ สิ่งที่คุณได้รับ</h4>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li>• แจกจ่ายไปยัง 150+ แพลตฟอร์ม</li>
+                                    <li>• รับเงิน 100% ไม่หักค่าบริการ</li>
+                                    <li>• รายงานผลตอบแทนรายเดือน</li>
+                                    <li>• ปกป้องลิขสิทธิ์</li>
+                                    <li>• มาสเตอริ่งอัตโนมัติ</li>
+                                    <li>• ซัพพอร์ต 24/7</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-4">
+                                <h4 class="font-bold text-lg text-gray-800">✓ ไม่มีข้อจำกัด</h4>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li>• อัปโหลดได้ไม่จำกัด</li>
+                                    <li>• ไม่มีค่าธรรมเนียมรายปี</li>
+                                    <li>• ไม่มีค่าธรรมเนียมแอบแฝง</li>
+                                    <li>• ไม่มีสัญญาผูกมัด</li>
+                                    <li>• ลบเพลงได้ตลอดเวลา</li>
+                                    <li>• เปลี่ยนข้อมูลได้ฟรี</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <button onclick="showPage('upload')" class="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-4 px-8 rounded-lg font-semibold text-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105">
+                            เริ่มใช้งานฟรีเลย
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-16 text-center">
+                    <h3 class="text-2xl font-bold mb-8 text-gray-800">เปรียบเทียบกับคู่แข่ง</h3>
+                    <div class="overflow-x-auto">
+                        <table class="mx-auto bg-white rounded-lg shadow-lg">
+                            <thead>
+                                <tr>
+                                    <th class="p-4">ฟีเจอร์</th>
+                                    <th class="p-4 bg-purple-600 text-white">The Music Maker</th>
+                                    <th class="p-4">คู่แข่ง A</th>
+                                    <th class="p-4">คู่แข่ง B</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="p-4 font-medium">ค่าบริการรายปี</td>
+                                    <td class="p-4 text-green-600 font-bold">ฟรี</td>
+                                    <td class="p-4">$19.99</td>
+                                    <td class="p-4">$29.99</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="p-4 font-medium">หักค่าบริการ</td>
+                                    <td class="p-4 text-green-600 font-bold">0%</td>
+                                    <td class="p-4">15%</td>
+                                    <td class="p-4">10%</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 font-medium">จำนวนแพลตฟอร์ม</td>
+                                    <td class="p-4 text-green-600 font-bold">150+</td>
+                                    <td class="p-4">100+</td>
+                                    <td class="p-4">80+</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="p-4 font-medium">ซัพพอร์ต 24/7</td>
+                                    <td class="p-4 text-green-600">✓</td>
+                                    <td class="p-4 text-red-600">✗</td>
+                                    <td class="p-4 text-green-600">✓</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Support Page -->
+    <div id="support-page" class="page-section">
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4 text-gray-800">ช่วยเหลือและสนับสนุน</h2>
+                    <p class="text-xl text-gray-600">เรายินดีช่วยเหลือคุณทุกขั้นตอน</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <!-- Contact Form -->
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800">ติดต่อเรา</h3>
+                        <form class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">ชื่อ</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="ชื่อของคุณ">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">อีเมล</label>
+                                <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="อีเมลของคุณ">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">หัวข้อ</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="หัวข้อเรื่องที่ต้องการสอบถาม">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">ข้อความ</label>
+                                <textarea rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="รายละเอียดที่ต้องการสอบถาม"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-purple-700 transition-colors">
+                                ส่งข้อความ
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- FAQ -->
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800">คำถามที่พบบ่อย</h3>
+                        <div class="space-y-4">
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <button class="w-full text-left font-medium text-gray-800 hover:text-purple-600">
+                                    จริงหรือไม่ที่ใช้งานฟรี 100%?
+                                </button>
+                                <div class="mt-2 text-gray-600 text-sm">
+                                    ใช่ครับ เราให้บริการฟรี 100% ตลอดชีพ ไม่มีค่าสมัคร ไม่มีค่าธรรมเนียมแอบแฝง คุณจะได้รับเงิน 100% จากการสตรีม
+                                </div>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <button class="w-full text-left font-medium text-gray-800 hover:text-purple-600">
+                                    ใช้เวลานานแค่ไหนในการแจกจ่าย?
+                                </button>
+                                <div class="mt-2 text-gray-600 text-sm">
+                                    โดยปกติเพลงของคุณจะปรากฏในแพลตฟอร์มต่างๆ ภายใน 24-48 ชั่วโมง บางแพลตฟอร์มอาจใช้เวลานานถึง 7 วัน
+                                </div>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <button class="w-full text-left font-medium text-gray-800 hover:text-purple-600">
+                                    สามารถลบเพลงได้หรือไม่?
+                                </button>
+                                <div class="mt-2 text-gray-600 text-sm">
+                                    ได้ครับ คุณสามารถลบเพลงออกจากแพลตฟอร์มต่างๆ ได้ตลอดเวลา ผ่านแผงควบคุมของเรา
+                                </div>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <button class="w-full text-left font-medium text-gray-800 hover:text-purple-600">
+                                    ต้องมีลิขสิทธิ์เพลงหรือไม่?
+                                </button>
+                                <div class="mt-2 text-gray-600 text-sm">
+                                    ใช่ครับ คุณต้องเป็นเจ้าของลิขสิทธิ์หรือได้รับอนุญาตให้แจกจ่ายเพลงดังกล่าว เราจะตรวจสอบข้อมูลก่อนการแจกจ่าย
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="grid md:grid-cols-3 gap-8 mt-16">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-envelope text-2xl text-purple-600"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-2">อีเมล</h4>
+                        <p class="text-gray-600"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="087b7d7878677a7c48657d7b616b6569636d7a267c60">[email&#160;protected]</a></p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-phone text-2xl text-purple-600"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-2">โทรศัพท์</h4>
+                        <p class="text-gray-600">02-xxx-xxxx</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-clock text-2xl text-purple-600"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-2">เวลาทำการ</h4>
+                        <p class="text-gray-600">24/7 ทุกวัน</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Song Status Page -->
+    <div id="song-status-page" class="page-section">
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4 text-gray-800">ตรวจสอบสถานะเพลง</h2>
+                    <p class="text-xl text-gray-600">ติดตามสถานะการแจกจ่ายและผลตอบแทนของคุณ</p>
+                </div>
+
+                <!-- Status Check Form -->
+                <div class="max-w-md mx-auto mb-12">
+                    <div class="bg-white rounded-2xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">ค้นหาเพลงของคุณ</h3>
+                        <div class="space-y-4">
+                            <input type="text" placeholder="ชื่อเพลงหรือ ID" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                            <button type="button" class="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors">
+                                ค้นหา
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sample Status Table -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="p-6 bg-purple-600 text-white">
+                        <h3 class="text-xl font-bold">เพลงของคุณ</h3>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-4 text-left text-sm font-medium text-gray-500">ชื่อเพลง</th>
+                                    <th class="px-6 py-4 text-left text-sm font-medium text-gray-500">ศิลปิน</th>
+                                    <th class="px-6 py-4 text-left text-sm font-medium text-gray-500">วันที่อัปโหลด</th>
+                                    <th class="px-6 py-4 text-left text-sm font-medium text-gray-500">สถานะ</th>
+                                    <th class="px-6 py-4 text-left text-sm font-medium text-gray-500">ยอดเล่น</th>
+                                    <th class="px-6 py-4 text-left text-sm font-medium text-gray-500">รายได้</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 text-sm text-gray-900">สายลมที่หายไป</td>
+                                    <td class="px-6 py-4 text-sm text-gray-900">ศิลปิน A</td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">15/03/2024</td>
+                                    <td class="px-6 py-4"><span class="status-approved">อนุมัติแล้ว</span></td>
+                                    <td class="px-6 py-4 text-sm text-gray-900">12,543</td>
+                                    <td class="px-6 py-4 text-sm text-gray-900">฿156.78</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 text-sm text-gray-900">ดวงใจที่รอคอย</td>
+                                    <td class="px-6 py-4 text-sm text-gray-900">ศิลปิน B</td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">20/03/2024</td>
+                                    <td class="px-6 py-4"><span class="status-pending">รอการอนุมัติ</span></td>
+                                    <td class="px-6 py-4 text-sm text-gray-900">0</td>
+                                    <td class="px-6 py-4 text-sm text-gray-900">฿0.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 text-sm text-gray-900">เสียงเพลงในใจ</td>
+                                    <td class="px-6 py-4 text-sm text-gray-900">ศิลปิน C</td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">10/03/2024</td>
+                                    <td class="px-6 py-4"><span class="status-approved">อนุมัติแล้ว</span></td>
+                                    <td class="px-6 py-4 text-sm text-gray-900">8,721</td>
+                                    <td class="px-6 py-4 text-sm text-gray-900">฿98.43</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Summary Cards -->
+                    <div class="p-6 bg-gray-50 border-t">
+                        <div class="grid md:grid-cols-4 gap-4">
+                            <div class="bg-white rounded-lg p-4 text-center">
+                                <div class="text-2xl font-bold text-purple-600">3</div>
+                                <div class="text-sm text-gray-600">เพลงทั้งหมด</div>
+                            </div>
+                            <div class="bg-white rounded-lg p-4 text-center">
+                                <div class="text-2xl font-bold text-green-600">2</div>
+                                <div class="text-sm text-gray-600">อนุมัติแล้ว</div>
+                            </div>
+                            <div class="bg-white rounded-lg p-4 text-center">
+                                <div class="text-2xl font-bold text-blue-600">21,264</div>
+                                <div class="text-sm text-gray-600">ยอดเล่นรวม</div>
+                            </div>
+                            <div class="bg-white rounded-lg p-4 text-center">
+                                <div class="text-2xl font-bold text-yellow-600">฿255.21</div>
+                                <div class="text-sm text-gray-600">รายได้รวม</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -784,939 +803,230 @@
         </section>
     </div>
 
-    <!-- Music Player (Fixed Bottom) -->
-    <div id="musicPlayer" class="music-player">
-        <audio id="mainAudioPlayer" preload="metadata"></audio>
-        <div class="flex items-center justify-between max-w-6xl mx-auto">
-            <!-- Song Info -->
-            <div class="flex items-center flex-1 min-w-0 mr-8">
-                <img id="playerCover" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 24 24'%3E%3Cpath fill='%23ddd' d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z'/%3E%3C/svg%3E" alt="Album Art" class="w-14 h-14 rounded-lg mr-4 flex-shrink-0">
-                <div class="min-w-0">
-                    <h4 id="playerTitle" class="font-semibold text-gray-800 truncate">เลือกเพลงเพื่อเล่น</h4>
-                    <p id="playerArtist" class="text-sm text-gray-600 truncate">-</p>
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="text-center">
+                <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-check text-3xl text-green-600"></i>
                 </div>
-            </div>
-
-            <!-- Player Controls -->
-            <div class="flex items-center space-x-4 flex-shrink-0">
-                <button id="playerPrevBtn" class="player-controls">
-                    <i class="fas fa-backward"></i>
-                </button>
-                <button id="playerPlayBtn" class="play-btn">
-                    <i class="fas fa-play"></i>
-                </button>
-                <button id="playerNextBtn" class="player-controls">
-                    <i class="fas fa-forward"></i>
-                </button>
-            </div>
-
-            <!-- Progress Section -->
-            <div class="flex items-center space-x-4 flex-1 min-w-0 mx-8">
-                <span id="playerCurrentTime" class="text-sm text-gray-600 flex-shrink-0">0:00</span>
-                <div class="relative flex-1">
-                    <div id="playerProgress" class="absolute top-1/2 left-0 h-1 bg-purple-500 rounded-full transform -translate-y-1/2"></div>
-                    <input type="range" id="playerProgressSlider" min="0" max="100" value="0" 
-                           class="w-full h-1 bg-gray-300 rounded-full appearance-none cursor-pointer slider">
+                <h2 class="text-2xl font-bold mb-4 text-gray-800">อัปโหลดสำเร็จ!</h2>
+                <p class="text-gray-600 mb-6">เพลงของคุณถูกส่งไปตรวจสอบแล้ว จะปรากฏในแพลตฟอร์มต่างๆ ภายใน 24-48 ชั่วโมง</p>
+                <div class="space-y-4">
+                    <div class="bg-gray-50 rounded-lg p-4">
+                        <h3 class="font-bold text-gray-800 mb-2">ขั้นตอนต่อไป:</h3>
+                        <div class="space-y-2 text-sm text-gray-600">
+                            <div class="step completed">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                อัปโหลดไฟล์เสร็จสิ้น
+                            </div>
+                            <div class="step active">
+                                <i class="fas fa-clock text-blue-500 mr-2"></i>
+                                ตรวจสอบคุณภาพและลิขสิทธิ์ (24 ชม.)
+                            </div>
+                            <div class="step">
+                                <i class="fas fa-globe text-gray-400 mr-2"></i>
+                                แจกจ่ายไปยังแพลตฟอร์มต่างๆ (24-48 ชม.)
+                            </div>
+                            <div class="step">
+                                <i class="fas fa-chart-line text-gray-400 mr-2"></i>
+                                เริ่มเก็บสถิติและรายได้
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-blue-50 rounded-lg p-4">
+                        <p class="text-sm text-blue-800">
+                            <i class="fas fa-info-circle mr-2"></i>
+                            เราจะส่งอีเมลแจ้งเตือนเมื่อเพลงของคุณพร้อมใช้งาน
+                        </p>
+                    </div>
                 </div>
-                <span id="playerTotalTime" class="text-sm text-gray-600 flex-shrink-0">0:00</span>
-            </div>
-
-            <!-- Volume Control -->
-            <div class="volume-container flex items-center space-x-3 flex-shrink-0">
-                <i class="fas fa-volume-up text-gray-600"></i>
-                <input type="range" id="playerVolumeSlider" min="0" max="100" value="70">
+                <button onclick="closeModal()" class="mt-6 bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors">
+                    เข้าใจแล้ว
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Toast Container -->
-    <div id="toastContainer" class="fixed top-4 right-4 space-y-2 z-50"></div>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Page navigation
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId + '-page').classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
 
-    <!-- Script -->
-    <script>
-        // Combined Music Streaming & Distribution App
-        class CombinedMusicApp {
+        // File upload handling
+        class FileUploadHandler {
             constructor() {
-                this.streamingPlaylist = [];
-                this.currentTrackIndex = 0;
-                this.isPlaying = false;
-                this.isShuffle = false;
-                this.repeatMode = 'none';
-                this.currentStep = 1;
-                this.totalSteps = 4;
-                
-                this.initializeApp();
-            }
-
-            initializeApp() {
-                this.initializeElements();
                 this.setupEventListeners();
-                this.loadStreamingPlaylist();
-                this.updatePlaylistDisplay();
-                this.updateStepCircles();
-            }
-
-            initializeElements() {
-                // Page navigation elements
-                this.currentPage = 'home';
-                
-                // Upload elements (for distribution)
-                this.uploadArea = document.getElementById('audio-drop-zone');
-                this.fileInput = document.getElementById('song');
-                
-                // Streaming elements
-                this.streamingUploadArea = document.getElementById('streamingUploadArea');
-                this.streamingFileInput = document.getElementById('streamingFileInput');
-                this.streamingSearchInput = document.getElementById('streamingSearchInput');
-                this.streamingClearSearch = document.getElementById('streamingClearSearch');
-                this.streamingPlaylist = document.getElementById('streamingPlaylist');
-                
-                // Music player elements
-                this.musicPlayer = document.getElementById('musicPlayer');
-                this.audioPlayer = document.getElementById('mainAudioPlayer');
-                this.playerPlayBtn = document.getElementById('playerPlayBtn');
-                this.playerPrevBtn = document.getElementById('playerPrevBtn');
-                this.playerNextBtn = document.getElementById('playerNextBtn');
-                this.playerTitle = document.getElementById('playerTitle');
-                this.playerArtist = document.getElementById('playerArtist');
-                this.playerCover = document.getElementById('playerCover');
-                this.playerProgress = document.getElementById('playerProgress');
-                this.playerProgressSlider = document.getElementById('playerProgressSlider');
-                this.playerCurrentTime = document.getElementById('playerCurrentTime');
-                this.playerTotalTime = document.getElementById('playerTotalTime');
-                this.playerVolumeSlider = document.getElementById('playerVolumeSlider');
-                
-                // Control buttons
-                this.shuffleBtn = document.getElementById('shuffleBtn');
-                this.clearAllBtn = document.getElementById('clearAllBtn');
-                
-                // Song status form
-                this.songStatusForm = document.getElementById('song-status-form');
             }
 
             setupEventListeners() {
-                // Streaming upload events
-                if (this.streamingUploadArea && this.streamingFileInput) {
-                    this.streamingUploadArea.addEventListener('click', () => this.streamingFileInput.click());
-                    this.streamingFileInput.addEventListener('change', (e) => this.handleStreamingFileSelect(e));
-                    this.setupStreamingDragAndDrop();
-                }
+                // Audio file handling
+                const audioFile = document.getElementById('audioFile');
+                const audioDropZone = document.getElementById('audioDropZone');
                 
-                // Search events
-                if (this.streamingSearchInput) {
-                    this.streamingSearchInput.addEventListener('input', () => this.handleStreamingSearch());
+                if (audioFile && audioDropZone) {
+                    audioDropZone.addEventListener('click', () => audioFile.click());
+                    audioFile.addEventListener('change', (e) => this.handleAudioFile(e));
+                    this.setupDragAndDrop(audioDropZone, audioFile);
                 }
-                if (this.streamingClearSearch) {
-                    this.streamingClearSearch.addEventListener('click', () => this.clearStreamingSearch());
-                }
+
+                // Cover file handling
+                const coverFile = document.getElementById('coverFile');
+                const coverDropZone = document.getElementById('coverDropZone');
                 
-                // Player control events
-                if (this.playerPlayBtn) {
-                    this.playerPlayBtn.addEventListener('click', () => this.togglePlayPause());
-                }
-                if (this.playerPrevBtn) {
-                    this.playerPrevBtn.addEventListener('click', () => this.previousTrack());
-                }
-                if (this.playerNextBtn) {
-                    this.playerNextBtn.addEventListener('click', () => this.nextTrack());
-                }
-                
-                // Audio events
-                if (this.audioPlayer) {
-                    this.audioPlayer.addEventListener('timeupdate', () => this.updateProgress());
-                    this.audioPlayer.addEventListener('loadedmetadata', () => this.updateDuration());
-                    this.audioPlayer.addEventListener('ended', () => this.handleTrackEnd());
-                }
-                
-                // Progress and volume events
-                if (this.playerProgressSlider) {
-                    this.playerProgressSlider.addEventListener('input', () => this.seekTo());
-                }
-                if (this.playerVolumeSlider) {
-                    this.playerVolumeSlider.addEventListener('input', () => this.setVolume());
-                    this.setVolume(); // Initialize volume
-                }
-                
-                // Control buttons
-                if (this.shuffleBtn) {
-                    this.shuffleBtn.addEventListener('click', () => this.toggleShuffle());
-                }
-                if (this.clearAllBtn) {
-                    this.clearAllBtn.addEventListener('click', () => this.clearStreamingPlaylist());
-                }
-                
-                // Distribution upload events
-                this.setupDistributionDragAndDrop();
-                this.setupDistributionFileHandlers();
-                
-                // Song status form
-                if (this.songStatusForm) {
-                    this.songStatusForm.addEventListener('submit', (e) => this.handleSongStatusSearch(e));
-                }
-                
-                // Keyboard shortcuts
-                document.addEventListener('keydown', (e) => this.handleKeyboardShortcuts(e));
-            }
-
-            // Streaming functionality
-            setupStreamingDragAndDrop() {
-                if (!this.streamingUploadArea) return;
-                
-                this.streamingUploadArea.addEventListener('dragover', (e) => {
-                    e.preventDefault();
-                    this.streamingUploadArea.classList.add('border-purple-500', 'bg-purple-50');
-                });
-                
-                this.streamingUploadArea.addEventListener('dragleave', (e) => {
-                    e.preventDefault();
-                    this.streamingUploadArea.classList.remove('border-purple-500', 'bg-purple-50');
-                });
-                
-                this.streamingUploadArea.addEventListener('drop', (e) => {
-                    e.preventDefault();
-                    this.streamingUploadArea.classList.remove('border-purple-500', 'bg-purple-50');
-                    const files = Array.from(e.dataTransfer.files).filter(file => file.type.startsWith('audio/'));
-                    this.processStreamingFiles(files);
-                });
-            }
-
-            handleStreamingFileSelect(event) {
-                const files = Array.from(event.target.files);
-                this.processStreamingFiles(files);
-            }
-
-            async processStreamingFiles(files) {
-                const audioFiles = files.filter(file => file.type.startsWith('audio/'));
-                
-                if (audioFiles.length === 0) {
-                    this.showToast('กรุณาเลือกไฟล์เสียงที่รองรับ', 'error');
-                    return;
+                if (coverFile && coverDropZone) {
+                    coverDropZone.addEventListener('click', () => coverFile.click());
+                    coverFile.addEventListener('change', (e) => this.handleCoverFile(e));
+                    this.setupDragAndDrop(coverDropZone, coverFile);
                 }
 
-                if (audioFiles.some(file => file.size > 50 * 1024 * 1024)) {
-                    this.showToast('ขนาดไฟล์ต้องไม่เกิน 50MB', 'error');
-                    return;
-                }
-
-                try {
-                    for (const file of audioFiles) {
-                        await this.addStreamingTrack(file);
-                    }
-                    
-                    this.saveStreamingPlaylist();
-                    this.updatePlaylistDisplay();
-                    this.showToast(`เพิ่มเพลง ${audioFiles.length} เพลงเรียบร้อยแล้ว`, 'success');
-                    
-                    if (this.streamingPlaylist.length === audioFiles.length) {
-                        this.showMusicPlayer();
-                        this.loadTrack(0);
-                    }
-                } catch (error) {
-                    console.error('Error processing files:', error);
-                    this.showToast('เกิดข้อผิดพลาดในการประมวลผลไฟล์', 'error');
+                // Form submission
+                const uploadForm = document.getElementById('uploadForm');
+                if (uploadForm) {
+                    uploadForm.addEventListener('submit', (e) => this.handleFormSubmit(e));
                 }
             }
 
-            async addStreamingTrack(file) {
-                return new Promise((resolve, reject) => {
-                    const reader = new FileReader();
-                    
-                    reader.onload = (e) => {
-                        const track = {
-                            id: Date.now() + Math.random(),
-                            title: this.extractFileName(file.name),
-                            artist: 'Unknown Artist',
-                            duration: 0,
-                            url: e.target.result,
-                            size: file.size,
-                            type: file.type,
-                            addedAt: new Date().toISOString()
-                        };
-                        
-                        this.getAudioMetadata(track).then(() => {
-                            this.streamingPlaylist.push(track);
-                            resolve(track);
-                        }).catch(() => {
-                            this.streamingPlaylist.push(track);
-                            resolve(track);
-                        });
-                    };
-                    
-                    reader.onerror = () => reject(new Error('Failed to read file'));
-                    reader.readAsDataURL(file);
-                });
-            }
-
-            async getAudioMetadata(track) {
-                return new Promise((resolve, reject) => {
-                    const audio = new Audio(track.url);
-                    
-                    audio.addEventListener('loadedmetadata', () => {
-                        track.duration = audio.duration;
-                        resolve();
-                    });
-                    
-                    audio.addEventListener('error', () => {
-                        reject(new Error('Failed to load metadata'));
-                    });
-                    
-                    setTimeout(() => {
-                        reject(new Error('Metadata loading timeout'));
-                    }, 5000);
-                });
-            }
-
-            extractFileName(filename) {
-                return filename.replace(/\.[^/.]+$/, "").replace(/[_-]/g, ' ');
-            }
-
-            // Player functionality
-            showMusicPlayer() {
-                if (this.musicPlayer) {
-                    this.musicPlayer.classList.add('show');
-                    // Add margin bottom to prevent overlap
-                    document.body.style.paddingBottom = '100px';
-                }
-            }
-
-            hideMusicPlayer() {
-                if (this.musicPlayer) {
-                    this.musicPlayer.classList.remove('show');
-                    document.body.style.paddingBottom = '0';
-                }
-            }
-
-            loadTrack(index) {
-                if (index < 0 || index >= this.streamingPlaylist.length) return;
-                
-                this.currentTrackIndex = index;
-                const track = this.streamingPlaylist[index];
-                
-                if (this.audioPlayer) {
-                    this.audioPlayer.src = track.url;
-                }
-                if (this.playerTitle) {
-                    this.playerTitle.textContent = track.title;
-                }
-                if (this.playerArtist) {
-                    this.playerArtist.textContent = track.artist;
-                }
-                
-                this.updatePlaylistActive();
-                
-                // Reset progress
-                if (this.playerProgressSlider) {
-                    this.playerProgressSlider.value = 0;
-                }
-                if (this.playerProgress) {
-                    this.playerProgress.style.width = '0%';
-                }
-                if (this.playerCurrentTime) {
-                    this.playerCurrentTime.textContent = '0:00';
-                }
-            }
-
-            togglePlayPause() {
-                if (this.streamingPlaylist.length === 0) {
-                    this.showToast('กรุณาเพิ่มเพลงก่อน', 'error');
-                    return;
-                }
-
-                if (this.isPlaying) {
-                    this.audioPlayer.pause();
-                    this.playerPlayBtn.innerHTML = '<i class="fas fa-play"></i>';
-                    this.isPlaying = false;
-                    this.updatePlaylistPlaying(false);
-                } else {
-                    this.audioPlayer.play().then(() => {
-                        this.playerPlayBtn.innerHTML = '<i class="fas fa-pause"></i>';
-                        this.isPlaying = true;
-                        this.updatePlaylistPlaying(true);
-                    }).catch((error) => {
-                        console.error('Error playing audio:', error);
-                        this.showToast('ไม่สามารถเล่นเพลงนี้ได้', 'error');
-                    });
-                }
-            }
-
-            previousTrack() {
-                let newIndex = this.currentTrackIndex - 1;
-                if (newIndex < 0) {
-                    newIndex = this.streamingPlaylist.length - 1;
-                }
-                this.loadTrack(newIndex);
-                if (this.isPlaying) {
-                    this.audioPlayer.play();
-                }
-            }
-
-            nextTrack() {
-                let newIndex;
-                
-                if (this.isShuffle) {
-                    do {
-                        newIndex = Math.floor(Math.random() * this.streamingPlaylist.length);
-                    } while (newIndex === this.currentTrackIndex && this.streamingPlaylist.length > 1);
-                } else {
-                    newIndex = this.currentTrackIndex + 1;
-                    if (newIndex >= this.streamingPlaylist.length) {
-                        newIndex = 0;
-                    }
-                }
-                
-                this.loadTrack(newIndex);
-                if (this.isPlaying) {
-                    this.audioPlayer.play();
-                }
-            }
-
-            toggleShuffle() {
-                this.isShuffle = !this.isShuffle;
-                if (this.shuffleBtn) {
-                    this.shuffleBtn.classList.toggle('bg-purple-100', this.isShuffle);
-                    this.shuffleBtn.classList.toggle('text-purple-600', this.isShuffle);
-                }
-                this.showToast(this.isShuffle ? 'เปิดการสุ่มเพลง' : 'ปิดการสุ่มเพลง', 'success');
-            }
-
-            handleTrackEnd() {
-                if (this.repeatMode === 'one') {
-                    this.audioPlayer.currentTime = 0;
-                    this.audioPlayer.play();
-                } else if (this.repeatMode === 'all' || this.currentTrackIndex < this.streamingPlaylist.length - 1) {
-                    this.nextTrack();
-                } else {
-                    this.playerPlayBtn.innerHTML = '<i class="fas fa-play"></i>';
-                    this.isPlaying = false;
-                    this.updatePlaylistPlaying(false);
-                }
-            }
-
-            updateProgress() {
-                if (this.audioPlayer && this.audioPlayer.duration) {
-                    const progress = (this.audioPlayer.currentTime / this.audioPlayer.duration) * 100;
-                    if (this.playerProgressSlider) {
-                        this.playerProgressSlider.value = progress;
-                    }
-                    if (this.playerProgress) {
-                        this.playerProgress.style.width = progress + '%';
-                    }
-                    if (this.playerCurrentTime) {
-                        this.playerCurrentTime.textContent = this.formatTime(this.audioPlayer.currentTime);
-                    }
-                }
-            }
-
-            updateDuration() {
-                if (this.audioPlayer && this.audioPlayer.duration && this.playerTotalTime) {
-                    this.playerTotalTime.textContent = this.formatTime(this.audioPlayer.duration);
-                }
-            }
-
-            seekTo() {
-                if (this.audioPlayer && this.audioPlayer.duration && this.playerProgressSlider) {
-                    const seekTime = (this.playerProgressSlider.value / 100) * this.audioPlayer.duration;
-                    this.audioPlayer.currentTime = seekTime;
-                }
-            }
-
-            setVolume() {
-                if (this.audioPlayer && this.playerVolumeSlider) {
-                    const volume = this.playerVolumeSlider.value / 100;
-                    this.audioPlayer.volume = volume;
-                }
-            }
-
-            // Playlist display methods
-            updatePlaylistDisplay() {
-                if (!this.streamingPlaylist) return;
-                
-                const playlistContainer = document.getElementById('streamingPlaylist');
-                if (!playlistContainer) return;
-                
-                if (this.streamingPlaylist.length === 0) {
-                    playlistContainer.innerHTML = `
-                        <div class="text-center py-12 text-gray-500">
-                            <i class="fas fa-music-slash text-4xl mb-4"></i>
-                            <p class="text-lg">ยังไม่มีเพลงใน Playlist</p>
-                            <p class="text-sm">อัปโหลดเพลงเพื่อเริ่มฟัง</p>
-                        </div>
-                    `;
-                    this.hideMusicPlayer();
-                    return;
-                }
-
-                playlistContainer.innerHTML = this.streamingPlaylist.map((track, index) => `
-                    <div class="playlist-item flex items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all cursor-pointer ${index === this.currentTrackIndex ? 'border-l-4 border-purple-500' : ''}" 
-                         onclick="app.playTrack(${index})">
-                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
-                            <i class="fas fa-music text-purple-600"></i>
-                        </div>
-                        <div class="flex-1 min-w-0">
-                            <h4 class="font-semibold text-gray-800 truncate">${track.title}</h4>
-                            <p class="text-sm text-gray-600 truncate">${track.artist}</p>
-                        </div>
-                        <div class="text-right">
-                            <p class="text-sm text-gray-500">${this.formatTime(track.duration)}</p>
-                            <button onclick="event.stopPropagation(); app.removeStreamingTrack(${index})" 
-                                    class="text-red-500 hover:text-red-700 mt-1">
-                                <i class="fas fa-trash text-xs"></i>
-                            </button>
-                        </div>
-                    </div>
-                `).join('');
-                
-                this.updatePlaylistActive();
-            }
-
-            updatePlaylistActive() {
-                const playlistItems = document.querySelectorAll('#streamingPlaylist .playlist-item');
-                playlistItems.forEach((item, index) => {
-                    if (index === this.currentTrackIndex) {
-                        item.classList.add('border-l-4', 'border-purple-500');
-                    } else {
-                        item.classList.remove('border-l-4', 'border-purple-500');
-                    }
-                });
-            }
-
-            updatePlaylistPlaying(isPlaying) {
-                const playlistItems = document.querySelectorAll('#streamingPlaylist .playlist-item');
-                playlistItems.forEach((item, index) => {
-                    if (index === this.currentTrackIndex && isPlaying) {
-                        item.classList.add('bg-purple-50');
-                        const musicIcon = item.querySelector('.fa-music');
-                        if (musicIcon) {
-                            musicIcon.className = 'fas fa-play text-purple-600';
-                        }
-                    } else {
-                        item.classList.remove('bg-purple-50');
-                        const playIcon = item.querySelector('.fa-play');
-                        if (playIcon) {
-                            playIcon.className = 'fas fa-music text-purple-600';
-                        }
-                    }
-                });
-            }
-
-            playTrack(index) {
-                this.loadTrack(index);
-                this.audioPlayer.play().then(() => {
-                    this.playerPlayBtn.innerHTML = '<i class="fas fa-pause"></i>';
-                    this.isPlaying = true;
-                    this.updatePlaylistPlaying(true);
-                }).catch((error) => {
-                    console.error('Error playing track:', error);
-                    this.showToast('ไม่สามารถเล่นเพลงนี้ได้', 'error');
-                });
-            }
-
-            removeStreamingTrack(index) {
-                if (index < 0 || index >= this.streamingPlaylist.length) return;
-                
-                this.streamingPlaylist.splice(index, 1);
-                
-                if (index < this.currentTrackIndex) {
-                    this.currentTrackIndex--;
-                } else if (index === this.currentTrackIndex) {
-                    if (this.currentTrackIndex >= this.streamingPlaylist.length) {
-                        this.currentTrackIndex = this.streamingPlaylist.length - 1;
-                    }
-                    if (this.streamingPlaylist.length > 0) {
-                        this.loadTrack(this.currentTrackIndex);
-                    } else {
-                        this.hideMusicPlayer();
-                        if (this.audioPlayer) {
-                            this.audioPlayer.src = '';
-                        }
-                        this.isPlaying = false;
-                    }
-                }
-                
-                this.saveStreamingPlaylist();
-                this.updatePlaylistDisplay();
-                this.showToast('ลบเพลงเรียบร้อยแล้ว', 'success');
-            }
-
-            clearStreamingPlaylist() {
-                if (this.streamingPlaylist.length === 0) {
-                    this.showToast('ไม่มีเพลงให้ลบ', 'error');
-                    return;
-                }
-                
-                if (confirm('คุณต้องการลบเพลงทั้งหมดหรือไม่?')) {
-                    this.streamingPlaylist = [];
-                    this.currentTrackIndex = 0;
-                    this.isPlaying = false;
-                    if (this.audioPlayer) {
-                        this.audioPlayer.src = '';
-                    }
-                    if (this.playerPlayBtn) {
-                        this.playerPlayBtn.innerHTML = '<i class="fas fa-play"></i>';
-                    }
-                    this.hideMusicPlayer();
-                    
-                    this.saveStreamingPlaylist();
-                    this.updatePlaylistDisplay();
-                    this.showToast('ลบเพลงทั้งหมดเรียบร้อยแล้ว', 'success');
-                }
-            }
-
-            // Search functionality
-            handleStreamingSearch() {
-                const query = this.streamingSearchInput.value.toLowerCase().trim();
-                // Implement search logic here if needed
-            }
-
-            clearStreamingSearch() {
-                if (this.streamingSearchInput) {
-                    this.streamingSearchInput.value = '';
-                }
-            }
-
-            // Storage methods
-            saveStreamingPlaylist() {
-                try {
-                    localStorage.setItem('streamingPlaylist', JSON.stringify(this.streamingPlaylist));
-                } catch (error) {
-                    console.error('Error saving playlist:', error);
-                }
-            }
-
-            loadStreamingPlaylist() {
-                try {
-                    const saved = localStorage.getItem('streamingPlaylist');
-                    if (saved) {
-                        this.streamingPlaylist = JSON.parse(saved);
-                    }
-                } catch (error) {
-                    console.error('Error loading playlist:', error);
-                    this.streamingPlaylist = [];
-                }
-            }
-
-            // Distribution upload functionality
-            setupDistributionDragAndDrop() {
-                // Setup drag and drop for distribution upload
-                const audioDropZone = document.getElementById('audio-drop-zone');
-                const coverDropZone = document.getElementById('cover-drop-zone');
-                
-                if (audioDropZone) {
-                    this.setupDropZone(audioDropZone, 'song', 'audio');
-                }
-                if (coverDropZone) {
-                    this.setupDropZone(coverDropZone, 'cover', 'image');
-                }
-            }
-
-            setupDropZone(dropZone, inputId, fileType) {
-                const fileInput = document.getElementById(inputId);
-                if (!fileInput) return;
-                
-                dropZone.addEventListener('click', () => fileInput.click());
+            setupDragAndDrop(dropZone, fileInput) {
                 dropZone.addEventListener('dragover', (e) => {
                     e.preventDefault();
                     dropZone.classList.add('drag-over');
                 });
-                dropZone.addEventListener('dragleave', () => {
+
+                dropZone.addEventListener('dragleave', (e) => {
+                    e.preventDefault();
                     dropZone.classList.remove('drag-over');
                 });
+
                 dropZone.addEventListener('drop', (e) => {
                     e.preventDefault();
                     dropZone.classList.remove('drag-over');
                     
-                    const files = Array.from(e.dataTransfer.files);
-                    const validFile = files.find(file => file.type.startsWith(fileType));
-                    
-                    if (validFile) {
-                        const dt = new DataTransfer();
-                        dt.items.add(validFile);
-                        fileInput.files = dt.files;
+                    const files = e.dataTransfer.files;
+                    if (files.length > 0) {
+                        fileInput.files = files;
                         fileInput.dispatchEvent(new Event('change'));
                     }
                 });
             }
 
-            setupDistributionFileHandlers() {
-                // Song file handler
-                const songInput = document.getElementById('song');
-                if (songInput) {
-                    songInput.addEventListener('change', (e) => {
-                        const file = e.target.files[0];
-                        if (file) {
-                            const fileNameElement = document.getElementById('audioFileName');
-                            const fileSizeElement = document.getElementById('audioFileSize');
-                            if (fileNameElement) fileNameElement.textContent = file.name;
-                            if (fileSizeElement) fileSizeElement.textContent = this.formatFileSize(file.size);
-                        }
-                    });
-                }
-
-                // Cover file handler  
-                const coverInput = document.getElementById('cover');
-                if (coverInput) {
-                    coverInput.addEventListener('change', (e) => {
-                        const file = e.target.files[0];
-                        if (file) {
-                            const fileNameElement = document.getElementById('coverFileName');
-                            const fileSizeElement = document.getElementById('coverFileSize');
-                            if (fileNameElement) fileNameElement.textContent = file.name;
-                            if (fileSizeElement) fileSizeElement.textContent = this.formatFileSize(file.size);
-                            
-                            // Show preview
-                            const reader = new FileReader();
-                            reader.onload = (e) => {
-                                const preview = document.getElementById('coverPreview');
-                                if (preview) {
-                                    preview.src = e.target.result;
-                                    preview.classList.remove('hidden');
-                                }
-                            };
-                            reader.readAsDataURL(file);
-                        }
-                    });
+            handleAudioFile(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    this.showAudioPreview(file);
                 }
             }
 
-            // Form handling
-            handleSongStatusSearch(e) {
-                e.preventDefault();
-                const artistNameElement = document.getElementById('statusArtistName');
-                const songNameElement = document.getElementById('statusSongName');
+            handleCoverFile(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    this.showCoverPreview(file);
+                }
+            }
+
+            showAudioPreview(file) {
+                const preview = document.getElementById('audioPreview');
+                const fileName = document.getElementById('audioFileName');
                 
-                if (artistNameElement && songNameElement) {
-                    const artistName = artistNameElement.value;
-                    const songName = songNameElement.value;
+                if (preview && fileName) {
+                    fileName.textContent = file.name;
+                    preview.classList.remove('hidden');
+                }
+            }
+
+            showCoverPreview(file) {
+                const preview = document.getElementById('coverPreview');
+                const fileName = document.getElementById('coverFileName');
+                const image = document.getElementById('coverImage');
+                
+                if (preview && fileName && image) {
+                    fileName.textContent = file.name;
                     
-                    // Simulate status search
-                    this.showStatusResults(artistName, songName);
-                }
-            }
-
-            showStatusResults(artistName, songName) {
-                const resultsDiv = document.getElementById('status-results');
-                const tableBody = document.getElementById('status-table-body');
-                
-                if (!resultsDiv || !tableBody) return;
-                
-                // Mock data
-                const platforms = [
-                    { name: 'Spotify', status: 'อนุมัติแล้ว', date: '2024-01-15', note: '-' },
-                    { name: 'Apple Music', status: 'รอการตรวจสอบ', date: '2024-01-14', note: 'อยู่ระหว่างการตรวจสอบ' },
-                    { name: 'YouTube Music', status: 'อนุมัติแล้ว', date: '2024-01-15', note: '-' },
-                    { name: 'Amazon Music', status: 'ปฏิเสธ', date: '2024-01-13', note: 'คุณภาพไฟล์เสียงต่ำ' }
-                ];
-                
-                tableBody.innerHTML = platforms.map(platform => `
-                    <tr>
-                        <td>${platform.name}</td>
-                        <td class="status-${platform.status === 'อนุมัติแล้ว' ? 'approved' : platform.status === 'รอการตรวจสอบ' ? 'pending' : 'rejected'}">${platform.status}</td>
-                        <td>${platform.date}</td>
-                        <td>${platform.note}</td>
-                    </tr>
-                `).join('');
-                
-                resultsDiv.classList.remove('hidden');
-            }
-
-            // Multi-step form
-            updateStepCircles() {
-                const steps = document.querySelectorAll('.step');
-                const progressBar = document.querySelector('.progress-bar');
-                
-                steps.forEach((step, index) => {
-                    const circle = step.querySelector('div');
-                    if (!circle) return;
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        image.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
                     
-                    if (index + 1 < this.currentStep) {
-                        step.classList.add('completed');
-                        circle.classList.remove('bg-gray-300', 'text-gray-600');
-                        circle.classList.add('bg-green-600', 'text-white');
-                    } else if (index + 1 === this.currentStep) {
-                        step.classList.add('active');
-                        step.classList.remove('completed');
-                        circle.classList.remove('bg-gray-300', 'text-gray-600', 'bg-green-600');
-                        circle.classList.add('bg-purple-600', 'text-white');
-                    } else {
-                        step.classList.remove('active', 'completed');
-                        circle.classList.remove('bg-purple-600', 'bg-green-600', 'text-white');
-                        circle.classList.add('bg-gray-300', 'text-gray-600');
-                    }
-                });
-                
-                if (progressBar) {
-                    progressBar.style.width = `${(this.currentStep / this.totalSteps) * 100}%`;
+                    preview.classList.remove('hidden');
                 }
             }
 
-            // Utility functions
-            formatTime(seconds) {
-                if (!seconds || seconds === 0) return '0:00';
-                const minutes = Math.floor(seconds / 60);
-                const remainingSeconds = Math.floor(seconds % 60);
-                return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
-            }
+            handleFormSubmit(event) {
+                event.preventDefault();
+                
+                // Show loading state (you can add a loading spinner here)
+                const submitBtn = event.target.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'กำลังอัปโหลด...';
+                submitBtn.disabled = true;
 
-            formatFileSize(bytes) {
-                if (bytes === 0) return '0 Bytes';
-                const k = 1024;
-                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-                const i = Math.floor(Math.log(bytes) / Math.log(k));
-                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-            }
-
-            showToast(message, type = 'success') {
-                const toastContainer = document.getElementById('toastContainer');
-                if (!toastContainer) return;
-                
-                const toast = document.createElement('div');
-                toast.className = `toast ${type === 'success' ? 'bg-green-500' : 'bg-red-500'} text-white px-6 py-3 rounded-lg shadow-lg transform transition-all duration-300 translate-x-full opacity-0`;
-                toast.innerHTML = `
-                    <div class="flex items-center">
-                        <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'} mr-3"></i>
-                        <span>${message}</span>
-                        <button onclick="this.parentElement.parentElement.remove()" class="ml-4 text-white hover:text-gray-200">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                `;
-                
-                toastContainer.appendChild(toast);
-                
-                // Animate in
+                // Simulate upload process
                 setTimeout(() => {
-                    toast.classList.remove('translate-x-full', 'opacity-0');
-                }, 100);
-                
-                // Auto remove
-                setTimeout(() => {
-                    if (toast.parentElement) {
-                        toast.classList.add('translate-x-full', 'opacity-0');
-                        setTimeout(() => toast.remove(), 300);
-                    }
-                }, 5000);
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    this.showSuccessModal();
+                }, 2000);
             }
 
-            handleKeyboardShortcuts(event) {
-                if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') return;
-                
-                switch (event.key) {
-                    case ' ':
-                        event.preventDefault();
-                        this.togglePlayPause();
-                        break;
-                    case 'ArrowLeft':
-                        event.preventDefault();
-                        this.previousTrack();
-                        break;
-                    case 'ArrowRight':
-                        event.preventDefault();
-                        this.nextTrack();
-                        break;
+            showSuccessModal() {
+                const modal = document.getElementById('successModal');
+                if (modal) {
+                    modal.style.display = 'block';
                 }
             }
         }
 
-        // Page navigation functions
-        function showPage(pageId) {
-            document.querySelectorAll('.page-section').forEach(page => {
-                page.classList.remove('active');
-            });
-            const targetPage = document.getElementById(pageId + '-page');
-            if (targetPage) {
-                targetPage.classList.add('active');
-            }
-            window.scrollTo(0, 0);
-        }
-
-        // Multi-step form functions
-        function nextStep() {
-            if (!app) return;
-            if (app.currentStep < app.totalSteps) {
-                const currentStepElement = document.getElementById(`step${app.currentStep}`);
-                if (currentStepElement) {
-                    currentStepElement.classList.add('hidden');
-                }
-                app.currentStep++;
-                const nextStepElement = document.getElementById(`step${app.currentStep}`);
-                if (nextStepElement) {
-                    nextStepElement.classList.remove('hidden');
-                }
-                app.updateStepCircles();
-                
-                if (app.currentStep === 4) {
-                    updateSummary();
-                }
-            }
-        }
-
-        function prevStep() {
-            if (!app) return;
-            if (app.currentStep > 1) {
-                const currentStepElement = document.getElementById(`step${app.currentStep}`);
-                if (currentStepElement) {
-                    currentStepElement.classList.add('hidden');
-                }
-                app.currentStep--;
-                const prevStepElement = document.getElementById(`step${app.currentStep}`);
-                if (prevStepElement) {
-                    prevStepElement.classList.remove('hidden');
-                }
-                app.updateStepCircles();
-            }
-        }
-
-        function updateSummary() {
-            const summaryElements = [
-                { id: 'summaryArtist', sourceId: 'artistName' },
-                { id: 'summarySong', sourceId: 'songName' },
-                { id: 'summaryGenre', sourceId: 'genre' },
-                { id: 'summaryDate', sourceId: 'releaseDate' },
-                { id: 'summaryComposer', sourceId: 'composer' },
-                { id: 'summaryLyricist', sourceId: 'lyricist' }
-            ];
+        // Remove file functions
+        function removeAudioFile() {
+            const fileInput = document.getElementById('audioFile');
+            const preview = document.getElementById('audioPreview');
             
-            summaryElements.forEach(({ id, sourceId }) => {
-                const summaryElement = document.getElementById(id);
-                const sourceElement = document.getElementById(sourceId);
-                if (summaryElement && sourceElement) {
-                    summaryElement.textContent = sourceElement.value || '-';
+            if (fileInput) fileInput.value = '';
+            if (preview) preview.classList.add('hidden');
+        }
+
+        function removeCoverFile() {
+            const fileInput = document.getElementById('coverFile');
+            const preview = document.getElementById('coverPreview');
+            
+            if (fileInput) fileInput.value = '';
+            if (preview) preview.classList.add('hidden');
+        }
+
+        // Modal functions
+        function closeModal() {
+            const modal = document.getElementById('successModal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            new FileUploadHandler();
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', function(event) {
+                const modal = document.getElementById('successModal');
+                if (event.target === modal) {
+                    closeModal();
                 }
             });
-        }
-
-        function checkOAC() {
-            // Mock OAC check
-            if (app) {
-                app.showToast('ส่งคำขอ OAC เรียบร้อยแล้ว', 'success');
-            }
-            return false;
-        }
-
-        function submitForm() {
-            // Mock form submission
-            if (app) {
-                app.showToast('ส่งข้อมูลเรียบร้อยแล้ว! เพลงจะปรากฏในแพลตฟอร์มภายใน 24-48 ชั่วโมง', 'success');
-            }
-        }
-
-        function toggleFAQ(button) {
-            const content = button.nextElementSibling;
-            const icon = button.querySelector('i');
-            
-            if (content && icon) {
-                content.classList.toggle('hidden');
-                icon.classList.toggle('fa-chevron-down');
-                icon.classList.toggle('fa-chevron-up');
-            }
-        }
-
-        // Initialize app
-        let app;
-        document.addEventListener('DOMContentLoaded', () => {
-            app = new CombinedMusicApp();
         });
     </script>
-
+    <footer>
+    <p>© 2025 The Music Maker Thailand Distribution</p>
+  </footer>
 </body>
 </html>
