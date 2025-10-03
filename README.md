@@ -223,4 +223,4 @@ MIT License - ใช้งานได้อย่างอิสระ
 
 ---
 
-**🎉 ขขบคุณที่ใช้บริการ The Music Maker Thailand Distribution & Streaming Platform!**
+**🎉 ขอบคุณที่ใช้บริการ The Music Maker Thailand Distribution & Streaming Platform!**
